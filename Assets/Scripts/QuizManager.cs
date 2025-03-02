@@ -1,77 +1,70 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using TMPro;
-using SimpleJSON; // ✅ 引入 SimpleJSON
+using System.Threading.Tasks;
+
+[System.Serializable]
+public class QuestionList
+{
+    public QuestionData[] questions;
+}
+
+[System.Serializable]
+public class QuestionData
+{
+    public string question;
+    public string[] options;
+}
 
 public class QuizManager : MonoBehaviour
 {
-    private string webAppUrl = "https://script.google.com/macros/s/AKfycbyDf-c6IJnXywhNmqR41dwqKl8fcEW9Me78rW5lp084/dev"; // 👈 替換成 Google Apps Script Web App URL
+    private const string WebAppUrl = "https://script.google.com/macros/s/AKfycbwWQGMamOQ8WOanSBUXOqW005QNCoX_VRWOCAH4MqohSD89y_BTnzM0CkCROuy7LWUT-Q/exec";
+    public TMP_Text questionText;
+    public Button[] optionButtons;
+    private QuestionData[] questions;
+    private int currentQuestionIndex = 0;
 
-    public TextMeshProUGUI questionText;  // 顯示題目的 UI
-
-    private List<string> questions = new List<string>(); // 存放題目
-    private int currentQuestionIndex = 0; // 當前題目索引
-
-    async void Start()
+    void Start()
     {
-        await LoadQuestionsFromGoogleSheets();
+        InvokeRepeating(nameof(LoadQuestions), 0f, 1f);
     }
 
-    async Task LoadQuestionsFromGoogleSheets()
+    async void LoadQuestions()
     {
-        using (UnityWebRequest request = UnityWebRequest.Get(webAppUrl))
+        using (UnityWebRequest request = UnityWebRequest.Get(WebAppUrl))
         {
             var operation = request.SendWebRequest();
             while (!operation.isDone)
                 await Task.Yield();
 
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                string json = request.downloadHandler.text;
-                Debug.Log("✅ 成功獲取題目: " + json); // 檢查 JSON 是否正確
-
-                try
-                {
-                    var parsedJson = JSON.Parse(json);
-                    Debug.Log("🔍 解析後的 JSON: " + parsedJson.ToString()); // 確認 JSON 結構
-
-                    foreach (JSONNode questionNode in parsedJson["questions"].AsArray)
-                    {
-                        string question = questionNode["question"].Value; // ✅ 加上 `.Value`
-                        questions.Add(question);
-                        Debug.Log("📌 取得題目: " + question);
-                    }
-
-                    if (questions.Count > 0)
-                        LoadQuestion();
-                    else
-                        Debug.LogError("❌ 題庫為空！");
-                }
-                catch (System.Exception e)
-                {
-                    Debug.LogError("❌ JSON 解析失敗: " + e.Message);
-                }
-            }
-            else
-            {
-                Debug.LogError("❌ 讀取失敗: " + request.error);
-                Debug.LogError("❌ 回應內容: " + request.downloadHandler.text);
-            }
+            string json = request.downloadHandler.text;
+            questions = JsonUtility.FromJson<QuestionList>(json).questions;
+            ShowQuestion();
         }
     }
 
-    void LoadQuestion()
+    void ShowQuestion()
     {
-        if (currentQuestionIndex >= questions.Count)
+        if (currentQuestionIndex >= questions.Length)
         {
-            Debug.Log("🎉 測驗完成！");
-            questionText.text = "Quiz Completed!";
             return;
         }
 
-        questionText.text = questions[currentQuestionIndex]; // ✅ 顯示題目
+        QuestionData q = questions[currentQuestionIndex];
+        questionText.text = q.question;
+
+        for (int i = 0; i < optionButtons.Length; i++)
+        {
+            optionButtons[i].GetComponentInChildren<TMP_Text>().text = q.options[i];
+            optionButtons[i].onClick.RemoveAllListeners();
+            optionButtons[i].onClick.AddListener(() => NextQuestion());
+        }
+    }
+
+    void NextQuestion()
+    {
+        currentQuestionIndex++;
+        ShowQuestion();
     }
 }
