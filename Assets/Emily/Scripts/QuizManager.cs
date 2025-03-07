@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using TMPro;
 using System.Threading.Tasks;
+using SpatialSys.UnitySDK;
 
 [System.Serializable]
 public class QuestionList
@@ -22,8 +23,11 @@ public class QuizManager : MonoBehaviour
     private const string WebAppUrl = "https://script.google.com/macros/s/AKfycbwWQGMamOQ8WOanSBUXOqW005QNCoX_VRWOCAH4MqohSD89y_BTnzM0CkCROuy7LWUT-Q/exec";
     public TMP_Text questionText;
     public Button[] optionButtons;
+    public GameObject quizPanel;
+    public SpatialInteractable startQuizInteractable;
     private QuestionData[] questions;
     private int currentQuestionIndex = 0;
+    private int totalQuestions = 10;
 
     void Start()
     {
@@ -46,8 +50,10 @@ public class QuizManager : MonoBehaviour
 
     void ShowQuestion()
     {
-        if (currentQuestionIndex >= questions.Length)
+        if (currentQuestionIndex >= totalQuestions)
         {
+            quizPanel.SetActive(false);
+            startQuizInteractable.enabled = false;
             return;
         }
 
