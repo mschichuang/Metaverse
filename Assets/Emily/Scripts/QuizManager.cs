@@ -16,6 +16,7 @@ public class QuestionData
 {
     public string question;
     public string[] options;
+    public int answer;
 }
 
 public class QuizManager : MonoBehaviour
@@ -28,6 +29,7 @@ public class QuizManager : MonoBehaviour
     private QuestionData[] questions;
     private int currentQuestionIndex = 0;
     private int totalQuestions = 10;
+    private ulong rewardAmount = 1000;
 
     void Start()
     {
@@ -64,8 +66,19 @@ public class QuizManager : MonoBehaviour
         {
             optionButtons[i].GetComponentInChildren<TMP_Text>().text = q.options[i];
             optionButtons[i].onClick.RemoveAllListeners();
-            optionButtons[i].onClick.AddListener(() => NextQuestion());
+            int choiceIndex = i + 1;
+            optionButtons[i].onClick.AddListener(() => CheckAnswer(choiceIndex, q.answer));
         }
+    }
+
+    void CheckAnswer(int playerChoice, int correctAnswer)
+    {
+        if (playerChoice == correctAnswer)
+        {
+            SpatialBridge.inventoryService.AwardWorldCurrency(rewardAmount);
+        }
+
+        NextQuestion();
     }
 
     void NextQuestion()
