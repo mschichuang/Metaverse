@@ -22,10 +22,14 @@ public class QuestionData
 public class QuizManager : MonoBehaviour
 {
     private const string WebAppUrl = "https://script.google.com/macros/s/AKfycbwWQGMamOQ8WOanSBUXOqW005QNCoX_VRWOCAH4MqohSD89y_BTnzM0CkCROuy7LWUT-Q/exec";
+    public SpatialInteractable startQuizInteractable;
+    public GameObject quizPanel;
     public TMP_Text questionText;
     public Button[] optionButtons;
-    public GameObject quizPanel;
-    public SpatialInteractable startQuizInteractable;
+    public GameObject resultPanel;
+    public TMP_Text resultText;
+    public TMP_Text correctAnswerText;
+    public Button nextQuestionButton;
     private QuestionData[] questions;
     private int currentQuestionIndex = 0;
     private int totalQuestions = 10;
@@ -66,23 +70,37 @@ public class QuizManager : MonoBehaviour
         {
             optionButtons[i].GetComponentInChildren<TMP_Text>().text = q.options[i];
             optionButtons[i].onClick.RemoveAllListeners();
+
             int choiceIndex = i + 1;
-            optionButtons[i].onClick.AddListener(() => CheckAnswer(choiceIndex, q.answer));
+            string correctOption = q.options[q.answer - 1];
+
+            optionButtons[i].onClick.AddListener(() => CheckAnswer(choiceIndex, q.answer, correctOption));
         }
     }
 
-    void CheckAnswer(int playerChoice, int correctAnswer)
+    void CheckAnswer(int playerChoice, int correctAnswer, string correctOption)
     {
+        quizPanel.SetActive(false);
+        resultPanel.SetActive(true);
+
         if (playerChoice == correctAnswer)
         {
+            resultText.text = "Correct!";
             SpatialBridge.inventoryService.AwardWorldCurrency(rewardAmount);
         }
+        else
+            resultText.text = "Wrong!";
+        correctAnswerText.text = "Answer: " + correctOption;
 
-        NextQuestion();
+        nextQuestionButton.onClick.RemoveAllListeners();
+        nextQuestionButton.onClick.AddListener(() => NextQuestion());
     }
 
     void NextQuestion()
     {
+        resultPanel.SetActive(false);
+        quizPanel.SetActive(true);
+
         currentQuestionIndex++;
         ShowQuestion();
     }
