@@ -30,6 +30,9 @@ public class QuizManager : MonoBehaviour
     public TMP_Text resultText;
     public TMP_Text correctAnswerText;
     public Button nextQuestionButton;
+    public AudioSource audioSource;
+    public AudioClip correctSound;
+    public AudioClip wrongSound;
     private QuestionData[] questions;
     private int currentQuestionIndex = 0;
     private int totalQuestions = 10;
@@ -86,10 +89,14 @@ public class QuizManager : MonoBehaviour
         if (playerChoice == correctAnswer)
         {
             resultText.text = "Correct!";
+            audioSource.PlayOneShot(correctSound);
             SpatialBridge.inventoryService.AwardWorldCurrency(rewardAmount);
         }
         else
+        {
             resultText.text = "Wrong!";
+            audioSource.PlayOneShot(wrongSound);
+        }
         correctAnswerText.text = "Answer: " + correctOption;
 
         nextQuestionButton.onClick.RemoveAllListeners();
