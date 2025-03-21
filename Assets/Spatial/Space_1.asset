@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   sku: u9zz7dmbhgw1zli7k9w2b28l
-  packageName: Space_1
+  packageName: QuizScene
   thumbnail: {fileID: 2800000, guid: b8a5ee18af3e1448b9f91919e89662e2, type: 3}
   savedProjectSettings: {fileID: 11400000, guid: b4d3f3931508d4e3381693ee23f6fe04,
     type: 2}
