@@ -5296,17 +5296,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e1de4d7f95f1f4c17865d402cde7f69c,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1de4d7f95f1f4c17865d402cde7f69c,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1de4d7f95f1f4c17865d402cde7f69c,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1de4d7f95f1f4c17865d402cde7f69c,
         type: 3}
@@ -5316,7 +5316,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e1de4d7f95f1f4c17865d402cde7f69c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 2.07
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1de4d7f95f1f4c17865d402cde7f69c,
         type: 3}
@@ -5393,8 +5393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a010945243240e2979ff9643f12bff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSpaceSKU: zsiltyfn18r6smlsqyv3isag
-  useSpawnPoint: 1
+  targetSpaceSKU: SKU-zsiltyfn18r6smlsqyv3isag
 --- !u!114 &1778023086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5407,13 +5406,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1c437d99c9a4616adbe21f3ffa0e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactText: Interact
+  interactText: Enter Assembly Area
   textFontOverride:
     overrideFont: 0
     font: {fileID: 0}
     material: {fileID: 0}
-  iconType: 0
-  icon: {fileID: 0}
+  iconType: 4
+  icon: {fileID: 21300000, guid: 069822f99ff554d6a9c433a8d2729773, type: 3}
   interactiveRadius: 5
   visibilityRadius: 10
   onInteractEvent:

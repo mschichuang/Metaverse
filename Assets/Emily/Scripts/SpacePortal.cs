@@ -7,6 +7,6 @@ public class SpacePortal : MonoBehaviour
 
     public void Teleport()
     {
-        SpatialBridge.spaceService.TeleportToSpace(targetSpaceSKU);
+        SpatialBridge.spaceService.TeleportToSpace(targetSpaceSKU, true);
     }
 }
