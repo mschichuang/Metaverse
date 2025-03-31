@@ -1021,6 +1021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b2ea9e0ab228b48bca56e251e53206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCamera: {fileID: 961739752}
+  holdPosition: {fileID: 1431243535}
 --- !u!54 &1789921561
 Rigidbody:
   m_ObjectHideFlags: 0
