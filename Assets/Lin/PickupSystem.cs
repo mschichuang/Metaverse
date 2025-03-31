@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class PickupSystem : MonoBehaviour
 {
-    public Transform holdPosition; // ³o¬Oª±®a®³¨úª««~ªº¦ì¸m
-    private Grabbable grabbedObject; // ¥Ø«e®³°_ªºª««~
+    public Transform holdPosition; // ï¿½oï¿½Oï¿½ï¿½ï¿½aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½m
+    private Grabbable grabbedObject; // ï¿½Ø«eï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½~
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // «ö·Æ¹«¥ªÁä
+        if (Input.GetMouseButtonDown(0)) // ï¿½ï¿½ï¿½Æ¹ï¿½ï¿½ï¿½ï¿½ï¿½
         {
             if (grabbedObject == null)
             {
@@ -23,15 +23,15 @@ public class PickupSystem : MonoBehaviour
     void TryPickup()
     {
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 3f))
-        {
-            Grabbable grabbable = hit.collider.GetComponent<Grabbable>();
-            if (grabbable != null)
-            {
-                grabbedObject = grabbable;
-                grabbedObject.Grab(holdPosition);
-            }
-        }
+        // if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 3f))
+        // {
+        //     Grabbable grabbable = hit.collider.GetComponent<Grabbable>();
+        //     if (grabbable != null)
+        //     {
+        //         grabbedObject = grabbable;
+        //         grabbedObject.Grab(holdPosition);
+        //     }
+        // }
     }
 
     void DropObject()
