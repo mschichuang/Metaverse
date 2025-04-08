@@ -32,6 +32,12 @@ public class PickupSystem : MonoBehaviour
                 DropObject();
             }
         }
+
+        // 如果正在抓著物品，就讓它跟著滑鼠移動
+        if (grabbedObject != null)
+        {
+            MoveGrabbedObjectWithMouse();
+        }
     }
 
     void TryPickup()
@@ -41,29 +47,36 @@ public class PickupSystem : MonoBehaviour
         Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        Debug.DrawRay(ray.origin, ray.direction * 5f, Color.red, 1f); // 🔥 在場景視圖畫出 Ray
+        Debug.DrawRay(ray.origin, ray.direction * 5f, Color.red, 1f); // 畫出射線
 
-        if (Physics.Raycast(ray, out hit, 10f)) // 🔺 將射線範圍改為 5 公尺
+        if (Physics.Raycast(ray, out hit, 10f))
         {
-            Debug.Log("🔹 Raycast 擊中了：" + hit.collider.gameObject.name);
+            Debug.Log("🔹 射線擊中：" + hit.collider.gameObject.name);
 
+            // 嘗試從點到的物體或其父物體取得 Grabbable 組件
             Grabbable grabbable = hit.collider.GetComponent<Grabbable>();
+            if (grabbable == null)
+            {
+                grabbable = hit.collider.GetComponentInParent<Grabbable>();
+            }
+
             if (grabbable != null)
             {
                 Debug.Log("✅ 找到可拾取物品：" + grabbable.gameObject.name);
                 grabbedObject = grabbable;
-                grabbedObject.Grab(holdPosition);
+                grabbedObject.Grab();
             }
             else
             {
-                Debug.Log("⚠️ 擊中物體，但沒有 `Grabbable` 組件：" + hit.collider.gameObject.name);
+                Debug.LogWarning($"⚠️ 擊中物體「{hit.collider.gameObject.name}」，但找不到 `Grabbable` 組件（也檢查了父物件）");
             }
         }
         else
         {
-            Debug.Log("❌ Raycast 沒有擊中任何物體");
+            Debug.Log("❌ 沒有擊中任何物體");
         }
     }
+
     void DropObject()
     {
         if (grabbedObject != null)
@@ -72,5 +85,18 @@ public class PickupSystem : MonoBehaviour
             grabbedObject = null;
         }
     }
+
+    void MoveGrabbedObjectWithMouse()
+    {
+        Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
+        Vector3 targetPosition = ray.origin + ray.direction * 3f; // 你可以調整這個距離
+        grabbedObject.MoveTo(targetPosition);
+    }
 }
+
+
+
+
+
+
 
