@@ -3,10 +3,10 @@ using SpatialSys.UnitySDK;
 
 public class SpacePortal : MonoBehaviour
 {
-    public string targetSpaceSKU;
+    public string spaceID;
 
     public void Teleport()
     {
-        SpatialBridge.spaceService.TeleportToSpace(targetSpaceSKU, true);
+        SpatialBridge.spaceService.TeleportToSpace(spaceID, true);
     }
 }

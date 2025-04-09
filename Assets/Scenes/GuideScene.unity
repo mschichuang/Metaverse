@@ -302,7 +302,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310326225}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &373047273
+--- !u!1 &937694929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 937694930}
+  m_Layer: 0
+  m_Name: Coin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &937694930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937694929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.507162, y: 3.5743608, z: 48.750755}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1822102333}
+  - {fileID: 1793751630}
+  - {fileID: 31469596}
+  - {fileID: 1996730801}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1116181403
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -312,7 +347,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e1de4d7f95f1f4c17865d402cde7f69c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1de4d7f95f1f4c17865d402cde7f69c,
         type: 3}
@@ -332,17 +367,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e1de4d7f95f1f4c17865d402cde7f69c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.8
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1de4d7f95f1f4c17865d402cde7f69c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.58
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1de4d7f95f1f4c17865d402cde7f69c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.81
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1de4d7f95f1f4c17865d402cde7f69c,
         type: 3}
@@ -396,19 +431,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1de4d7f95f1f4c17865d402cde7f69c, type: 3}
---- !u!1 &373047274 stripped
+--- !u!1 &1116181404 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e1de4d7f95f1f4c17865d402cde7f69c,
     type: 3}
-  m_PrefabInstance: {fileID: 373047273}
+  m_PrefabInstance: {fileID: 1116181403}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &373047275
+--- !u!114 &1116181405
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373047274}
+  m_GameObject: {fileID: 1116181404}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a1c437d99c9a4616adbe21f3ffa0e18, type: 3}
@@ -428,7 +463,19 @@ MonoBehaviour:
     unityEventIsSynced: 0
     unityEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1116181406}
+          m_TargetAssemblyTypeName: SpacePortal, NewAssembly
+          m_MethodName: Teleport
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     animatorEvent:
       events: []
     questEvent:
@@ -453,41 +500,19 @@ MonoBehaviour:
       events: []
     questEvent:
       events: []
---- !u!1 &937694929
-GameObject:
+--- !u!114 &1116181406
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 937694930}
-  m_Layer: 0
-  m_Name: Coin
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &937694930
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937694929}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.507162, y: 3.5743608, z: 48.750755}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1822102333}
-  - {fileID: 1793751630}
-  - {fileID: 31469596}
-  - {fileID: 1996730801}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1116181404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a010945243240e2979ff9643f12bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spaceID: 67f688fc7096556e2726a2b3
 --- !u!1 &1122491107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,10 +1770,7 @@ MonoBehaviour:
   tasksAreOrdered: 1
   celebrateOnComplete: 1
   hideToastMessageOnComplete: 0
-  questRewards:
-  - type: 0
-    id: 
-    amount: 0
+  questRewards: []
   tasks:
   - id: 1
     name: "CPU\u5143\u4EF6"
@@ -1838,7 +1860,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1996730800
 GameObject:
