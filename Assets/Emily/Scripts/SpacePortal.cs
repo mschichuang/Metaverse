@@ -7,6 +7,7 @@ public class SpacePortal : MonoBehaviour
 
     public void Teleport()
     {
-        SpatialBridge.spaceService.TeleportToSpace(spaceID, true);
+        // publish順序：組裝區 -> 測驗區 -> 導覽區
+        SpatialBridge.spaceService.TeleportToSpace(spaceID, true); // url的space-???
     }
 }
