@@ -37,6 +37,7 @@ public class QuizManager : MonoBehaviour
     private int currentQuestionIndex = 0;
     private int totalQuestions = 10;
     private ulong rewardAmount = 1000;
+    private int correctCount = 0;
 
     void Start()
     {
@@ -63,6 +64,11 @@ public class QuizManager : MonoBehaviour
         {
             quizPanel.SetActive(false);
             startQuizInteractable.enabled = false;
+
+            int finalScore = correctCount * 10;
+            string playerName = SpatialBridge.actorService.localActor.displayName;
+            UploadScore(playerName, finalScore);
+            
             return;
         }
 
@@ -88,6 +94,7 @@ public class QuizManager : MonoBehaviour
 
         if (playerChoice == correctAnswer)
         {
+            correctCount++;
             resultText.text = "Correct!";
             audioSource.PlayOneShot(correctSound);
             SpatialBridge.inventoryService.AwardWorldCurrency(rewardAmount);
@@ -110,5 +117,23 @@ public class QuizManager : MonoBehaviour
 
         currentQuestionIndex++;
         ShowQuestion();
+    }
+
+    public async void UploadScore(string name, int score)
+    {
+        string url = "https://script.google.com/macros/s/AKfycbxa9k_7x0mRVON1mbg4uDWPN8LktN8bxJwLT-onIfJ7tPKIjdeWH9DiAyX43kfSsZlH/exec";
+        string json = $"{{\"name\":\"{name}\", \"score\":{score}}}";
+
+        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+        {
+            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
+            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            var op = request.SendWebRequest();
+            while (!op.isDone)
+                await Task.Yield();
+        }
     }
 }
