@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: Space_4
   m_EditorClassIdentifier: 
   version: 1
-  sku: 
+  sku: gr53nmhpi7ki81fzokg3q31h
   packageName: Space_4
   thumbnail: {fileID: 2800000, guid: 437152f3729ab48e494ff0822a6ee630, type: 3}
   savedProjectSettings: {fileID: 11400000, guid: b4d3f3931508d4e3381693ee23f6fe04,
     type: 2}
-  worldID: 
+  worldID: pqysqz5c1m6dh13tobfhj
   scene: {fileID: 102900000, guid: 18ac373107829c24090015bba8a0996a, type: 3}
-  csharpAssembly: {fileID: 0}
+  csharpAssembly: {fileID: 5897886265953266890, guid: 31c05c48f76f97f40910302af0b90dc9,
+    type: 3}
   embeddedPackageAssets: []
   networkPrefabs: []
   settings:
