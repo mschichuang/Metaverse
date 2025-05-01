@@ -2,23 +2,15 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    public GameObject itemPrefab;          // 拖入你要生成的物品 Prefab
-    public float spawnDistance = 2f;       // 距離攝影機的距離
-    public Camera referenceCamera;         // 拖入主攝影機
+    public GameObject itemPrefab;
+    public Transform spawnPoint;
+    public Camera referenceCamera;
 
     public void SpawnItem()
     {
-        if (referenceCamera == null)
-        {
-            Debug.LogError("請在 ItemSpawner 指定 referenceCamera");
-            return;
-        }
+        GameObject newItem = Instantiate(itemPrefab, spawnPoint.position, Quaternion.identity);
 
-        // 在攝影機正前方生成物品
-        Vector3 spawnPosition = referenceCamera.transform.position + referenceCamera.transform.forward * spawnDistance;
-        GameObject newItem = Instantiate(itemPrefab, spawnPosition, Quaternion.identity);
-
-        // 嘗試加上 Draggable 腳本，並設定攝影機參考
+        // 嘗試加上 Draggable 腳本並指定 referenceCamera
         Draggable dragScript = newItem.GetComponent<Draggable>();
         if (dragScript == null)
         {
