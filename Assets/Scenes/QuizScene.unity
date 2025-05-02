@@ -4111,7 +4111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1c437d99c9a4616adbe21f3ffa0e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactText: Transfer Coins to Leader
+  interactText: Transfer Coins
   textFontOverride:
     overrideFont: 0
     font: {fileID: 0}
@@ -4127,8 +4127,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1149005998}
-          m_TargetAssemblyTypeName: SpacePortal, NewAssembly
-          m_MethodName: Teleport
+          m_TargetAssemblyTypeName: TransferCoins, NewAssembly
+          m_MethodName: OnTransferTriggered
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4171,10 +4171,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1149005996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a010945243240e2979ff9643f12bff, type: 3}
+  m_Script: {fileID: 11500000, guid: 31391c6da1f3340beb9f3e15f0841ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spaceID: 680f1c037096556e2726a4be
+  transferDiamond: {fileID: 1149005996}
 --- !u!1 &1276071255
 GameObject:
   m_ObjectHideFlags: 0
