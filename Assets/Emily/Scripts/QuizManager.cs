@@ -66,7 +66,7 @@ public class QuizManager : MonoBehaviour
             startQuizInteractable.enabled = false;
 
             int finalScore = correctCount * 10;
-            string playerName = SpatialBridge.actorService.localActor.displayName;
+            string playerName = SpatialBridge.actorService.localActor.displayName.Split(' ')[1];
             UploadScore(playerName, finalScore);
             
             return;
@@ -121,7 +121,7 @@ public class QuizManager : MonoBehaviour
 
     public async void UploadScore(string name, int score)
     {
-        string url = "https://script.google.com/macros/s/AKfycbxa9k_7x0mRVON1mbg4uDWPN8LktN8bxJwLT-onIfJ7tPKIjdeWH9DiAyX43kfSsZlH/exec";
+        string url = "https://script.google.com/macros/s/AKfycbwVKSdMOP-b8GEt_v1DQCtNXMes86mWpVae0BndvF6KPo9CHg87b2sfkXA3YdkM_ZNZ/exec";
         string json = $"{{\"name\":\"{name}\", \"score\":{score}}}";
 
         using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
