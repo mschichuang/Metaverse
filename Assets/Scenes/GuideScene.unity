@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 2000
 --- !u!54 &14628394
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 9000
 --- !u!54 &31469601
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -835,7 +835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 2000
 --- !u!54 &197557591
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1151,7 +1151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 2000
 --- !u!54 &423517180
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1281,7 +1281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 2000
 --- !u!54 &442833429
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1411,7 +1411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 2000
 --- !u!54 &481475638
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1654,7 +1654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 2000
 --- !u!54 &955677334
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2586,7 +2586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 2000
 --- !u!54 &1528922230
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2761,7 +2761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 2000
 --- !u!54 &1555258540
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3021,7 +3021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 2000
 --- !u!54 &1645178610
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3363,7 +3363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 2000
 --- !u!54 &1772532450
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3493,7 +3493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 2000
 --- !u!54 &1781520477
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3673,7 +3673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 9000
 --- !u!54 &1793751635
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3966,7 +3966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 9000
 --- !u!1 &1854083793
 GameObject:
   m_ObjectHideFlags: 0
@@ -4113,7 +4113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 2000
 --- !u!54 &1995871590
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4293,7 +4293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 90
-  rewardAmount: 1000
+  rewardAmount: 9000
 --- !u!54 &1996730806
 Rigidbody:
   m_ObjectHideFlags: 0
