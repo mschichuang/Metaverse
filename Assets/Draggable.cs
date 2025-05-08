@@ -2,45 +2,46 @@
 
 public class Draggable : MonoBehaviour
 {
-    public Camera referenceCamera;
-    private bool isDragging = false;
-    private Vector3 offset;
+    [SerializeField] private Camera referenceCamera;  // 輸入的相機
+
+    // 提供只讀屬性給其他類別讀取用（不開放直接改）
+    public Camera ReferenceCamera => referenceCamera;
+
+    // 提供設定相機的方法
+    public void SetReferenceCamera(Camera cam)
+    {
+        referenceCamera = cam;
+    }
 
     void Start()
     {
+        // 如果 referenceCamera 還是 null，顯示錯誤
         if (referenceCamera == null)
         {
-            GameObject camObj = GameObject.FindGameObjectWithTag("MainCamera");
-            if (camObj != null)
-            {
-                referenceCamera = camObj.GetComponent<Camera>();
-            }
+            Debug.LogError("❌ ReferenceCamera 尚未設定！");
         }
-    }
-
-    void OnMouseDown()
-    {
-        isDragging = true;
-        Vector3 mousePosition = referenceCamera.ScreenToWorldPoint(Input.mousePosition);
-        offset = transform.position - new Vector3(mousePosition.x, mousePosition.y, transform.position.z);
-    }
-
-    void OnMouseUp()
-    {
-        isDragging = false;
     }
 
     void Update()
     {
-        if (isDragging && referenceCamera != null)
+        if (referenceCamera == null)
         {
-            Vector3 mousePosition = Input.mousePosition;
-            mousePosition.z = referenceCamera.WorldToScreenPoint(transform.position).z;
-            Vector3 worldPosition = referenceCamera.ScreenToWorldPoint(mousePosition);
-            transform.position = new Vector3(worldPosition.x, worldPosition.y, transform.position.z) + offset;
+            Debug.LogError("❌ ReferenceCamera 尚未設定！");
+            return;
         }
+
+        if (!referenceCamera.gameObject.activeInHierarchy)
+        {
+            Debug.LogError("❌ ReferenceCamera 存在但被關閉！");
+            return;
+        }
+
+        // 👉 實際的拖曳邏輯可以寫在這裡
     }
 }
+
+
+
 
 
 
