@@ -20,8 +20,8 @@ public class CoinUIManager : MonoBehaviour
 
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
-            var op = request.SendWebRequest();
-            while (!op.isDone)
+            request.SendWebRequest();
+            while (!request.isDone)
                 await Task.Yield();
 
             string json = request.downloadHandler.text;
