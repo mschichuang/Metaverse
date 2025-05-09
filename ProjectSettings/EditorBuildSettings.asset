@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/QuizScene.unity
     guid: 64e66e2cefd6340a68bba6f6c4b18c4a
   - enabled: 1
-    path: Assets/Lin/Assemble/Assemble.unity
+    path: Assets/Scenes/Assemble.unity
     guid: c9ae7b244f30602448af184bb08f5dac
   m_configObjects: {}

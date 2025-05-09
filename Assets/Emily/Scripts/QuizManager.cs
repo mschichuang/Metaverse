@@ -21,7 +21,8 @@ public class QuestionData
 
 public class QuizManager : MonoBehaviour
 {
-    private const string WebAppUrl = "https://script.google.com/macros/s/AKfycbwWQGMamOQ8WOanSBUXOqW005QNCoX_VRWOCAH4MqohSD89y_BTnzM0CkCROuy7LWUT-Q/exec";
+    private const string WebAppUrl = "https://script.google.com/macros/s/AKfycbyQD56ArfGkOuYfa-RRqYFPbSDLbSdsU98UWw86XBcjPaQ4NJ9GhegNnocDrX5hdlfZ/exec";
+    private string playerName;
     public SpatialInteractable startQuizInteractable;
     public GameObject quizPanel;
     public TMP_Text questionText;
@@ -36,11 +37,12 @@ public class QuizManager : MonoBehaviour
     private QuestionData[] questions;
     private int currentQuestionIndex = 0;
     private int totalQuestions = 10;
-    private ulong rewardAmount = 1000;
+    private int rewardAmount = 10000;
     private int correctCount = 0;
 
     void Start()
     {
+        playerName = SpatialBridge.actorService.localActor.displayName.Split(' ')[1];
         InvokeRepeating(nameof(LoadQuestions), 0f, 1f);
     }
 
@@ -66,7 +68,6 @@ public class QuizManager : MonoBehaviour
             startQuizInteractable.enabled = false;
 
             int finalScore = correctCount * 10;
-            string playerName = SpatialBridge.actorService.localActor.displayName.Split(' ')[1];
             UploadScore(playerName, finalScore);
             
             return;
@@ -97,7 +98,6 @@ public class QuizManager : MonoBehaviour
             correctCount++;
             resultText.text = "Correct!";
             audioSource.PlayOneShot(correctSound);
-            SpatialBridge.inventoryService.AwardWorldCurrency(rewardAmount);
         }
         else
         {
@@ -121,7 +121,7 @@ public class QuizManager : MonoBehaviour
 
     public async void UploadScore(string name, int score)
     {
-        string url = "https://script.google.com/macros/s/AKfycbwVKSdMOP-b8GEt_v1DQCtNXMes86mWpVae0BndvF6KPo9CHg87b2sfkXA3YdkM_ZNZ/exec";
+        string url = "https://script.google.com/macros/s/AKfycbyQD56ArfGkOuYfa-RRqYFPbSDLbSdsU98UWw86XBcjPaQ4NJ9GhegNnocDrX5hdlfZ/exec";
         string json = $"{{\"name\":\"{name}\", \"score\":{score}}}";
 
         using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
