@@ -46,9 +46,3 @@ public class Draggable1 : MonoBehaviour
         }
     }
 }
-
-
-
-
-
-
