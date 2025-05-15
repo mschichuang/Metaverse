@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;  // âœ… using æ”¾åœ¨æœ€å‰é¢ï¼
 
 public class Draggable1 : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class Draggable1 : MonoBehaviour
 
     void Start()
     {
-        // ½T«O±q³õ´º¤¤§ä¨ì Camera¡]¤£¥Î Camera.main¡^
+        // ç¢ºä¿å¾å ´æ™¯ä¸­æ‰¾åˆ° Camera
         cam = FindObjectOfType<Camera>();
     }
 
@@ -16,12 +16,11 @@ public class Draggable1 : MonoBehaviour
     {
         if (cam == null) return;
 
-        // ¶}©l©ì°Ê
+        // é»æ“Šé–‹å§‹æ‹–æ›³
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 if (hit.collider.gameObject == gameObject)
                 {
@@ -31,7 +30,7 @@ public class Draggable1 : MonoBehaviour
             }
         }
 
-        // ©ì°Ê¤¤
+        // æ‹–æ›³ä¸­
         if (isDragging && Input.GetMouseButton(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -39,7 +38,7 @@ public class Draggable1 : MonoBehaviour
             transform.position = point;
         }
 
-        // °±¤î©ì°Ê
+        // åœæ­¢æ‹–æ›³
         if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
