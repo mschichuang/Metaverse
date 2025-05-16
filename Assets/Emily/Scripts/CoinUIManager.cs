@@ -11,10 +11,10 @@ public class CoinUIManager : MonoBehaviour
     void Start()
     {
         string playerName = SpatialBridge.actorService.localActor.displayName.Split(' ')[1];
-        _ = UpdateCoinDisplay(playerName);
+        _ = UpdateCoinUI(playerName);
     }
 
-    private async Task UpdateCoinDisplay(string name)
+    public async Task UpdateCoinUI(string name)
     {
         string url = $"https://script.google.com/macros/s/AKfycbyQD56ArfGkOuYfa-RRqYFPbSDLbSdsU98UWw86XBcjPaQ4NJ9GhegNnocDrX5hdlfZ/exec?name={name}";
 

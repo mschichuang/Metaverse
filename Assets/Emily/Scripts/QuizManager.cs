@@ -21,8 +21,10 @@ public class QuizManager : MonoBehaviour
     public AudioClip wrongSound;
     private QuestionData[] questions;
     private int currentIndex = 0;
-    private int rewardAmount = 10000;
+    private int coinsPerQuestion = 10000;
     private int correctCount = 0;
+    public CoinUIManager coinUIManager;
+    public GameObject coinPanel;
 
     void Start()
     {
@@ -46,16 +48,16 @@ public class QuizManager : MonoBehaviour
         }
     }
 
-    private void ShowQuestion()
+    private async void ShowQuestion()
     {
         if (currentIndex >= 10)
         {
             quizPanel.SetActive(false);
             startQuizInteractable.enabled = false;
 
-            int finalScore = correctCount * 10;
-            UploadScore(playerName, finalScore);
-
+            await UploadScoreAndCoins(playerName, correctCount);
+            await coinUIManager.UpdateCoinUI(playerName);
+            coinPanel.SetActive(true);
             return;
         }
 
@@ -104,10 +106,13 @@ public class QuizManager : MonoBehaviour
         ShowQuestion();
     }
 
-    private async void UploadScore(string name, int score)
+    private async Task UploadScoreAndCoins(string name, int correctCount)
     {
+        int score = correctCount * 10;
+        int coins = correctCount * coinsPerQuestion;
+
         string url = "https://script.google.com/macros/s/AKfycbyQD56ArfGkOuYfa-RRqYFPbSDLbSdsU98UWw86XBcjPaQ4NJ9GhegNnocDrX5hdlfZ/exec";
-        string json = $"{{\"name\":\"{name}\", \"score\":{score}}}";
+        string json = $"{{\"name\":\"{name}\", \"score\":{score}, \"coins\":{coins}}}";
 
         using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
         {
