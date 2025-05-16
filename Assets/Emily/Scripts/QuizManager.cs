@@ -5,23 +5,8 @@ using TMPro;
 using System.Threading.Tasks;
 using SpatialSys.UnitySDK;
 
-[System.Serializable]
-public class QuestionList
-{
-    public QuestionData[] questions;
-}
-
-[System.Serializable]
-public class QuestionData
-{
-    public string question;
-    public string[] options;
-    public int answer;
-}
-
 public class QuizManager : MonoBehaviour
 {
-    private const string WebAppUrl = "https://script.google.com/macros/s/AKfycbyQD56ArfGkOuYfa-RRqYFPbSDLbSdsU98UWw86XBcjPaQ4NJ9GhegNnocDrX5hdlfZ/exec";
     private string playerName;
     public SpatialInteractable startQuizInteractable;
     public GameObject quizPanel;
@@ -35,23 +20,24 @@ public class QuizManager : MonoBehaviour
     public AudioClip correctSound;
     public AudioClip wrongSound;
     private QuestionData[] questions;
-    private int currentQuestionIndex = 0;
-    private int totalQuestions = 10;
+    private int currentIndex = 0;
     private int rewardAmount = 10000;
     private int correctCount = 0;
 
     void Start()
     {
         playerName = SpatialBridge.actorService.localActor.displayName.Split(' ')[1];
-        InvokeRepeating(nameof(LoadQuestions), 0f, 1f);
+        LoadQuestions();
     }
 
-    async void LoadQuestions()
+    private async void LoadQuestions()
     {
-        using (UnityWebRequest request = UnityWebRequest.Get(WebAppUrl))
+        string url = "https://script.google.com/macros/s/AKfycbwWQGMamOQ8WOanSBUXOqW005QNCoX_VRWOCAH4MqohSD89y_BTnzM0CkCROuy7LWUT-Q/exec";
+
+        using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
-            var operation = request.SendWebRequest();
-            while (!operation.isDone)
+            request.SendWebRequest();
+            while (!request.isDone)
                 await Task.Yield();
 
             string json = request.downloadHandler.text;
@@ -60,35 +46,34 @@ public class QuizManager : MonoBehaviour
         }
     }
 
-    void ShowQuestion()
+    private void ShowQuestion()
     {
-        if (currentQuestionIndex >= totalQuestions)
+        if (currentIndex >= 10)
         {
             quizPanel.SetActive(false);
             startQuizInteractable.enabled = false;
 
             int finalScore = correctCount * 10;
             UploadScore(playerName, finalScore);
-            
+
             return;
         }
 
-        QuestionData q = questions[currentQuestionIndex];
+        QuestionData q = questions[currentIndex];
         questionText.text = q.question;
+        string correctOption = q.options[q.answer - 1];
 
-        for (int i = 0; i < optionButtons.Length; i++)
+        for (int i = 0; i < 4; i++)
         {
             optionButtons[i].GetComponentInChildren<TMP_Text>().text = q.options[i];
             optionButtons[i].onClick.RemoveAllListeners();
 
             int choiceIndex = i + 1;
-            string correctOption = q.options[q.answer - 1];
-
             optionButtons[i].onClick.AddListener(() => CheckAnswer(choiceIndex, q.answer, correctOption));
         }
     }
 
-    void CheckAnswer(int playerChoice, int correctAnswer, string correctOption)
+    private void CheckAnswer(int playerChoice, int correctAnswer, string correctOption)
     {
         quizPanel.SetActive(false);
         resultPanel.SetActive(true);
@@ -110,30 +95,43 @@ public class QuizManager : MonoBehaviour
         nextQuestionButton.onClick.AddListener(() => NextQuestion());
     }
 
-    void NextQuestion()
+    private void NextQuestion()
     {
         resultPanel.SetActive(false);
         quizPanel.SetActive(true);
 
-        currentQuestionIndex++;
+        currentIndex++;
         ShowQuestion();
     }
 
-    public async void UploadScore(string name, int score)
+    private async void UploadScore(string name, int score)
     {
         string url = "https://script.google.com/macros/s/AKfycbyQD56ArfGkOuYfa-RRqYFPbSDLbSdsU98UWw86XBcjPaQ4NJ9GhegNnocDrX5hdlfZ/exec";
         string json = $"{{\"name\":\"{name}\", \"score\":{score}}}";
 
         using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
         {
-            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
-            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            request.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(json));
             request.downloadHandler = new DownloadHandlerBuffer();
             request.SetRequestHeader("Content-Type", "application/json");
 
-            var op = request.SendWebRequest();
-            while (!op.isDone)
+            request.SendWebRequest();
+            while (!request.isDone)
                 await Task.Yield();
         }
+    }
+
+    [System.Serializable]
+    public class QuestionList
+    {
+        public QuestionData[] questions;
+    }
+
+    [System.Serializable]
+    public class QuestionData
+    {
+        public string question;
+        public string[] options;
+        public int answer;
     }
 }
