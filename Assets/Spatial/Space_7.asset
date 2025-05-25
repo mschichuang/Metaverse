@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5621e5ad1b9084f8bb66de8251cfd5a3, type: 3}
-  m_Name: Space_4
+  m_Name: Space_7
   m_EditorClassIdentifier: 
   version: 1
-  sku: dbiuadfbre58swzpotbny1j9
-  packageName: 789
-  thumbnail: {fileID: 2800000, guid: 437152f3729ab48e494ff0822a6ee630, type: 3}
+  sku: 
+  packageName: Space_7
+  thumbnail: {fileID: 0}
   savedProjectSettings: {fileID: 11400000, guid: b4d3f3931508d4e3381693ee23f6fe04,
     type: 2}
-  worldID: pqysqz5c1m6dh13tobfhj
-  scene: {fileID: 102900000, guid: c9ae7b244f30602448af184bb08f5dac, type: 3}
-  csharpAssembly: {fileID: 5897886265953266890, guid: e2d67f79597e2489395cd92ebd1c3f8a,
-    type: 3}
+  worldID: 
+  scene: {fileID: 0}
+  csharpAssembly: {fileID: 0}
   embeddedPackageAssets: []
   networkPrefabs: []
   settings:
