@@ -26,10 +26,7 @@ public class TransferDiamondManager : MonoBehaviour
             string json = request.downloadHandler.text;
             LeaderResponse data = JsonUtility.FromJson<LeaderResponse>(json);
 
-            if (data.isLeader == "Y")
-            {
-                gameObject.SetActive(true);
-            }
+            gameObject.SetActive(data.isLeader == "Y");
         }
     }
 
