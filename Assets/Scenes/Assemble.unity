@@ -4011,6 +4011,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TransferDiamond
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e1de4d7f95f1f4c17865d402cde7f69c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1de4d7f95f1f4c17865d402cde7f69c, type: 3}
 --- !u!1 &1868770079 stripped
@@ -4095,6 +4100,18 @@ MonoBehaviour:
       events: []
     questEvent:
       events: []
+--- !u!114 &1868770082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868770079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40e19a9e1f744ede9c7f064d6f51400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1899463156
 PrefabInstance:
   m_ObjectHideFlags: 0

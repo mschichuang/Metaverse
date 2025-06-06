@@ -16,8 +16,7 @@ public class TransferDiamondManager : MonoBehaviour
 
     private async Task CheckIsLeader()
     {
-        string url = $"https://script.google.com/macros/s/AKfycbyQD56ArfGkOuYfa-RRqYFPbSDLbSdsU98UWw86XBcjPaQ4NJ9GhegNnocDrX5hdlfZ/exec?name={playerName}";
-
+        string url = $"https://script.google.com/macros/s/AKfycbyQD56ArfGkOuYfa-RRqYFPbSDLbSdsU98UWw86XBcjPaQ4NJ9GhegNnocDrX5hdlfZ/exec?action=checkIsLeader&name={playerName}";
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
             request.SendWebRequest();
