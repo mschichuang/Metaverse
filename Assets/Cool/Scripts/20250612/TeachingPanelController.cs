@@ -5,86 +5,110 @@ using UnityEngine.Video;
 
 public class TeachingPanelController : MonoBehaviour
 {
-    [Header("第1頁元件")]
+    [Header("Page 1 元件")]
     public GameObject page1;
-    public TMP_Text titleText1;
-    public Image contentImage1;
-    public TMP_Text descriptionText1;
-    public Button confirmButton1;
+    public TMP_Text titleText;
+    public Image contentImage;
+    public TMP_Text descriptionText;
+    public Button confirmButton;
 
-    [Header("第2頁元件")]
+    [Header("Page 2 元件")]
     public GameObject page2;
     public TMP_Text titleText2;
     public Image contentImage2;
     public TMP_Text descriptionText2;
     public Button confirmButton2;
 
-    [Header("第3頁：影片頁")]
-    public GameObject videoPage;
+    [Header("Page 3 (影片頁)")]
+    public GameObject page3;
     public VideoPlayer videoPlayer;
+    public Button closeButton;
 
     private void Start()
     {
-        // 確保一開始三頁都關閉
+        gameObject.SetActive(false);
+
+        confirmButton.onClick.AddListener(ShowPage2);
+        confirmButton2.onClick.AddListener(ShowPage3);
+        closeButton.onClick.AddListener(HidePanel);
+
         page1.SetActive(false);
         page2.SetActive(false);
-        videoPage.SetActive(false);
-
-        // 綁定按鈕事件
-        confirmButton1.onClick.AddListener(GoToPage2);
-        confirmButton2.onClick.AddListener(ClosePanelAndPlayVideo);
-    }
-
-    /// <summary>
-    /// 顯示第1頁內容
-    /// </summary>
-    public void ShowPage1(string title, Sprite image, string description)
-    {
-        page1.SetActive(true);
-        page2.SetActive(false);
-        videoPage.SetActive(false);
-
-        titleText1.text = title;
-        contentImage1.sprite = image;
-        descriptionText1.text = description;
-    }
-
-    /// <summary>
-    /// 顯示第2頁內容
-    /// </summary>
-    public void ShowPage2(string title, Sprite image, string description)
-    {
-        page1.SetActive(false);
-        page2.SetActive(true);
-        videoPage.SetActive(false);
-
-        titleText2.text = title;
-        contentImage2.sprite = image;
-        descriptionText2.text = description;
-    }
-
-    /// <summary>
-    /// 切換到第2頁
-    /// </summary>
-    private void GoToPage2()
-    {
-        Debug.Log("✅ 第一頁已完成，切換到第二頁");
-        ShowPage2(titleText2.text, contentImage2.sprite, descriptionText2.text);
-    }
-
-    /// <summary>
-    /// 關閉面板並播放影片
-    /// </summary>
-    private void ClosePanelAndPlayVideo()
-    {
-        page1.SetActive(false);
-        page2.SetActive(false);
-        videoPage.SetActive(true);
+        page3.SetActive(false);
 
         if (videoPlayer != null)
         {
-            Debug.Log("🎬 播放影片");
-            videoPlayer.Play();
+            videoPlayer.loopPointReached += OnVideoFinished;
         }
+    }
+
+    /// <summary>
+    /// 從 TeachingTrigger 傳入所有三頁的內容。
+    /// </summary>
+    public void ShowPanel(
+        string title1, Sprite image1, string desc1,
+        string title2, Sprite image2, string desc2,
+        VideoClip videoClip)
+    {
+        gameObject.SetActive(true);
+
+        // 顯示第一頁
+        page1.SetActive(true);
+        page2.SetActive(false);
+        page3.SetActive(false);
+
+        // 第一頁資料
+        titleText.text = title1;
+        contentImage.sprite = image1;
+        descriptionText.text = desc1;
+
+        // 第二頁資料
+        titleText2.text = title2;
+        contentImage2.sprite = image2;
+        descriptionText2.text = desc2;
+
+        // 第三頁影片
+        if (videoPlayer != null && videoClip != null)
+        {
+            videoPlayer.clip = videoClip;
+            closeButton.gameObject.SetActive(false); // 影片沒播完前隱藏關閉鈕
+        }
+    }
+
+    private void ShowPage2()
+    {
+        page1.SetActive(false);
+        page2.SetActive(true);
+        page3.SetActive(false);
+    }
+
+    private void ShowPage3()
+    {
+        page1.SetActive(false);
+        page2.SetActive(false);
+        page3.SetActive(true);
+
+        if (videoPlayer != null)
+        {
+            videoPlayer.Stop();
+            videoPlayer.Play();
+            closeButton.gameObject.SetActive(false); // 等影片播完才顯示
+        }
+    }
+
+    private void OnVideoFinished(VideoPlayer vp)
+    {
+        closeButton.gameObject.SetActive(true);
+    }
+
+    private void HidePanel()
+    {
+        if (videoPlayer != null) videoPlayer.Stop();
+
+        page1.SetActive(false);
+        page2.SetActive(false);
+        page3.SetActive(false);
+
+        gameObject.SetActive(false);
     }
 }
