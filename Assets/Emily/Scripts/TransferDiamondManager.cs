@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 
 public class TransferDiamondManager : MonoBehaviour
 {
+    public GameObject transferDiamond;
     private string playerName;
 
     private async void Start()
     {
         playerName = SpatialBridge.actorService.localActor.displayName.Split(' ')[1];
+        transferDiamond.SetActive(false);
 
         await CheckIsLeader();
     }
@@ -26,7 +28,7 @@ public class TransferDiamondManager : MonoBehaviour
             string json = request.downloadHandler.text;
             LeaderResponse data = JsonUtility.FromJson<LeaderResponse>(json);
 
-            gameObject.SetActive(data.isLeader == "Y");
+            transferDiamond.SetActive(data.isLeader == "Y");
         }
     }
 
