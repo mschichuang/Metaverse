@@ -39,39 +39,47 @@ public class TeachingPanelController : MonoBehaviour
         if (videoPlayer != null)
         {
             videoPlayer.loopPointReached += OnVideoFinished;
+
+            // 加入錯誤訊息偵測，方便查 Spatial 播放問題
+            videoPlayer.errorReceived += (vp, msg) =>
+            {
+                Debug.LogError("❌ 影片播放錯誤：" + msg);
+            };
         }
     }
 
     /// <summary>
-    /// 從 TeachingTrigger 傳入所有三頁的內容。
+    /// 接收三頁的資料與影片網址（String）
     /// </summary>
     public void ShowPanel(
         string title1, Sprite image1, string desc1,
         string title2, Sprite image2, string desc2,
-        VideoClip videoClip)
+        string videoUrl)
     {
         gameObject.SetActive(true);
 
-        // 顯示第一頁
+        // 第一頁內容
         page1.SetActive(true);
         page2.SetActive(false);
         page3.SetActive(false);
-
-        // 第一頁資料
         titleText.text = title1;
         contentImage.sprite = image1;
         descriptionText.text = desc1;
 
-        // 第二頁資料
+        // 第二頁內容
         titleText2.text = title2;
         contentImage2.sprite = image2;
         descriptionText2.text = desc2;
 
-        // 第三頁影片
-        if (videoPlayer != null && videoClip != null)
+        // 第三頁影片網址設定（注意：使用 URL 模式）
+        if (videoPlayer != null && !string.IsNullOrEmpty(videoUrl))
         {
-            videoPlayer.clip = videoClip;
-            closeButton.gameObject.SetActive(false); // 影片沒播完前隱藏關閉鈕
+            videoPlayer.source = VideoSource.Url;
+            videoPlayer.url = videoUrl;
+
+            // 提前停掉上一部影片
+            videoPlayer.Stop();
+            closeButton.gameObject.SetActive(false);
         }
     }
 
@@ -90,9 +98,8 @@ public class TeachingPanelController : MonoBehaviour
 
         if (videoPlayer != null)
         {
-            videoPlayer.Stop();
             videoPlayer.Play();
-            closeButton.gameObject.SetActive(false); // 等影片播完才顯示
+            closeButton.gameObject.SetActive(false);
         }
     }
 

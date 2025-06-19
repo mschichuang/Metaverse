@@ -1453,7 +1453,7 @@ MonoBehaviour:
   titlePage2: 
   imagePage2: {fileID: 0}
   descriptionPage2: 
-  videoClip: {fileID: 0}
+  videoUrl: 
 --- !u!1 &313033044
 GameObject:
   m_ObjectHideFlags: 0
@@ -4118,9 +4118,9 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
+  m_AudioOutputMode: 0
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
@@ -5624,7 +5624,7 @@ MonoBehaviour:
   titlePage2: 
   imagePage2: {fileID: 0}
   descriptionPage2: 
-  videoClip: {fileID: 0}
+  videoUrl: 
 --- !u!1 &1533351724
 GameObject:
   m_ObjectHideFlags: 0
@@ -5928,7 +5928,7 @@ MonoBehaviour:
     RAM \u66F4\u5FEB\u7684\u8A18\u61B6\u9AD4\uFF0C\u901A\u5E38\u5167\u5EFA\u5728
     CPU \u4E2D\u6216\u9760\u8FD1 CPU\u3002\r\n\u2022\t\u5B83\u6703\u5132\u5B58\u5E38\u7528\u7684\u8CC7\u6599\u548C\u6307\u4EE4\uFF0C\u5E6B\u52A9
     CPU \u66F4\u5FEB\u5730\u53D6\u5F97\u9700\u8981\u7684\u8CC7\u8A0A\uFF0C\u6E1B\u5C11\u7B49\u5F85\u4E3B\u8A18\u61B6\u9AD4\u7684\u6642\u9593\u3002\r"
-  videoClip: {fileID: 32900000, guid: d2a126a11991497459435c3c8fd00351, type: 3}
+  videoUrl: https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4
 --- !u!1 &1588704892
 GameObject:
   m_ObjectHideFlags: 0
@@ -7568,7 +7568,7 @@ MonoBehaviour:
   titlePage2: 
   imagePage2: {fileID: 0}
   descriptionPage2: 
-  videoClip: {fileID: 0}
+  videoUrl: 
 --- !u!1 &1892211728
 GameObject:
   m_ObjectHideFlags: 0
