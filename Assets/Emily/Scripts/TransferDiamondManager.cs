@@ -6,18 +6,19 @@ public class TransferDiamondManager : MonoBehaviour
 {
     public GameObject transferDiamond;
 
-    private async void Start()
+    private void Start()
     {
         transferDiamond.SetActive(false);
-        await CheckIsLeader();
+        _ = CheckIsLeader();
     }
 
     private async Task CheckIsLeader()
     {
         string playerName = PlayerInfoManager.GetPlayerName();
-        string url = $"{PlayerInfoManager.Url}?action=checkIsLeader&name={playerName}";
+        string urlBase = PlayerInfoManager.Url;
+        string isLeaderUrl = $"{urlBase}?action=checkIsLeader&name={UnityWebRequest.EscapeURL(playerName)}";
 
-        using (UnityWebRequest request = UnityWebRequest.Get(url))
+        using (UnityWebRequest request = UnityWebRequest.Get(isLeaderUrl))
         {
             request.SendWebRequest();
             while (!request.isDone)
@@ -25,8 +26,10 @@ public class TransferDiamondManager : MonoBehaviour
 
             string json = request.downloadHandler.text;
             LeaderResponse data = JsonUtility.FromJson<LeaderResponse>(json);
-
-            transferDiamond.SetActive(data.isLeader == "Y");
+            if (data.isLeader == "Y")
+            {
+                transferDiamond.SetActive(true);
+            }
         }
     }
 
