@@ -54,5 +54,3 @@ public class DragAndDropManager1 : MonoBehaviour
     }
 }
 
-
-
