@@ -7,7 +7,6 @@ using SpatialSys.UnitySDK;
 
 public class QuizManager : MonoBehaviour
 {
-    private string playerName;
     public SpatialInteractable startQuizInteractable;
     public GameObject quizPanel;
     public TMP_Text questionText;
@@ -19,16 +18,16 @@ public class QuizManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip correctSound;
     public AudioClip wrongSound;
+    public CoinUIManager coinUIManager;
+    public GameObject coinPanel;
+
     private QuestionData[] questions;
     private int currentIndex = 0;
     private int coinsPerQuestion = 10000;
     private int correctCount = 0;
-    public CoinUIManager coinUIManager;
-    public GameObject coinPanel;
 
     void Start()
     {
-        playerName = SpatialBridge.actorService.localActor.displayName.Split(' ')[1];
         LoadQuestions();
     }
 
@@ -55,8 +54,9 @@ public class QuizManager : MonoBehaviour
             quizPanel.SetActive(false);
             startQuizInteractable.enabled = false;
 
-            await UploadScoreAndCoins(playerName, correctCount);
-            await coinUIManager.UpdateCoinUI(playerName);
+            string name = PlayerInfoManager.GetPlayerName();
+            await UploadScoreAndCoins(name, correctCount);
+            await coinUIManager.UpdateCoinUI();
             coinPanel.SetActive(true);
             return;
         }
@@ -91,6 +91,7 @@ public class QuizManager : MonoBehaviour
             resultText.text = "Wrong!";
             audioSource.PlayOneShot(wrongSound);
         }
+
         correctAnswerText.text = "Answer: " + correctOption;
 
         nextQuestionButton.onClick.RemoveAllListeners();
@@ -110,9 +111,8 @@ public class QuizManager : MonoBehaviour
     {
         int score = correctCount * 10;
         int coins = correctCount * coinsPerQuestion;
-
-        string url = "https://script.google.com/macros/s/AKfycbyQD56ArfGkOuYfa-RRqYFPbSDLbSdsU98UWw86XBcjPaQ4NJ9GhegNnocDrX5hdlfZ/exec";
         string json = $"{{\"name\":\"{name}\", \"score\":{score}, \"coins\":{coins}}}";
+        string url = PlayerInfoManager.Url + "?action=uploadQuiz";
 
         using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
         {

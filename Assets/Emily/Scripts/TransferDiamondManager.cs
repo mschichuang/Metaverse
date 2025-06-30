@@ -1,24 +1,22 @@
 using UnityEngine;
 using UnityEngine.Networking;
-using SpatialSys.UnitySDK;
 using System.Threading.Tasks;
 
 public class TransferDiamondManager : MonoBehaviour
 {
     public GameObject transferDiamond;
-    private string playerName;
 
     private async void Start()
     {
-        playerName = SpatialBridge.actorService.localActor.displayName.Split(' ')[1];
         transferDiamond.SetActive(false);
-
         await CheckIsLeader();
     }
 
     private async Task CheckIsLeader()
     {
-        string url = $"https://script.google.com/macros/s/AKfycbyQD56ArfGkOuYfa-RRqYFPbSDLbSdsU98UWw86XBcjPaQ4NJ9GhegNnocDrX5hdlfZ/exec?action=checkIsLeader&name={playerName}";
+        string playerName = PlayerInfoManager.GetPlayerName();
+        string url = $"{PlayerInfoManager.Url}?action=checkIsLeader&name={playerName}";
+
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
             request.SendWebRequest();

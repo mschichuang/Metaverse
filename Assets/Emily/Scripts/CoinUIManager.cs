@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Networking;
 using System.Threading.Tasks;
-using SpatialSys.UnitySDK;
 
 public class CoinUIManager : MonoBehaviour
 {
@@ -10,13 +9,14 @@ public class CoinUIManager : MonoBehaviour
 
     void Start()
     {
-        string playerName = SpatialBridge.actorService.localActor.displayName.Split(' ')[1];
-        _ = UpdateCoinUI(playerName);
+        _ = UpdateCoinUI();
     }
 
-    public async Task UpdateCoinUI(string name)
+    public async Task UpdateCoinUI()
     {
-        string url = $"https://script.google.com/macros/s/AKfycbyQD56ArfGkOuYfa-RRqYFPbSDLbSdsU98UWw86XBcjPaQ4NJ9GhegNnocDrX5hdlfZ/exec?action=getCoins&name={name}";
+        string name = PlayerInfoManager.GetPlayerName();
+        string url = $"{PlayerInfoManager.Url}?action=getCoins&name={name}";
+        
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
             request.SendWebRequest();

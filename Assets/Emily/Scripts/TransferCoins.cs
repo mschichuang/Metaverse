@@ -10,13 +10,13 @@ public class TransferCoins : MonoBehaviour
     public void OnTransferTriggered()
     {
         transferDiamond.SetActive(false);
-        string playerName = SpatialBridge.actorService.localActor.displayName.Split(' ')[1];
-        CheckIsLeader(playerName);
+        string playerName = PlayerInfoManager.GetPlayerName();
+        _ = CheckIsLeader(playerName);
     }
 
-    private async void CheckIsLeader(string name)
+    private async Task CheckIsLeader(string name)
     {
-        string url = $"https://script.google.com/macros/s/AKfycbwVKSdMOP-b8GEt_v1DQCtNXMes86mWpVae0BndvF6KPo9CHg87b2sfkXA3YdkM_ZNZ/exec?name={name}";
+        string url = $"{PlayerInfoManager.Url}?action=checkIsLeader&name={name}";
 
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
@@ -27,16 +27,23 @@ public class TransferCoins : MonoBehaviour
             if (request.result == UnityWebRequest.Result.Success)
             {
                 string json = request.downloadHandler.text;
-                bool isLeader = JsonUtility.FromJson<IsLeaderResponse>(json).isLeader;
+                IsLeaderResponse data = JsonUtility.FromJson<IsLeaderResponse>(json);
 
-                if (isLeader)
+                if (data.isLeader == "Y")
                 {
-                    Debug.Log("✅ 是組長");
+                    Debug.Log("✅ 是組長，可以轉移金幣");
+                    // 👉 在這裡加上 TransferCoinsToLeader() 的邏輯
                 }
                 else
                 {
+                    Debug.Log("❌ 不是組長，無法轉移");
                     ulong currentBalance = SpatialBridge.inventoryService.worldCurrencyBalance;
+                    Debug.Log($"目前餘額：{currentBalance}");
                 }
+            }
+            else
+            {
+                Debug.LogError($"錯誤：{request.error}");
             }
         }
     }
@@ -44,6 +51,6 @@ public class TransferCoins : MonoBehaviour
     [System.Serializable]
     private class IsLeaderResponse
     {
-        public bool isLeader;
+        public string isLeader;  // Y / N
     }
 }
