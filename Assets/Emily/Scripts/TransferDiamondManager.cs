@@ -15,10 +15,9 @@ public class TransferDiamondManager : MonoBehaviour
     private async Task CheckIsLeader()
     {
         string playerName = PlayerInfoManager.GetPlayerName();
-        string urlBase = PlayerInfoManager.Url;
-        string isLeaderUrl = $"{urlBase}?action=checkIsLeader&name={UnityWebRequest.EscapeURL(playerName)}";
+        string url = $"{PlayerInfoManager.Url}?action=checkIsLeader&name={UnityWebRequest.EscapeURL(playerName)}";
 
-        using (UnityWebRequest request = UnityWebRequest.Get(isLeaderUrl))
+        using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
             request.SendWebRequest();
             while (!request.isDone)

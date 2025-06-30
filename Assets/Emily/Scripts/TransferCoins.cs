@@ -1,56 +1,36 @@
 using UnityEngine;
 using UnityEngine.Networking;
+using TMPro;
 using System.Threading.Tasks;
 using SpatialSys.UnitySDK;
 
 public class TransferCoins : MonoBehaviour
 {
-    public GameObject transferDiamond;
+    public TMP_Text coinText;
 
-    public void OnTransferTriggered()
+    public async void transferCoins()
     {
-        transferDiamond.SetActive(false);
         string playerName = PlayerInfoManager.GetPlayerName();
-        _ = CheckIsLeader(playerName);
-    }
-
-    private async Task CheckIsLeader(string name)
-    {
-        string url = $"{PlayerInfoManager.Url}?action=checkIsLeader&name={name}";
+        string url = $"{PlayerInfoManager.Url}?action=getGroupTotalCoins&name={playerName}";
 
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
-            var op = request.SendWebRequest();
-            while (!op.isDone)
+            request.SendWebRequest();
+            while (!request.isDone)
                 await Task.Yield();
 
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                string json = request.downloadHandler.text;
-                IsLeaderResponse data = JsonUtility.FromJson<IsLeaderResponse>(json);
+            string json = request.downloadHandler.text;
+            GroupCoinsResponse data = JsonUtility.FromJson<GroupCoinsResponse>(json);
 
-                if (data.isLeader == "Y")
-                {
-                    Debug.Log("✅ 是組長，可以轉移金幣");
-                    // 👉 在這裡加上 TransferCoinsToLeader() 的邏輯
-                }
-                else
-                {
-                    Debug.Log("❌ 不是組長，無法轉移");
-                    ulong currentBalance = SpatialBridge.inventoryService.worldCurrencyBalance;
-                    Debug.Log($"目前餘額：{currentBalance}");
-                }
-            }
-            else
-            {
-                Debug.LogError($"錯誤：{request.error}");
-            }
+            // coinText, Spatial錢包擇一
+            coinText.text = data.totalCoins.ToString();
+            SpatialBridge.inventoryService.AwardWorldCurrency((ulong)data.totalCoins);
         }
     }
 
     [System.Serializable]
-    private class IsLeaderResponse
+    private class GroupCoinsResponse
     {
-        public string isLeader;  // Y / N
+        public int totalCoins;
     }
 }

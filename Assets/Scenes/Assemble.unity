@@ -4668,7 +4668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31391c6da1f3340beb9f3e15f0841ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transferDiamond: {fileID: 1868770079}
+  coinText: {fileID: 1658986474}
 --- !u!114 &1868770081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4695,7 +4695,19 @@ MonoBehaviour:
     unityEventIsSynced: 0
     unityEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1868770080}
+          m_TargetAssemblyTypeName: TransferCoins, NewAssembly
+          m_MethodName: transferCoins
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     animatorEvent:
       events: []
     questEvent:
