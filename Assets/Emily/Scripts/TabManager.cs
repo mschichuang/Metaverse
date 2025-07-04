@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TabManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject[] pages;
 
-    // Update is called once per frame
-    void Update()
+    public void ShowPage(int index)
     {
-        
+        for (int i = 0; i < pages.Length; i++)
+        {
+            pages[i].SetActive(i == index);
+        }
     }
 }
