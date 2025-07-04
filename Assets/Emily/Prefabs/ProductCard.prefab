@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: -110}
+  m_AnchoredPosition: {x: 30, y: -120}
   m_SizeDelta: {x: 125, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8477496003785149943
@@ -203,8 +203,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: ProductName
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 85a56d10179844b9f8eec2ee143e27c7, type: 2}
+  m_sharedMaterial: {fileID: -4388301628063014959, guid: 85a56d10179844b9f8eec2ee143e27c7,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -281,6 +282,7 @@ GameObject:
   - component: {fileID: 8477496003970375585}
   - component: {fileID: 8477496003970375599}
   - component: {fileID: 8477496003970375598}
+  - component: {fileID: 8284472442419855268}
   m_Layer: 5
   m_Name: ProductCard
   m_TagString: Untagged
@@ -351,6 +353,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8284472442419855268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8477496003970375584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7afcb05eff3b54c1c9ff66658f539521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 8477496003818412794}
+  productImage: {fileID: 8477496004547337909}
+  priceText: {fileID: 8477496003785149942}
+  productName: "Phanteks NV7\u9ED1"
+  productSprite: {fileID: 21300000, guid: f998c8baa62ac40a3b13eaf06535a158, type: 3}
+  price: 6790
 --- !u!1 &8477496004387648331
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: -110}
+  m_AnchoredPosition: {x: -80, y: -120}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8477496004387648342
@@ -583,8 +603,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 70}
-  m_SizeDelta: {x: 350, y: 350}
+  m_AnchoredPosition: {x: 0, y: 65}
+  m_SizeDelta: {x: 280, y: 280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8477496004547337906
 CanvasRenderer:
