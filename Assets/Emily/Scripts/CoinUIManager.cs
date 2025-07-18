@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 public class CoinUIManager : MonoBehaviour
 {
     public TMP_Text coinText;
+    public int CurrentCoins { get; private set; }
 
     void Start()
     {
@@ -25,8 +26,14 @@ public class CoinUIManager : MonoBehaviour
 
             string json = request.downloadHandler.text;
             CoinResponse data = JsonUtility.FromJson<CoinResponse>(json);
-            coinText.text = data.coins.ToString();
+            SetCoins(data.coins);
         }
+    }
+
+    public void SetCoins(int amount)
+    {
+        CurrentCoins = amount;
+        coinText.text = amount.ToString();
     }
 
     [System.Serializable]
