@@ -12,6 +12,7 @@ public class ProductCard : MonoBehaviour
     public string productName;
     public Sprite productSprite;
     public int price;
+    public string itemID;
 
     void Start()
     {

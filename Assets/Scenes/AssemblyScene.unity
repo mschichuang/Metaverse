@@ -217,6 +217,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: itemID
+      value: x0ibwvcoaxjmuik5c62w7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u6280\u5609 AORUS RTX4060 ELITE 8G"
       objectReference: {fileID: 0}
@@ -2099,6 +2104,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: itemID
+      value: jpy8j5tz4c12zny2vxlss
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u6D77\u97FB FOCUS GX-850"
       objectReference: {fileID: 0}
@@ -3209,6 +3219,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: itemID
+      value: h0328thqjcwmes6m3063f
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u4E09\u661F 990 PRO 4TB\u542B\u6563\u71B1\u7247"
       objectReference: {fileID: 0}
@@ -3375,6 +3390,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: itemID
+      value: effbr3ckud0lvw3on27nt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u91D1\u58EB\u9813 64GB DDR5-6400/CL32 FURY Beast"
       objectReference: {fileID: 0}
@@ -3538,6 +3558,11 @@ PrefabInstance:
         type: 3}
       propertyPath: price
       value: 8390
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: itemID
+      value: pgjp4elhnysuojbp5bpne
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -3750,6 +3775,11 @@ PrefabInstance:
         type: 3}
       propertyPath: price
       value: 65990
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: itemID
+      value: pi0fq13fazsmqxbyd1km7
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -4233,6 +4263,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: itemID
+      value: 0zhkn08iwlcspei7kxauw
+      objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
@@ -4870,6 +4905,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: itemID
+      value: n8xpbiqlmzsbqi2cg4dzg
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u8C93\u982D\u9DF9 NH-D15"
       objectReference: {fileID: 0}
@@ -5069,6 +5109,11 @@ PrefabInstance:
         type: 3}
       propertyPath: price
       value: 19999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: itemID
+      value: dmwd0dk1uxjqc4tujmsvc
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -5636,6 +5681,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: itemID
+      value: oq31zmya2cj9fzoua5179
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: Intel i7-14700K
       objectReference: {fileID: 0}
@@ -5789,6 +5839,11 @@ PrefabInstance:
         type: 3}
       propertyPath: price
       value: 19290
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: itemID
+      value: wp1mlm2chckb2phwumxik
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -6218,6 +6273,11 @@ PrefabInstance:
         type: 3}
       propertyPath: price
       value: 6790
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: itemID
+      value: 2xte7v7vtqa7x87kda06f
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -6744,6 +6804,11 @@ PrefabInstance:
         type: 3}
       propertyPath: price
       value: 16490
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: itemID
+      value: 4d7zbrej259w066a9gtes
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -9203,6 +9268,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: itemID
+      value: w4h96r47f0t5c4rusr4ya
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u91D1\u58EB\u9813 32GB DDR5-6800/CL34 FURY Beast"
       objectReference: {fileID: 0}
@@ -9501,6 +9571,11 @@ PrefabInstance:
         type: 3}
       propertyPath: price
       value: 12990
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: itemID
+      value: nl96ul40mfdbehb77802m
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -10121,6 +10196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: itemID
+      value: ldgkpjybgndegl2f838sg
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u6280\u5609 AORUS RTX4080 SUPER MASTER 16G"
       objectReference: {fileID: 0}
@@ -10670,6 +10750,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: itemID
+      value: advad0trsi7oogczre0qk
+      objectReference: {fileID: 0}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: m_Name
@@ -11062,6 +11147,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: itemID
+      value: 0sma8nueod1smy6fm6gl0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u4E09\u661F 980 PRO 1TB"
       objectReference: {fileID: 0}
@@ -11225,6 +11315,11 @@ PrefabInstance:
         type: 3}
       propertyPath: price
       value: 6599
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: itemID
+      value: fz4r18bzd6has0rvdxlx0
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -12041,6 +12136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: itemID
+      value: 5loeaywxxxdif5fyzsb7j
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u91D1\u58EB\u9813 32GB DDR5-5600/CL36 FURY Beast"
       objectReference: {fileID: 0}
@@ -12355,6 +12455,11 @@ PrefabInstance:
         type: 3}
       propertyPath: price
       value: 7800
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: itemID
+      value: wt4emej19wrqao0xhcvfg
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}

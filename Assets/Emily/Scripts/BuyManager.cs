@@ -1,4 +1,5 @@
 using UnityEngine;
+using SpatialSys.UnitySDK;
 
 public class BuyManager : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class BuyManager : MonoBehaviour
         else
         {
             coinUIManager.SetCoins(currentCoins - price);
+
+            string itemID = productCard.itemID;
+            SpatialBridge.inventoryService.AddItem(itemID, 1);
+
             popupManager.ShowMessage("購買成功！");
         }
     }
