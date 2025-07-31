@@ -23,7 +23,7 @@ public class QuizManager : MonoBehaviour
 
     private QuestionData[] questions;
     private int currentIndex = 0;
-    private int coinsPerQuestion = 10000;
+    private int coinsPerQuestion = 2500;
     private int correctCount = 0;
 
     void Start()
