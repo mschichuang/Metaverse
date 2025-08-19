@@ -211,6 +211,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -220,6 +225,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: x0ibwvcoaxjmuik5c62w7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: "\u986F\u793A\u5361"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -511,6 +521,7 @@ GameObject:
   - component: {fileID: 46180578}
   - component: {fileID: 46180577}
   - component: {fileID: 46180579}
+  - component: {fileID: 46180580}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -567,6 +578,18 @@ MonoBehaviour:
   - {fileID: 1999178856}
   - {fileID: 844946630}
   - {fileID: 1184430402}
+--- !u!114 &46180580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46180576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9973d2ae37248479bb3fae1b571d8acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &73692825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2098,6 +2121,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -2107,6 +2135,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: jpy8j5tz4c12zny2vxlss
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: "\u96FB\u6E90\u4F9B\u61C9\u5668"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -3214,6 +3247,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -3223,6 +3261,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: h0328thqjcwmes6m3063f
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: SSD
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -3385,6 +3428,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -3394,6 +3442,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: effbr3ckud0lvw3on27nt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: RAM
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -3556,6 +3609,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -3565,6 +3623,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: pgjp4elhnysuojbp5bpne
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: "\u96FB\u6E90\u4F9B\u61C9\u5668"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -3773,6 +3836,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -3782,6 +3850,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: pi0fq13fazsmqxbyd1km7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: "\u986F\u793A\u5361"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -4265,10 +4338,20 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: itemID
       value: 0zhkn08iwlcspei7kxauw
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: "\u4E3B\u6A5F\u677F"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -4900,6 +4983,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -4909,6 +4997,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: n8xpbiqlmzsbqi2cg4dzg
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: "\u6563\u71B1\u5668"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -5107,6 +5200,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -5116,6 +5214,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: dmwd0dk1uxjqc4tujmsvc
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: CPU
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -5676,6 +5779,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -5685,6 +5793,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: oq31zmya2cj9fzoua5179
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: CPU
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -5837,6 +5950,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -5846,6 +5964,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: wp1mlm2chckb2phwumxik
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: "\u4E3B\u6A5F\u677F"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -6271,6 +6394,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -6280,6 +6408,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: 2xte7v7vtqa7x87kda06f
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: "\u6A5F\u6BBC"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -6802,6 +6935,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -6811,6 +6949,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: 4d7zbrej259w066a9gtes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: "\u96FB\u6E90\u4F9B\u61C9\u5668"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -8315,7 +8458,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 100}
+  m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1542249957
 MonoBehaviour:
@@ -9264,6 +9407,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -9273,6 +9421,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: w4h96r47f0t5c4rusr4ya
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: RAM
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -9571,6 +9724,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -9580,6 +9738,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: nl96ul40mfdbehb77802m
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: "\u4E3B\u6A5F\u677F"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -10194,6 +10357,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -10203,6 +10371,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: ldgkpjybgndegl2f838sg
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: "\u986F\u793A\u5361"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -10755,10 +10928,20 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: itemID
       value: advad0trsi7oogczre0qk
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: "\u6A5F\u6BBC"
       objectReference: {fileID: 0}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -11146,6 +11329,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -11155,6 +11343,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: 0sma8nueod1smy6fm6gl0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: SSD
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -11317,6 +11510,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -11326,6 +11524,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: fz4r18bzd6has0rvdxlx0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: SSD
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -12136,6 +12339,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -12145,6 +12353,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: 5loeaywxxxdif5fyzsb7j
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: RAM
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -12458,6 +12671,11 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: purchaseHistoryManager
+      value: 
+      objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: price
@@ -12467,6 +12685,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemID
       value: wt4emej19wrqao0xhcvfg
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: category
+      value: CPU
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}

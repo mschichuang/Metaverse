@@ -1,11 +1,13 @@
 using UnityEngine;
 using SpatialSys.UnitySDK;
+using System.Collections.Generic;
 
 public class BuyManager : MonoBehaviour
 {
     public ProductCard productCard;
     public CoinUIManager coinUIManager;
     public PopupManager popupManager;
+    public PurchaseHistoryManager purchaseHistoryManager;
 
     void Awake()
     {
@@ -16,6 +18,13 @@ public class BuyManager : MonoBehaviour
     {
         int currentCoins = coinUIManager.CurrentCoins;
         int price = productCard.price;
+        string category = productCard.category;
+
+        if (purchaseHistoryManager.HasPurchasedCategory(category))
+        {
+            popupManager.ShowMessage($"已擁有{category}，不能重複購買！");
+            return;
+        }
 
         if (currentCoins < price)
         {
@@ -28,6 +37,7 @@ public class BuyManager : MonoBehaviour
             string itemID = productCard.itemID;
             SpatialBridge.inventoryService.AddItem(itemID, 1);
 
+            purchaseHistoryManager.AddPurchasedCategory(category);
             popupManager.ShowMessage("購買成功！");
         }
     }
