@@ -23,6 +23,7 @@ public class TransferCoins : MonoBehaviour
             GroupCoinsResponse data = JsonUtility.FromJson<GroupCoinsResponse>(json);
 
             coinUIManager.SetCoins(data.totalCoins);
+            gameObject.SetActive(false);
         }
     }
 

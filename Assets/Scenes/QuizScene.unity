@@ -877,11 +877,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1c437d99c9a4616adbe21f3ffa0e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactText: MB
+  interactText: "\u4E3B\u6A5F\u677F"
   textFontOverride:
-    overrideFont: 0
-    font: {fileID: 0}
-    material: {fileID: 0}
+    overrideFont: 1
+    font: {fileID: 11400000, guid: 85a56d10179844b9f8eec2ee143e27c7, type: 2}
+    material: {fileID: -4388301628063014959, guid: 85a56d10179844b9f8eec2ee143e27c7,
+      type: 2}
   iconType: 13
   icon: {fileID: 21300000, guid: 6f8781d29e5a9409dba87d308dadda9a, type: 3}
   interactiveRadius: 5
@@ -5617,11 +5618,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1c437d99c9a4616adbe21f3ffa0e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactText: Enter Assembly Area
+  interactText: "\u7D44\u88DD\u5340"
   textFontOverride:
-    overrideFont: 0
-    font: {fileID: 0}
-    material: {fileID: 0}
+    overrideFont: 1
+    font: {fileID: 11400000, guid: 85a56d10179844b9f8eec2ee143e27c7, type: 2}
+    material: {fileID: -4388301628063014959, guid: 85a56d10179844b9f8eec2ee143e27c7,
+      type: 2}
   iconType: 4
   icon: {fileID: 21300000, guid: 069822f99ff554d6a9c433a8d2729773, type: 3}
   interactiveRadius: 5
@@ -6493,11 +6495,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1c437d99c9a4616adbe21f3ffa0e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactText: Start Quiz
+  interactText: "\u958B\u59CB\u6E2C\u9A57"
   textFontOverride:
-    overrideFont: 0
-    font: {fileID: 0}
-    material: {fileID: 0}
+    overrideFont: 1
+    font: {fileID: 11400000, guid: 85a56d10179844b9f8eec2ee143e27c7, type: 2}
+    material: {fileID: -4388301628063014959, guid: 85a56d10179844b9f8eec2ee143e27c7,
+      type: 2}
   iconType: 13
   icon: {fileID: 21300000, guid: 6f8781d29e5a9409dba87d308dadda9a, type: 3}
   interactiveRadius: 15
@@ -6740,8 +6743,9 @@ MonoBehaviour:
   interactText: CPU
   textFontOverride:
     overrideFont: 0
-    font: {fileID: 0}
-    material: {fileID: 0}
+    font: {fileID: 11400000, guid: 85a56d10179844b9f8eec2ee143e27c7, type: 2}
+    material: {fileID: -4388301628063014959, guid: 85a56d10179844b9f8eec2ee143e27c7,
+      type: 2}
   iconType: 13
   icon: {fileID: 21300000, guid: 6f8781d29e5a9409dba87d308dadda9a, type: 3}
   interactiveRadius: 5

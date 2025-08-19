@@ -142,11 +142,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1c437d99c9a4616adbe21f3ffa0e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactText: Shop
+  interactText: "\u5546\u57CE"
   textFontOverride:
-    overrideFont: 0
-    font: {fileID: 0}
-    material: {fileID: 0}
+    overrideFont: 1
+    font: {fileID: 11400000, guid: 85a56d10179844b9f8eec2ee143e27c7, type: 2}
+    material: {fileID: -4388301628063014959, guid: 85a56d10179844b9f8eec2ee143e27c7,
+      type: 2}
   iconType: 4
   icon: {fileID: 21300000, guid: 069822f99ff554d6a9c433a8d2729773, type: 3}
   interactiveRadius: 5
@@ -2431,10 +2432,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cooler
+  m_text: "\u6563\u71B1\u5668"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 85a56d10179844b9f8eec2ee143e27c7, type: 2}
+  m_sharedMaterial: {fileID: -4388301628063014959, guid: 85a56d10179844b9f8eec2ee143e27c7,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8989,10 +8991,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MB
+  m_text: "\u4E3B\u6A5F\u677F"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 85a56d10179844b9f8eec2ee143e27c7, type: 2}
+  m_sharedMaterial: {fileID: -4388301628063014959, guid: 85a56d10179844b9f8eec2ee143e27c7,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9473,10 +9476,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PSU
+  m_text: "\u96FB\u6E90\u4F9B\u61C9\u5668"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 85a56d10179844b9f8eec2ee143e27c7, type: 2}
+  m_sharedMaterial: {fileID: -4388301628063014959, guid: 85a56d10179844b9f8eec2ee143e27c7,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9854,10 +9858,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GPU
+  m_text: "\u986F\u793A\u5361"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 85a56d10179844b9f8eec2ee143e27c7, type: 2}
+  m_sharedMaterial: {fileID: -4388301628063014959, guid: 85a56d10179844b9f8eec2ee143e27c7,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10990,7 +10995,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31391c6da1f3340beb9f3e15f0841ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinText: {fileID: 1658986474}
   coinUIManager: {fileID: 1498735171}
 --- !u!114 &1868770081
 MonoBehaviour:
@@ -11004,11 +11008,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1c437d99c9a4616adbe21f3ffa0e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactText: Transfer Coins
+  interactText: "\u91D1\u5E63\u6574\u5408"
   textFontOverride:
-    overrideFont: 0
-    font: {fileID: 0}
-    material: {fileID: 0}
+    overrideFont: 1
+    font: {fileID: 11400000, guid: 85a56d10179844b9f8eec2ee143e27c7, type: 2}
+    material: {fileID: -4388301628063014959, guid: 85a56d10179844b9f8eec2ee143e27c7,
+      type: 2}
   iconType: 1
   icon: {fileID: 21300000, guid: 90443333bd8a54531aa702a832f79e9a, type: 3}
   interactiveRadius: 5
@@ -12005,10 +12010,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Case
+  m_text: "\u6A5F\u6BBC"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 85a56d10179844b9f8eec2ee143e27c7, type: 2}
+  m_sharedMaterial: {fileID: -4388301628063014959, guid: 85a56d10179844b9f8eec2ee143e27c7,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
