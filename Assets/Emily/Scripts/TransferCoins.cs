@@ -6,7 +6,7 @@ using SpatialSys.UnitySDK;
 
 public class TransferCoins : MonoBehaviour
 {
-    public TMP_Text coinText;
+    public CoinUIManager coinUIManager;
 
     public async void transferCoins()
     {
@@ -22,9 +22,7 @@ public class TransferCoins : MonoBehaviour
             string json = request.downloadHandler.text;
             GroupCoinsResponse data = JsonUtility.FromJson<GroupCoinsResponse>(json);
 
-            // coinText, Spatial錢包擇一
-            coinText.text = data.totalCoins.ToString();
-            SpatialBridge.inventoryService.AwardWorldCurrency((ulong)data.totalCoins);
+            coinUIManager.SetCoins(data.totalCoins);
         }
     }
 

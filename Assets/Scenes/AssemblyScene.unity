@@ -10991,6 +10991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 1658986474}
+  coinUIManager: {fileID: 1498735171}
 --- !u!114 &1868770081
 MonoBehaviour:
   m_ObjectHideFlags: 0
