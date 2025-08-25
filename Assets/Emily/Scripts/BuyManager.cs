@@ -1,6 +1,7 @@
 using UnityEngine;
 using SpatialSys.UnitySDK;
-using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 
 public class BuyManager : MonoBehaviour
 {
@@ -8,13 +9,33 @@ public class BuyManager : MonoBehaviour
     public CoinUIManager coinUIManager;
     public PopupManager popupManager;
     public PurchaseHistoryManager purchaseHistoryManager;
+    public Button actionButton;
+    private bool isPurchased = false;
 
     void Awake()
     {
         productCard = GetComponent<ProductCard>();
     }
 
-    public void OnBuyButtonClick()
+    void Start()
+    {
+        actionButton.onClick.AddListener(HandleAction);
+        UpdateButton();
+    }
+
+    private void HandleAction()
+    {
+        if (isPurchased)
+        {
+            ReturnItem();
+        }
+        else
+        {
+            BuyItem();
+        }
+    }
+
+    private void BuyItem()
     {
         int currentCoins = coinUIManager.CurrentCoins;
         int price = productCard.price;
@@ -29,16 +50,40 @@ public class BuyManager : MonoBehaviour
         if (currentCoins < price)
         {
             popupManager.ShowMessage("金幣不足！");
+            return;
         }
-        else
-        {
-            coinUIManager.SetCoins(currentCoins - price);
 
-            string itemID = productCard.itemID;
-            SpatialBridge.inventoryService.AddItem(itemID, 1);
+        coinUIManager.SetCoins(currentCoins - price);
 
-            purchaseHistoryManager.AddPurchasedCategory(category);
-            popupManager.ShowMessage("購買成功！");
-        }
+        string itemID = productCard.itemID;
+        SpatialBridge.inventoryService.AddItem(itemID, 1);
+
+        purchaseHistoryManager.AddPurchasedCategory(category);
+        popupManager.ShowMessage("購買成功！");
+
+        isPurchased = true;
+        UpdateButton();
+    }
+
+    private void ReturnItem()
+    {
+        int price = productCard.price;
+        string category = productCard.category;
+
+        SpatialBridge.inventoryService.DeleteItem(productCard.itemID);
+
+        coinUIManager.SetCoins(coinUIManager.CurrentCoins + price);
+        purchaseHistoryManager.RemovePurchasedCategory(category);
+
+        popupManager.ShowMessage("退款成功！");
+
+        isPurchased = false;
+        UpdateButton();
+    }
+
+    private void UpdateButton()
+    {
+        actionButton.GetComponentInChildren<TMP_Text>().text = isPurchased ? "取消" : "購買";
+        actionButton.GetComponent<Image>().color = isPurchased ? new Color32(220, 50, 70, 255) : new Color32(255, 255, 50, 255);
     }
 }

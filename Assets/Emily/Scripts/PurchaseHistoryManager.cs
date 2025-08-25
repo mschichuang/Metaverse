@@ -14,4 +14,9 @@ public class PurchaseHistoryManager : MonoBehaviour
     {
         purchasedCategories.Add(category);
     }
+
+    public void RemovePurchasedCategory(string category)
+    {
+        purchasedCategories.Remove(category);
+    }
 }
