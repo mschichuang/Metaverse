@@ -24,6 +24,9 @@ public class TeachingPanelController : MonoBehaviour
     public VideoPlayer videoPlayer;
     public Button closeButton;
 
+    [Header("影片聲音")]
+    public AudioSource audioSource;
+
     private void Start()
     {
         gameObject.SetActive(false);
@@ -40,7 +43,14 @@ public class TeachingPanelController : MonoBehaviour
         {
             videoPlayer.loopPointReached += OnVideoFinished;
 
-            // 加入錯誤訊息偵測，方便查 Spatial 播放問題
+            // 🔊 把 VideoPlayer 的聲音綁到 AudioSource
+            if (audioSource != null)
+            {
+                videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
+                videoPlayer.SetTargetAudioSource(0, audioSource);
+            }
+
+            // 加入錯誤訊息偵測
             videoPlayer.errorReceived += (vp, msg) =>
             {
                 Debug.LogError("❌ 影片播放錯誤：" + msg);
@@ -99,6 +109,7 @@ public class TeachingPanelController : MonoBehaviour
         if (videoPlayer != null)
         {
             videoPlayer.Play();
+            if (audioSource != null) audioSource.Play(); // 🔊 播放聲音
             closeButton.gameObject.SetActive(false);
         }
     }
@@ -110,7 +121,11 @@ public class TeachingPanelController : MonoBehaviour
 
     private void HidePanel()
     {
-        if (videoPlayer != null) videoPlayer.Stop();
+        if (videoPlayer != null)
+        {
+            videoPlayer.Stop();
+            if (audioSource != null) audioSource.Stop(); // 🔇 停止聲音
+        }
 
         page1.SetActive(false);
         page2.SetActive(false);
