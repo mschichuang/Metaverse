@@ -240,7 +240,7 @@ PrefabInstance:
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6feb94a51e40f431e8d4341a71fec45c,
+      objectReference: {fileID: 21300000, guid: ffa9b7c438b857b48baa0ad2f57575a0,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -2150,7 +2150,7 @@ PrefabInstance:
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 95cd5837b93824ba2b285f64f9ee5523,
+      objectReference: {fileID: 21300000, guid: 0e07853e73500b346a8726112b84866a,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -3276,7 +3276,7 @@ PrefabInstance:
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3f3a4bc4a73404e4ba28c7e2e31d632c,
+      objectReference: {fileID: 21300000, guid: 081324bf81c0f0d4fac3ed9513fc751c,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -3638,7 +3638,7 @@ PrefabInstance:
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0d21dde875cc940adb20497f96e1d7c3,
+      objectReference: {fileID: 21300000, guid: 500f67fbfb38ea2438c95496ed4210d6,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -3865,7 +3865,7 @@ PrefabInstance:
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 72eadfd48915a4df0bd1ddb436226126,
+      objectReference: {fileID: 21300000, guid: 60658f2783bfdbf40b5e0d393d01a27f,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -5012,7 +5012,7 @@ PrefabInstance:
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 03e6fb444bdfb4aa89aff6f74fac0121,
+      objectReference: {fileID: 21300000, guid: 7dd4ab2dfa527834a88541ff39bcd974,
         type: 3}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -6423,7 +6423,7 @@ PrefabInstance:
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0d99a9eb24cae4ffb9c2eb6776b70047,
+      objectReference: {fileID: 21300000, guid: b4dee5d46a7785f408c4c33dc05fb74c,
         type: 3}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -6964,7 +6964,7 @@ PrefabInstance:
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: f2dded9410ab847179bf97018567106e,
+      objectReference: {fileID: 21300000, guid: 394e1e7b4a70e7b45a848c2992bf8e09,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -7799,7 +7799,6 @@ RectTransform:
   m_Children:
   - {fileID: 1058490036}
   - {fileID: 1432526526}
-  - {fileID: 1702699647}
   m_Father: {fileID: 1012687993}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9283,17 +9282,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702699646}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1432011771}
-  m_RootOrder: 2
+  m_Father: {fileID: 1217916028}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: 150}
+  m_AnchoredPosition: {x: 25, y: 199.99997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1702699648
@@ -10386,7 +10385,7 @@ PrefabInstance:
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 72eadfd48915a4df0bd1ddb436226126,
+      objectReference: {fileID: 21300000, guid: 08dcbec1caa632146b9c990d5892d82e,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -10943,6 +10942,17 @@ PrefabInstance:
       propertyPath: category
       value: "\u6A5F\u6BBC"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: productName
+      value: Phanteks NV7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: productSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cf167619439ea5241b3a948ae0400f47,
+        type: 3}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: m_Name
@@ -11358,7 +11368,7 @@ PrefabInstance:
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0b0844ab32925443bbcca7bf6fd28a09,
+      objectReference: {fileID: 21300000, guid: f854c8c00f2d858409dea91af4c58efb,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -11539,7 +11549,7 @@ PrefabInstance:
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: a0e661dc43ecf47bdbd8e8ceb2c4b740,
+      objectReference: {fileID: 21300000, guid: a0e82397c672840408c8f2d1432d96a0,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
