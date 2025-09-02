@@ -234,13 +234,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "\u6280\u5609 AORUS RTX4060 ELITE 8G(\u9280)"
+      value: "\u6280\u5609 AORUS RTX4060 ELITE 8G"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6feb94a51e40f431e8d4341a71fec45c,
+      objectReference: {fileID: 21300000, guid: 9cec542fa57aa449a8731931574eab08,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -2174,13 +2174,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "\u6D77\u97FB FOCUS GX-850(\u9280)"
+      value: "\u6D77\u97FB FOCUS GX-850"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 95cd5837b93824ba2b285f64f9ee5523,
+      objectReference: {fileID: 21300000, guid: 75837f1cb5fa940089a1f58b6ae91786,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -3300,13 +3300,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "\u4E09\u661F 990 PRO 4TB\u542B\u6563\u71B1\u7247 (\u91D1 )"
+      value: "\u4E09\u661F 990 PRO 4TB\u542B\u6563\u71B1\u7247"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3f3a4bc4a73404e4ba28c7e2e31d632c,
+      objectReference: {fileID: 21300000, guid: ef6d6e375005b483286af0fd96a0c193,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -3481,13 +3481,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "\u91D1\u58EB\u9813 64GB DDR5-6400/CL32 FURY Beast(\u91D1)"
+      value: "\u91D1\u58EB\u9813 64GB DDR5-6400/CL32 FURY Beast"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: b757ab8e6d7fb4139aed98fe09f719cd,
+      objectReference: {fileID: 21300000, guid: bb30125ead55144a5bc146aabed9c14f,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -3662,13 +3662,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "\u6D77\u97FB VERTEX PX-1200(\u7C89)"
+      value: "\u6D77\u97FB VERTEX PX-1200"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0d21dde875cc940adb20497f96e1d7c3,
+      objectReference: {fileID: 21300000, guid: 0efea256f53db43fc9c5acf4f76bd1ad,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -3889,13 +3889,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "\u6280\u5609 AORUS RTX4090 MASTER 24G(\u91D1)"
+      value: "\u6280\u5609 AORUS RTX4090 MASTER 24G"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 72eadfd48915a4df0bd1ddb436226126,
+      objectReference: {fileID: 21300000, guid: 3b6b13502330f4fceae755db352236d2,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -4386,13 +4386,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "\u83EF\u78A9 ROG STRIX B760-G GAMING WIFI(\u9280)"
+      value: "\u83EF\u78A9 ROG STRIX B760-G GAMING WIFI"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: d6f260dc79cd74bc4b10d397be5aa005,
+      objectReference: {fileID: 21300000, guid: c5694ea58ce71464aa25f00343bae16f,
         type: 3}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -5042,7 +5042,7 @@ PrefabInstance:
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 03e6fb444bdfb4aa89aff6f74fac0121,
+      objectReference: {fileID: 21300000, guid: eab9b9904d3964208878f291805c6b1c,
         type: 3}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -5253,13 +5253,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "Intel i9-14900K(\u91D1)"
+      value: Intel i9-14900K
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: c5070e01f89e24599ad8a56ddc5cc36c,
+      objectReference: {fileID: 21300000, guid: 1d930bcfe5f434dcfae385f24271ea02,
         type: 3}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -5832,13 +5832,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "Intel i7-14700K(\u7C89)"
+      value: Intel i7-14700K
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2b8ba133dadb043498c90263fb647d89,
+      objectReference: {fileID: 21300000, guid: d301b521e5cbd4d4bbc5c3876f4e2a01,
         type: 3}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -6003,13 +6003,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "\u83EF\u78A9 ROG MAXIMUS Z790 HERO(\u91D1)"
+      value: "\u83EF\u78A9 ROG MAXIMUS Z790 HERO"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 50a146f5cb5ec4115a010d5844730c7e,
+      objectReference: {fileID: 21300000, guid: 6fa2cd00538424cf3b03e5c15d9b7c2a,
         type: 3}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -6447,13 +6447,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "Phanteks NV7\u91D1"
+      value: Phanteks NV7
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0d99a9eb24cae4ffb9c2eb6776b70047,
+      objectReference: {fileID: 21300000, guid: 1793f9313ef9e4d4d93d09692d8ff111,
         type: 3}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -6987,13 +6987,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "\u6D77\u97FB PRIME TX-1300 ATX3.0(\u91D1)"
+      value: "\u6D77\u97FB PRIME TX-1300 ATX3.0"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: f2dded9410ab847179bf97018567106e,
+      objectReference: {fileID: 21300000, guid: 4b6d36befdc764912b758b33775ebd17,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -9505,13 +9505,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "\u91D1\u58EB\u9813 32GB DDR5-6800/CL34 FURY Beast(\u7C89)"
+      value: "\u91D1\u58EB\u9813 32GB DDR5-6800/CL34 FURY Beast"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: b757ab8e6d7fb4139aed98fe09f719cd,
+      objectReference: {fileID: 21300000, guid: 31d039939b2e2477aa12dff2e4531867,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -9822,13 +9822,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "\u83EF\u78A9 PRO WS W680M-ACE SE(\u7C89)"
+      value: "\u83EF\u78A9 PRO WS W680M-ACE SE"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 967e28960f6804e3daa95a30a2f9d2b2,
+      objectReference: {fileID: 21300000, guid: 94ae99dd014eb49e0b48741528de84c6,
         type: 3}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -10455,13 +10455,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "\u6280\u5609 AORUS RTX4080 SUPER MASTER 16G(\u7C89)"
+      value: "\u6280\u5609 AORUS RTX4080 SUPER MASTER 16G"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 72eadfd48915a4df0bd1ddb436226126,
+      objectReference: {fileID: 21300000, guid: ef0bb6f5cfe6244e08e7b302e415a9a2,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -11036,8 +11036,14 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "Phanteks NV7\u9280"
+      value: Phanteks NV7
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: productSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 02922b07f8ab342c59cbbcc7a4bf111a,
+        type: 3}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: m_Name
@@ -11447,13 +11453,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "\u4E09\u661F 980 PRO 1TB(\u9280)"
+      value: "\u4E09\u661F 980 PRO 1TB"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0b0844ab32925443bbcca7bf6fd28a09,
+      objectReference: {fileID: 21300000, guid: dd12f4433b2604719b49eb7b76ad7d28,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -11628,13 +11634,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "\u4E09\u661F 990 PRO 2TB\u542B\u6563\u71B1\u7247(\u7C89)"
+      value: "\u4E09\u661F 990 PRO 2TB\u542B\u6563\u71B1\u7247"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: a0e661dc43ecf47bdbd8e8ceb2c4b740,
+      objectReference: {fileID: 21300000, guid: 06b18f03383354490b73616451e1ac4e,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -12457,13 +12463,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "\u91D1\u58EB\u9813 32GB DDR5-5600/CL36 FURY Beast(\u9280)"
+      value: "\u91D1\u58EB\u9813 32GB DDR5-5600/CL36 FURY Beast"
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: b757ab8e6d7fb4139aed98fe09f719cd,
+      objectReference: {fileID: 21300000, guid: 2f1c90dbeec034364b9f053955f90f37,
         type: 3}
     - target: {fileID: 8477496003818412797, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
@@ -12789,13 +12795,13 @@ PrefabInstance:
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productName
-      value: "Intel i5-14500(\u9280)"
+      value: Intel i5-14500
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 936b5ed65b12e46fa9f8730d48a99408,
+      objectReference: {fileID: 21300000, guid: ed0e60f4197234004afd1e24e49cf853,
         type: 3}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
