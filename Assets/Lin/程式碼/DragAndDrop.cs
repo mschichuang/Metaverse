@@ -8,10 +8,14 @@ public class DragAndDrop : MonoBehaviour
     private float distanceFromCamera;
     private UnlockManager unlockManager;
 
+    // 在 Inspector 指派 PurchaseUIManager（Canvas 上的腳本）
+    public PurchaseUIManager purchaseUI;
+
     void Start()
     {
-        // 取得同一物件上的 UnlockManager
         unlockManager = GetComponent<UnlockManager>();
+        if (purchaseUI == null)
+            Debug.LogWarning("DragAndDrop: purchaseUI 未設定，未解鎖時無法顯示購買介面。");
     }
 
     void Update()
@@ -23,7 +27,6 @@ public class DragAndDrop : MonoBehaviour
             {
                 if (hit.transform == transform)
                 {
-                    // 只有解鎖物品才能開始拖曳
                     if (unlockManager.IsUnlocked())
                     {
                         isDragging = true;
@@ -31,7 +34,11 @@ public class DragAndDrop : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log($"{gameObject.name} 還沒解鎖，不能移動！");
+                        // 物品未解鎖 → 顯示購買提示 UI
+                        if (purchaseUI != null)
+                            purchaseUI.ShowPurchaseUI(unlockManager, unlockManager.price);
+                        else
+                            Debug.Log($"{gameObject.name} 未解鎖，且未設定 purchaseUI。");
                     }
                 }
             }
@@ -50,3 +57,4 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 }
+
