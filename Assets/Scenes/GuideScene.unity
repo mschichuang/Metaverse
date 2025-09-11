@@ -3648,7 +3648,7 @@ MonoBehaviour:
     overrideFont: 0
     font: {fileID: 0}
     material: {fileID: 0}
-  backgroundColor: {r: 1, g: 0.96763766, b: 0, a: 0.5882353}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0.5882353}
   foregroundColor: {r: 1, g: 1, b: 1, a: 1}
   sprite: {fileID: 0}
   spriteSize: 0.75
@@ -4308,9 +4308,9 @@ MonoBehaviour:
     overrideFont: 0
     font: {fileID: 0}
     material: {fileID: 0}
-  backgroundColor: {r: 1, g: 0.96763766, b: 0, a: 0.5882353}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0.5882353}
   foregroundColor: {r: 1, g: 1, b: 1, a: 1}
-  sprite: {fileID: 0}
+  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   spriteSize: 0.75
   spriteRectSize: {x: 150, y: 150}
   textDisplayRadius: 3
@@ -5244,7 +5244,7 @@ MonoBehaviour:
     overrideFont: 0
     font: {fileID: 0}
     material: {fileID: 0}
-  backgroundColor: {r: 1, g: 0.96763766, b: 0, a: 0.5882353}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0.5882353}
   foregroundColor: {r: 1, g: 1, b: 1, a: 1}
   sprite: {fileID: 0}
   spriteSize: 0.75
@@ -9153,7 +9153,7 @@ MonoBehaviour:
     overrideFont: 0
     font: {fileID: 0}
     material: {fileID: 0}
-  backgroundColor: {r: 1, g: 0.96763766, b: 0, a: 0.5882353}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0.5882353}
   foregroundColor: {r: 1, g: 1, b: 1, a: 1}
   sprite: {fileID: 0}
   spriteSize: 0.75
