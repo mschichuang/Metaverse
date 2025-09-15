@@ -58,7 +58,7 @@ public class BuyManager : MonoBehaviour
         string itemID = productCard.itemID;
         SpatialBridge.inventoryService.AddItem(itemID, 1);
 
-        purchaseHistoryManager.AddPurchasedCategory(category);
+        purchaseHistoryManager.AddPurchasedCategory(category, productCard.productName);
         popupManager.ShowMessage("購買成功！");
 
         isPurchased = true;

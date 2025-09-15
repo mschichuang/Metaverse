@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.Networking;
-using TMPro;
 using System.Threading.Tasks;
-using SpatialSys.UnitySDK;
 
 public class TransferCoins : MonoBehaviour
 {
