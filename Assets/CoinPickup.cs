@@ -2,31 +2,21 @@ using UnityEngine;
 
 public class CoinPickup : MonoBehaviour
 {
-    public int coinValue = 10; // 這顆金幣的價值
+    public int value = 10;  // 金幣數值
 
     private void OnTriggerEnter(Collider other)
     {
+        // 確認碰到的物件是玩家
         if (other.CompareTag("Player"))
         {
-            Pickup();
+            Debug.Log("玩家撿到金幣！ +" + value);
+
+            // 增加金幣
+            PlayerWallet.Instance.AddCoins(value);
+
+            // 銷毀金幣
+            Destroy(gameObject);
         }
-    }
-
-    private void OnMouseDown()
-    {
-        // 點擊金幣也可以撿（方便滑鼠/平板測試）
-        Pickup();
-    }
-
-    private void Pickup()
-    {
-        if (PlayerWallet.Instance != null)
-        {
-            PlayerWallet.Instance.AddCoins(coinValue);
-            Debug.Log($"撿到金幣 +{coinValue}");
-        }
-
-        Destroy(gameObject); // 撿完刪除
     }
 }
 
