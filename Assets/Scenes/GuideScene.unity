@@ -3648,9 +3648,9 @@ MonoBehaviour:
     overrideFont: 0
     font: {fileID: 0}
     material: {fileID: 0}
-  backgroundColor: {r: 0, g: 0, b: 0, a: 0.5882353}
+  backgroundColor: {r: 0.13725486, g: 0.9019608, b: 0.89522845, a: 0.5882353}
   foregroundColor: {r: 1, g: 1, b: 1, a: 1}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 31d039939b2e2477aa12dff2e4531867, type: 3}
   spriteSize: 0.75
   spriteRectSize: {x: 150, y: 150}
   textDisplayRadius: 3
@@ -4308,11 +4308,11 @@ MonoBehaviour:
     overrideFont: 0
     font: {fileID: 0}
     material: {fileID: 0}
-  backgroundColor: {r: 0, g: 0, b: 0, a: 0.5882353}
+  backgroundColor: {r: 0.9019608, g: 0.13725491, b: 0.16078432, a: 0.5882353}
   foregroundColor: {r: 1, g: 1, b: 1, a: 1}
-  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: 8cee001c968228e49b8568322abd1ae4, type: 3}
   spriteSize: 0.75
-  spriteRectSize: {x: 150, y: 150}
+  spriteRectSize: {x: 150, y: 97.4315}
   textDisplayRadius: 3
   markerDisplayRadius: 15
   onTextDisplayedEvent:
@@ -5244,11 +5244,11 @@ MonoBehaviour:
     overrideFont: 0
     font: {fileID: 0}
     material: {fileID: 0}
-  backgroundColor: {r: 0, g: 0, b: 0, a: 0.5882353}
+  backgroundColor: {r: 0.16078432, g: 0.9019608, b: 0.13725491, a: 0.5882353}
   foregroundColor: {r: 1, g: 1, b: 1, a: 1}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 21bd105fe276d974cbcea3f6c108e82d, type: 3}
   spriteSize: 0.75
-  spriteRectSize: {x: 150, y: 150}
+  spriteRectSize: {x: 150, y: 100.81566}
   textDisplayRadius: 3
   markerDisplayRadius: 15
   onTextDisplayedEvent:
@@ -6395,7 +6395,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533351724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.57, y: 10.21, z: 29.22}
+  m_LocalPosition: {x: 11.09, y: 10.21, z: 25.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9154,8 +9154,8 @@ MonoBehaviour:
     font: {fileID: 0}
     material: {fileID: 0}
   backgroundColor: {r: 0, g: 0, b: 0, a: 0.5882353}
-  foregroundColor: {r: 1, g: 1, b: 1, a: 1}
-  sprite: {fileID: 0}
+  foregroundColor: {r: 0.9019608, g: 0.7647059, b: 0.13725491, a: 1}
+  sprite: {fileID: 21300000, guid: 94ae99dd014eb49e0b48741528de84c6, type: 3}
   spriteSize: 0.75
   spriteRectSize: {x: 150, y: 150}
   textDisplayRadius: 3
