@@ -11,12 +11,17 @@ public class PopupManager : MonoBehaviour
     void Awake()
     {
         popupPanel.SetActive(false);
-        closeButton.onClick.AddListener(() => popupPanel.SetActive(false));
+        closeButton.onClick.AddListener(ClosePopup);
     }
 
     public void ShowMessage(string message)
     {
         messageText.text = message;
         popupPanel.SetActive(true);
+    }
+
+    public void ClosePopup()
+    {
+        popupPanel.SetActive(false);
     }
 }
