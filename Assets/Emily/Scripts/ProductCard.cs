@@ -14,6 +14,9 @@ public class ProductCard : MonoBehaviour
     public int price;
     public string itemID;
     public string category;
+    
+    [TextArea]
+    public string spec;
 
     void Start()
     {
