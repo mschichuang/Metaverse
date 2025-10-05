@@ -22,7 +22,6 @@ public class SpecManager : MonoBehaviour
         float width = texture.width;
         float height = texture.height;
         aspectFitter.aspectRatio = width / height;
-        Debug.Log($"Texture Size: {width}x{height}, Aspect Ratio: {width / height}");
 
         specPanel.SetActive(true);
     }

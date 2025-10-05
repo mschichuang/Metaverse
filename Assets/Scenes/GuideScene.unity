@@ -137,8 +137,7 @@ GameObject:
   - component: {fileID: 14628394}
   - component: {fileID: 14628393}
   - component: {fileID: 14628398}
-  - component: {fileID: 14628399}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LittleCoin (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,8 +153,8 @@ Transform:
   m_GameObject: {fileID: 14628391}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 3.59, y: 6.45, z: -15.19}
-  m_LocalScale: {x: 0.4, y: 0.01, z: 0.4}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.40000004, y: 0.010000001, z: 0.40000004}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 937694930}
   m_RootOrder: 6
@@ -268,26 +267,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 2000
---- !u!114 &14628399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14628391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453ac99a2b5f649ac8bc612b1e3142ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncTransform: 0
-  syncRigidbody: 0
-  saveWithSpace: 0
-  destroyOnCreatorDisconnect: 0
-  destroyOnOwnerDisconnect: 0
-  isMasterClientObject: 0
-  assetID: 
-  instanceID: 3cd4fcec-5944-43d1-8e4c-a6f73790a50b
 --- !u!1 &31469595
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,8 +282,7 @@ GameObject:
   - component: {fileID: 31469601}
   - component: {fileID: 31469600}
   - component: {fileID: 31469603}
-  - component: {fileID: 31469604}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MBCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,26 +411,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 9000
---- !u!114 &31469604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31469595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453ac99a2b5f649ac8bc612b1e3142ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncTransform: 0
-  syncRigidbody: 0
-  saveWithSpace: 0
-  destroyOnCreatorDisconnect: 0
-  destroyOnOwnerDisconnect: 0
-  isMasterClientObject: 0
-  assetID: 
-  instanceID: 52f21afe-b3e7-4dd4-aad0-235c6cf6158b
 --- !u!1 &39587618 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5921108162418181683, guid: b13053af0e38568469f484bbee66d8a7,
@@ -1818,8 +1776,7 @@ GameObject:
   - component: {fileID: 423517180}
   - component: {fileID: 423517179}
   - component: {fileID: 423517184}
-  - component: {fileID: 423517185}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LittleCoin (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1835,8 +1792,8 @@ Transform:
   m_GameObject: {fileID: 423517177}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 6.87, y: 7.004, z: -18.38}
-  m_LocalScale: {x: 0.4, y: 0.01, z: 0.4}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.40000004, y: 0.010000001, z: 0.40000004}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 937694930}
   m_RootOrder: 7
@@ -1949,26 +1906,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 2000
---- !u!114 &423517185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423517177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453ac99a2b5f649ac8bc612b1e3142ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncTransform: 0
-  syncRigidbody: 0
-  saveWithSpace: 0
-  destroyOnCreatorDisconnect: 0
-  destroyOnOwnerDisconnect: 0
-  isMasterClientObject: 0
-  assetID: 
-  instanceID: bb3dfb28-59a5-43a2-8711-ac0e0bd1419b
 --- !u!1 &442833426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,8 +1921,7 @@ GameObject:
   - component: {fileID: 442833429}
   - component: {fileID: 442833428}
   - component: {fileID: 442833433}
-  - component: {fileID: 442833434}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LittleCoin (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2001,8 +1937,8 @@ Transform:
   m_GameObject: {fileID: 442833426}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -5.41, y: 7.12, z: -17.99}
-  m_LocalScale: {x: 0.4, y: 0.01, z: 0.4}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.40000004, y: 0.010000001, z: 0.40000004}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 937694930}
   m_RootOrder: 11
@@ -2115,26 +2051,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 2000
---- !u!114 &442833434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442833426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453ac99a2b5f649ac8bc612b1e3142ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncTransform: 0
-  syncRigidbody: 0
-  saveWithSpace: 0
-  destroyOnCreatorDisconnect: 0
-  destroyOnOwnerDisconnect: 0
-  isMasterClientObject: 0
-  assetID: 
-  instanceID: aa0e5f55-01f3-454c-a683-d94c7c6a5a04
 --- !u!1 &453587004
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,8 +2356,7 @@ GameObject:
   - component: {fileID: 481475638}
   - component: {fileID: 481475637}
   - component: {fileID: 481475642}
-  - component: {fileID: 481475643}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LittleCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2457,8 +2372,8 @@ Transform:
   m_GameObject: {fileID: 481475635}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 5.295, y: 7.431, z: -27.197}
-  m_LocalScale: {x: 0.4, y: 0.01, z: 0.4}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.40000004, y: 0.010000001, z: 0.40000004}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 937694930}
   m_RootOrder: 4
@@ -2571,26 +2486,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 2000
---- !u!114 &481475643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 481475635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453ac99a2b5f649ac8bc612b1e3142ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncTransform: 0
-  syncRigidbody: 0
-  saveWithSpace: 0
-  destroyOnCreatorDisconnect: 0
-  destroyOnOwnerDisconnect: 0
-  isMasterClientObject: 0
-  assetID: 
-  instanceID: 6786d4b4-2ad6-4cb9-a733-30b83eaa20a5
 --- !u!1 &482657983
 GameObject:
   m_ObjectHideFlags: 0
@@ -4172,7 +4067,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.507162, y: 3.5743608, z: 48.750755}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1822102333}
   - {fileID: 1793751630}
@@ -4277,8 +4172,7 @@ GameObject:
   - component: {fileID: 955677334}
   - component: {fileID: 955677333}
   - component: {fileID: 955677338}
-  - component: {fileID: 955677339}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LittleCoin (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4294,8 +4188,8 @@ Transform:
   m_GameObject: {fileID: 955677331}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -7.95, y: 7.331, z: -18.339}
-  m_LocalScale: {x: 0.4, y: 0.01, z: 0.4}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.40000004, y: 0.010000001, z: 0.40000004}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 937694930}
   m_RootOrder: 12
@@ -4408,26 +4302,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 2000
---- !u!114 &955677339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 955677331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453ac99a2b5f649ac8bc612b1e3142ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncTransform: 0
-  syncRigidbody: 0
-  saveWithSpace: 0
-  destroyOnCreatorDisconnect: 0
-  destroyOnOwnerDisconnect: 0
-  isMasterClientObject: 0
-  assetID: 
-  instanceID: d8394acf-e2d1-4572-8788-d1cf2fd4e80a
 --- !u!1 &969441546
 GameObject:
   m_ObjectHideFlags: 0
@@ -6630,8 +6504,7 @@ GameObject:
   - component: {fileID: 1555258540}
   - component: {fileID: 1555258539}
   - component: {fileID: 1555258544}
-  - component: {fileID: 1555258545}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LittleCoin (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6647,8 +6520,8 @@ Transform:
   m_GameObject: {fileID: 1555258537}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 1.86, y: 6.59, z: -13.2}
-  m_LocalScale: {x: 0.4, y: 0.01, z: 0.4}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.40000004, y: 0.010000001, z: 0.40000004}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 937694930}
   m_RootOrder: 5
@@ -6761,26 +6634,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 2000
---- !u!114 &1555258545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1555258537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453ac99a2b5f649ac8bc612b1e3142ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncTransform: 0
-  syncRigidbody: 0
-  saveWithSpace: 0
-  destroyOnCreatorDisconnect: 0
-  destroyOnOwnerDisconnect: 0
-  isMasterClientObject: 0
-  assetID: 
-  instanceID: adfe734e-bda4-423f-8f69-f5ebe40b1b83
 --- !u!1 &1558309123
 GameObject:
   m_ObjectHideFlags: 0
@@ -6991,8 +6844,7 @@ GameObject:
   - component: {fileID: 1645178610}
   - component: {fileID: 1645178609}
   - component: {fileID: 1645178614}
-  - component: {fileID: 1645178615}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LittleCoin (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7008,8 +6860,8 @@ Transform:
   m_GameObject: {fileID: 1645178607}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -2.04, y: 6.56, z: -14.31}
-  m_LocalScale: {x: 0.4, y: 0.01, z: 0.4}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.40000004, y: 0.010000001, z: 0.40000004}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 937694930}
   m_RootOrder: 9
@@ -7122,26 +6974,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 2000
---- !u!114 &1645178615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645178607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453ac99a2b5f649ac8bc612b1e3142ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncTransform: 0
-  syncRigidbody: 0
-  saveWithSpace: 0
-  destroyOnCreatorDisconnect: 0
-  destroyOnOwnerDisconnect: 0
-  isMasterClientObject: 0
-  assetID: 
-  instanceID: e060c190-6367-4c8e-b23a-8472444c4311
 --- !u!1 &1665610325
 GameObject:
   m_ObjectHideFlags: 0
@@ -7777,8 +7609,7 @@ GameObject:
   - component: {fileID: 1772532450}
   - component: {fileID: 1772532449}
   - component: {fileID: 1772532454}
-  - component: {fileID: 1772532455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LittleCoin (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7794,8 +7625,8 @@ Transform:
   m_GameObject: {fileID: 1772532447}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -0.58, y: 6.34, z: -12.82}
-  m_LocalScale: {x: 0.4, y: 0.01, z: 0.4}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.40000004, y: 0.010000001, z: 0.40000004}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 937694930}
   m_RootOrder: 8
@@ -7908,26 +7739,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 2000
---- !u!114 &1772532455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772532447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453ac99a2b5f649ac8bc612b1e3142ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncTransform: 0
-  syncRigidbody: 0
-  saveWithSpace: 0
-  destroyOnCreatorDisconnect: 0
-  destroyOnOwnerDisconnect: 0
-  isMasterClientObject: 0
-  assetID: 
-  instanceID: 0e567873-51d4-4c2d-8326-e393f622d262
 --- !u!1 &1781520474
 GameObject:
   m_ObjectHideFlags: 0
@@ -7943,8 +7754,7 @@ GameObject:
   - component: {fileID: 1781520477}
   - component: {fileID: 1781520476}
   - component: {fileID: 1781520481}
-  - component: {fileID: 1781520482}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LittleCoin (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7960,8 +7770,8 @@ Transform:
   m_GameObject: {fileID: 1781520474}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -10.42, y: 7.431, z: -17.63}
-  m_LocalScale: {x: 0.4, y: 0.01, z: 0.4}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.40000004, y: 0.010000001, z: 0.40000004}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 937694930}
   m_RootOrder: 13
@@ -8074,26 +7884,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 2000
---- !u!114 &1781520482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781520474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453ac99a2b5f649ac8bc612b1e3142ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncTransform: 0
-  syncRigidbody: 0
-  saveWithSpace: 0
-  destroyOnCreatorDisconnect: 0
-  destroyOnOwnerDisconnect: 0
-  isMasterClientObject: 0
-  assetID: 
-  instanceID: 07047b78-172f-4e7e-ac21-4f392b14b865
 --- !u!1 &1784287020
 GameObject:
   m_ObjectHideFlags: 0
@@ -8257,8 +8047,7 @@ GameObject:
   - component: {fileID: 1793751635}
   - component: {fileID: 1793751634}
   - component: {fileID: 1793751637}
-  - component: {fileID: 1793751638}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RAMCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8387,26 +8176,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 9000
---- !u!114 &1793751638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793751629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453ac99a2b5f649ac8bc612b1e3142ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncTransform: 0
-  syncRigidbody: 0
-  saveWithSpace: 0
-  destroyOnCreatorDisconnect: 0
-  destroyOnOwnerDisconnect: 0
-  isMasterClientObject: 0
-  assetID: 
-  instanceID: 9de996d6-af9a-4389-8d5a-61ab497943aa
 --- !u!1 &1809096853
 GameObject:
   m_ObjectHideFlags: 0
@@ -8714,8 +8483,7 @@ GameObject:
   - component: {fileID: 1822102341}
   - component: {fileID: 1822102342}
   - component: {fileID: 1822102343}
-  - component: {fileID: 1822102344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CPUCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8845,26 +8613,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 9000
---- !u!114 &1822102344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1822102332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453ac99a2b5f649ac8bc612b1e3142ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncTransform: 0
-  syncRigidbody: 0
-  saveWithSpace: 0
-  destroyOnCreatorDisconnect: 0
-  destroyOnOwnerDisconnect: 0
-  isMasterClientObject: 0
-  assetID: 
-  instanceID: f23c61f1-5bad-4dc5-97d5-95c7d39b7df4
 --- !u!1 &1854083793
 GameObject:
   m_ObjectHideFlags: 0
@@ -9172,8 +8920,7 @@ GameObject:
   - component: {fileID: 1995871590}
   - component: {fileID: 1995871589}
   - component: {fileID: 1995871594}
-  - component: {fileID: 1995871595}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LittleCoin (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9189,8 +8936,8 @@ Transform:
   m_GameObject: {fileID: 1995871587}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -4.16, y: 7, z: -15.77}
-  m_LocalScale: {x: 0.4, y: 0.01, z: 0.4}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.40000004, y: 0.010000001, z: 0.40000004}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 937694930}
   m_RootOrder: 10
@@ -9303,26 +9050,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 2000
---- !u!114 &1995871595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1995871587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453ac99a2b5f649ac8bc612b1e3142ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncTransform: 0
-  syncRigidbody: 0
-  saveWithSpace: 0
-  destroyOnCreatorDisconnect: 0
-  destroyOnOwnerDisconnect: 0
-  isMasterClientObject: 0
-  assetID: 
-  instanceID: 1a2e06e1-06f2-4e62-b0bd-4852ee91e2d1
 --- !u!1 &1996730800
 GameObject:
   m_ObjectHideFlags: 0
@@ -9338,8 +9065,7 @@ GameObject:
   - component: {fileID: 1996730806}
   - component: {fileID: 1996730805}
   - component: {fileID: 1996730808}
-  - component: {fileID: 1996730809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SSDCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9468,26 +9194,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 9000
---- !u!114 &1996730809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996730800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453ac99a2b5f649ac8bc612b1e3142ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncTransform: 0
-  syncRigidbody: 0
-  saveWithSpace: 0
-  destroyOnCreatorDisconnect: 0
-  destroyOnOwnerDisconnect: 0
-  isMasterClientObject: 0
-  assetID: 
-  instanceID: 29f75205-da96-4981-b8ef-053e9a47fb4f
 --- !u!1 &2020137842
 GameObject:
   m_ObjectHideFlags: 0
