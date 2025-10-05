@@ -14,9 +14,8 @@ public class ProductCard : MonoBehaviour
     public int price;
     public string itemID;
     public string category;
-    
-    [TextArea]
-    public string spec;
+    public RawImage specImage;
+    public Texture specTexture;
 
     void Start()
     {
@@ -28,5 +27,6 @@ public class ProductCard : MonoBehaviour
         nameText.text = productName;
         productImage.sprite = productSprite;
         priceText.text = price.ToString();
+        specImage.texture = specTexture;
     }
 }

@@ -92,7 +92,7 @@ public class BuyManager : MonoBehaviour
 
     private void ShowSpec()
     {
-        string specText = productCard.spec;
-        specManager.ShowSpec(specText);
+        Texture specTexture = productCard.specTexture;
+        specManager.ShowSpec(specTexture);
     }
 }

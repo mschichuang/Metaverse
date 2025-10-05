@@ -7,7 +7,6 @@ public class Buy : MonoBehaviour
     public ProductCard productCard;
     public CoinUIManager coinUIManager;
     public PopupManager popupManager;
-    public SpecManager specManager;
     public PurchaseHistoryManager purchaseHistoryManager;
     public Button actionButton;
     public Button infoButton;
@@ -28,7 +27,6 @@ public class Buy : MonoBehaviour
     void Start()
     {
         actionButton.onClick.AddListener(HandleAction);
-        infoButton.onClick.AddListener(ShowSpec);
         UpdateButton();
     }
 
@@ -101,12 +99,6 @@ public class Buy : MonoBehaviour
     {
         actionButton.GetComponentInChildren<TMP_Text>().text = isPurchased ? "取消" : "購買";
         actionButton.GetComponent<Image>().color = isPurchased ? new Color32(220, 50, 70, 255) : new Color32(255, 255, 50, 255);
-    }
-
-    private void ShowSpec()
-    {
-        string specText = productCard.spec;
-        specManager.ShowSpec(specText);
     }
 }
 

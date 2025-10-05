@@ -238,9 +238,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u6280\u5609 AORUS RTX4060 ELITE 8G"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 5de856797f1454fe9b59ac024430ad66, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -630,10 +640,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 112.5, y: -50}
+  m_SizeDelta: {x: 225, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &73692827
 MonoBehaviour:
@@ -764,10 +774,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1012.5, y: -50}
+  m_SizeDelta: {x: 225, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &103956749
 MonoBehaviour:
@@ -1890,10 +1900,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 337.5, y: -50}
+  m_SizeDelta: {x: 225, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &144461131
 MonoBehaviour:
@@ -2021,7 +2031,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1892452877}
+  - {fileID: 1777479193}
   - {fileID: 1189242520}
   m_Father: {fileID: 1012687993}
   m_RootOrder: 3
@@ -2029,7 +2039,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 500}
+  m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &150521413
 MonoBehaviour:
@@ -2097,8 +2107,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   specPanel: {fileID: 150521411}
-  specText: {fileID: 1892452878}
   closeButton: {fileID: 1189242522}
+  specImage: {fileID: 1777479194}
+  aspectFitter: {fileID: 1777479196}
 --- !u!1 &157130543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2293,9 +2304,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u6D77\u97FB FOCUS GX-850"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 66037ac708a0d4ab09712530aa651aa9, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -2837,10 +2858,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 562.5, y: -50}
+  m_SizeDelta: {x: 225, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &338164040
 MonoBehaviour:
@@ -3083,10 +3104,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1687.5, y: -50}
+  m_SizeDelta: {x: 225, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &386616502
 MonoBehaviour:
@@ -3424,9 +3445,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u4E09\u661F 990 PRO 4TB\u542B\u6563\u71B1\u7247"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 0a74d283807974b8b9f325f1cbdfae50, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -3610,9 +3641,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u91D1\u58EB\u9813 64GB DDR5-6400/CL32 FURY Beast"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: b4933ece8ef184624827316ac7b4bf7b, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -3796,9 +3837,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u6D77\u97FB VERTEX PX-1200"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 85a75e662e1fb4effb7b488ff793978d, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -4028,9 +4079,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u6280\u5609 AORUS RTX4090 MASTER 24G"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: b19031a40612543cb88cd24f47570e55, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -4530,15 +4591,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u83EF\u78A9 ROG STRIX B760-G GAMING WIFI"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 2eec63868d53a4659bfbd3c2606671ce, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
       objectReference: {fileID: 21300000, guid: c5694ea58ce71464aa25f00343bae16f,
         type: 3}
+    - target: {fileID: 8477496003818412794, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477496003818412794, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: m_Name
@@ -5187,9 +5268,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u8C93\u982D\u9DF9 NH-D15"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: dd957bf50c6394284b876d22fc318b7a, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -5409,9 +5500,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: Intel i9-14900K
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 815555e96eb694eeb9a7cd9b53960c86, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -5993,9 +6094,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: Intel i7-14700K
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 7017e3dae6c4f4fd89c49927477b7127, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -6169,15 +6280,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u83EF\u78A9 ROG MAXIMUS Z790 HERO"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 29010f9f49b5845fc9d23b3784178c92, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
       value: 
       objectReference: {fileID: 21300000, guid: 6fa2cd00538424cf3b03e5c15d9b7c2a,
         type: 3}
+    - target: {fileID: 8477496003818412794, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477496003818412794, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: m_Name
@@ -6619,9 +6750,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "Phanteks NV7\u91D1"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: bc29bd4aaabed4e97a677ce8fcce51b9, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -7331,9 +7472,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u6D77\u97FB PRIME TX-1300 ATX3.0"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 840f29bd8c5aa4bc89b73af448496ea2, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -8187,7 +8338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1432011771
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8328,10 +8479,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1462.5, y: -50}
+  m_SizeDelta: {x: 225, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1436012852
 MonoBehaviour:
@@ -9011,10 +9162,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 787.5, y: -50}
+  m_SizeDelta: {x: 225, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1584162539
 MonoBehaviour:
@@ -9867,9 +10018,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u91D1\u58EB\u9813 32GB DDR5-6800/CL34 FURY Beast"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: a148e6c3e808e4316a775d14f6bffe75, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -10189,9 +10350,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u83EF\u78A9 PRO WS W680M-ACE SE"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 53d6dea9423fa45b682f0363c9b4705f, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -10573,6 +10744,94 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1777479192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1777479193}
+  - component: {fileID: 1777479195}
+  - component: {fileID: 1777479194}
+  - component: {fileID: 1777479196}
+  m_Layer: 5
+  m_Name: RawImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1777479193
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777479192}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 150521412}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1777479194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777479192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1777479195
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777479192}
+  m_CullTransparentMesh: 1
+--- !u!114 &1777479196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777479192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 3
+  m_AspectRatio: 1
 --- !u!1 &1789101109
 GameObject:
   m_ObjectHideFlags: 0
@@ -10608,10 +10867,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1237.5, y: -50}
+  m_SizeDelta: {x: 225, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1789101111
 MonoBehaviour:
@@ -10827,9 +11086,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u6280\u5609 AORUS RTX4080 SUPER MASTER 16G"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 16b5d9f5e9f4d4d09acf72c516998441, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -11403,25 +11672,14 @@ PrefabInstance:
       objectReference: {fileID: 46180580}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
-      propertyPath: itemID
-      value: advad0trsi7oogczre0qk
-      objectReference: {fileID: 0}
-    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
-        type: 3}
-      propertyPath: category
-      value: "\u6A5F\u6BBC"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
-        type: 3}
-      propertyPath: productName
-      value: "Phanteks NV7\u9280"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
-        type: 3}
-      propertyPath: productSprite
+      propertyPath: specImage
       value: 
-      objectReference: {fileID: 21300000, guid: 02922b07f8ab342c59cbbcc7a4bf111a,
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: bc29bd4aaabed4e97a677ce8fcce51b9, type: 3}
     - target: {fileID: 8477496003970375584, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: m_Name
@@ -11835,9 +12093,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u4E09\u661F 980 PRO 1TB"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: bc18a77ebc45a471ebeda4eb64ca6cab, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -12021,9 +12289,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u4E09\u661F 990 PRO 2TB\u542B\u6563\u71B1\u7247"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: fdb2cfa4cd7ab4bb5acd67b4f9c2d311, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -12163,142 +12441,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1888264195}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1892452876
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1892452877}
-  - component: {fileID: 1892452879}
-  - component: {fileID: 1892452878}
-  m_Layer: 5
-  m_Name: SpecText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1892452877
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1892452876}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 150521412}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 900, y: 400}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1892452878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1892452876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 85a56d10179844b9f8eec2ee143e27c7, type: 2}
-  m_sharedMaterial: {fileID: -4388301628063014959, guid: 85a56d10179844b9f8eec2ee143e27c7,
-    type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
-  m_fontWeight: 400
-  m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 1
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1892452879
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1892452876}
-  m_CullTransparentMesh: 1
 --- !u!1001 &1899463156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12991,9 +13133,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: "\u91D1\u58EB\u9813 32GB DDR5-5600/CL36 FURY Beast"
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 1ca8da654db5d43ad9021a41986bade6, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite
@@ -13328,9 +13480,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: specImage
+      value: 
+      objectReference: {fileID: 1777479194}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: productName
       value: Intel i5-14500
       objectReference: {fileID: 0}
+    - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: specTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: f4edb1143cddf4933ab03a2fdbd74ccb, type: 3}
     - target: {fileID: 8284472442419855268, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: productSprite

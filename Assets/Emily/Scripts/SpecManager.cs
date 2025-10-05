@@ -5,8 +5,9 @@ using UnityEngine.UI;
 public class SpecManager : MonoBehaviour
 {
     public GameObject specPanel;
-    public TMP_Text specText;
     public Button closeButton;
+    public RawImage specImage;
+    public AspectRatioFitter aspectFitter;
 
     void Awake()
     {
@@ -14,9 +15,15 @@ public class SpecManager : MonoBehaviour
         closeButton.onClick.AddListener(() => specPanel.SetActive(false));
     }
 
-    public void ShowSpec(string specTextContent)
+    public void ShowSpec(Texture texture)
     {
-        specText.text = specTextContent;
+        specImage.texture = texture;
+
+        float width = texture.width;
+        float height = texture.height;
+        aspectFitter.aspectRatio = width / height;
+        Debug.Log($"Texture Size: {width}x{height}, Aspect Ratio: {width / height}");
+
         specPanel.SetActive(true);
     }
 }

@@ -627,12 +627,13 @@ MonoBehaviour:
   nameText: {fileID: 8477496003818412794}
   productImage: {fileID: 8477496004547337909}
   priceText: {fileID: 8477496003785149942}
-  productName: "Phanteks NV7\u9ED1"
-  productSprite: {fileID: 21300000, guid: f998c8baa62ac40a3b13eaf06535a158, type: 3}
+  productName: "Phanteks NV7\u9280"
+  productSprite: {fileID: 21300000, guid: 02922b07f8ab342c59cbbcc7a4bf111a, type: 3}
   price: 6790
-  itemID: 
-  category: 
-  spec: 
+  itemID: advad0trsi7oogczre0qk
+  category: "\u6A5F\u6BBC"
+  specImage: {fileID: 0}
+  specTexture: {fileID: 0}
 --- !u!114 &4762889977315484471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,6 +649,7 @@ MonoBehaviour:
   productCard: {fileID: 0}
   coinUIManager: {fileID: 0}
   popupManager: {fileID: 0}
+  specManager: {fileID: 0}
   purchaseHistoryManager: {fileID: 0}
   actionButton: {fileID: 8477496004453142289}
   infoButton: {fileID: 3907231383255926111}
