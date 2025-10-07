@@ -2,18 +2,11 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public int coinValue = 1; // 這顆金幣值多少
+    public float rotateSpeed = 90f;
+    public int coinValue = 1;
 
-    private void OnTriggerEnter(Collider other)
+    void Update()
     {
-        // 判斷玩家名稱是否包含 "Avatar"
-        if (other.gameObject.name.Contains("Avatar"))
-        {
-            // 更新左上角數字
-            CoinManager.Instance.AddCoin(coinValue);
-
-            // 金幣消失
-            Destroy(gameObject);
-        }
+        transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
     }
 }
