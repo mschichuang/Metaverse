@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class UnlockManager : MonoBehaviour
+public class Unlock1Manager : MonoBehaviour
 {
     public int price = 50; // 解鎖需要的金幣
     private bool isUnlocked = false;
