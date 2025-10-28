@@ -1,21 +1,21 @@
-using UnityEngine;
+嚜簑sing UnityEngine;
+using System.Threading.Tasks;
 
 public class UnlockManager : MonoBehaviour
 {
-    public int price = 10;  // 這個物件的價格
+    public int price = 10;
     private bool unlocked = false;
 
     public bool IsUnlocked() => unlocked;
 
-    // 嘗試解鎖
-    public bool TryUnlock()
+    public async Task<bool> TryUnlock()
     {
-        int diamonds = PlayerPrefs.GetInt("Diamonds", 0);
+        int diamonds = await SaveSystem.GetDiamonds();
 
         if (diamonds >= price)
         {
             diamonds -= price;
-            PlayerPrefs.SetInt("Diamonds", diamonds);
+            await SaveSystem.SetDiamonds(diamonds);
             unlocked = true;
             return true;
         }
@@ -25,3 +25,4 @@ public class UnlockManager : MonoBehaviour
         }
     }
 }
+
