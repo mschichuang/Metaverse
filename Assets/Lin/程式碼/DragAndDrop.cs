@@ -11,6 +11,7 @@ public class DragAndDrop : MonoBehaviour
     // 在 Inspector 指派 PurchaseUIManager（Canvas 上的腳本）
     public MyPurchaseUIManager purchaseUI;
 
+
     void Start()
     {
         unlockManager = GetComponent<UnlockManager>();
@@ -57,5 +58,4 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 }
-
 

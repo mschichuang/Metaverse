@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class PlayerWallet : MonoBehaviour
 {
-    public static PlayerWallet Instance { get; private set; }
-
-    private int coins = 0;
+    public static PlayerWallet Instance;
+    public int coins = 0;
+    public TextMeshPro coinText; // 🔹 3D 世界物件 TextMeshPro
 
     private void Awake()
     {
@@ -12,32 +13,29 @@ public class PlayerWallet : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    // ✅ 新增：設定金幣數量（載入時使用）
-    public void SetCoins(int value)
+    private void Start() => UpdateCoinUI();
+
+    public void AddCoins(int amount)
     {
-        coins = Mathf.Max(0, value);
+        coins += amount;
+        UpdateCoinUI();
     }
 
-    // ✅ 新增：取得目前金幣數量
-    public int GetCoins()
-    {
-        return coins;
-    }
-
-    // ✅ 扣錢（成功回傳 true）
     public bool SpendCoins(int amount)
     {
         if (coins >= amount)
         {
             coins -= amount;
+            UpdateCoinUI();
             return true;
         }
         return false;
     }
 
-    // ✅ 增加金幣
-    public void AddCoins(int amount)
+    private void UpdateCoinUI()
     {
-        coins += Mathf.Max(0, amount);
+        if (coinText != null)
+            coinText.text = "Coins: " + coins;
     }
 }
+

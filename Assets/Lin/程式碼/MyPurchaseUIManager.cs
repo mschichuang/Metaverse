@@ -1,51 +1,48 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class MyPurchaseUIManager : MonoBehaviour
 {
-    public UnlockManager unlockManager;
-    public Button purchaseButton;
-    public TMP_Text coinText;
+    public GameObject panel;
+    public Text itemNameText;
+    public Text priceText;
+    public Button buyButton;
+    public Button cancelButton;
 
-    private void Start()
+    private UnlockManager currentUnlockItem;
+
+    void Start()
     {
-        // 初始化玩家金幣，直接用 PlayerWallet 預設值
-        if (PlayerWallet.Instance == null)
+        panel.SetActive(false);
+        buyButton.onClick.AddListener(OnBuyClicked);
+        cancelButton.onClick.AddListener(OnCancelClicked);
+    }
+
+    public void ShowPurchaseUI(UnlockManager unlockItem, int price)
+    {
+        currentUnlockItem = unlockItem;
+        itemNameText.text = unlockItem.gameObject.name;
+        priceText.text = $"價格：{price} 鑽石";
+        panel.SetActive(true);
+    }
+
+    private async void OnBuyClicked()
+    {
+        if (currentUnlockItem != null)
         {
-            Debug.LogError("PlayerWallet 未初始化");
-            return;
-        }
+            bool success = await currentUnlockItem.TryUnlock(); // ✅ 等待非同步結果
+            if (success)
+                Debug.Log($"{currentUnlockItem.gameObject.name} 已成功解鎖！");
+            else
+                Debug.Log("鑽石不足，購買失敗。");
 
-        purchaseButton.onClick.AddListener(OnPurchaseClick);
-        HidePurchaseUI(); // 初始隱藏購買 UI
-        UpdateUI();
-    }
-
-    private void OnPurchaseClick()
-    {
-        if (unlockManager != null && unlockManager.TryUnlock())
-        {
-            // 不存檔，直接更新金幣
-            UpdateUI();
-            HidePurchaseUI();
+            panel.SetActive(false);
         }
     }
 
-    public void ShowPurchaseUI(UnlockManager manager, int price)
+    private void OnCancelClicked()
     {
-        unlockManager = manager;
-        coinText.text = $"💰 {PlayerWallet.Instance.GetCoins()} 金幣\n解鎖價格：{price}";
-        purchaseButton.gameObject.SetActive(true);
-    }
-
-    public void HidePurchaseUI()
-    {
-        purchaseButton.gameObject.SetActive(false);
-    }
-
-    private void UpdateUI()
-    {
-        coinText.text = $"💰 {PlayerWallet.Instance.GetCoins()} 金幣";
+        panel.SetActive(false);
     }
 }
+

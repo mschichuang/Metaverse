@@ -1,5 +1,4 @@
-using UnityEngine;
-using SpatialSys.UnitySDK;
+﻿using UnityEngine;
 using System.Threading.Tasks;
 
 public class UnlockManager : MonoBehaviour
@@ -11,12 +10,12 @@ public class UnlockManager : MonoBehaviour
 
     public async Task<bool> TryUnlock()
     {
-        int diamonds = await SaveSystem.GetInt("Diamonds", 0);
+        int diamonds = await SaveSystem.GetDiamonds();
 
         if (diamonds >= price)
         {
             diamonds -= price;
-            await SaveSystem.SetInt("Diamonds", diamonds);
+            await SaveSystem.SetDiamonds(diamonds);
             unlocked = true;
             return true;
         }
