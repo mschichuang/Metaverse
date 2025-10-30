@@ -26,11 +26,19 @@ public class MyPurchaseUIManager : MonoBehaviour
         panel.SetActive(true);
     }
 
+<<<<<<< HEAD
     private void OnBuyClicked()
     {
         if (currentUnlockItem != null)
         {
             bool success = currentUnlockItem.TryUnlock();
+=======
+    private async void OnBuyClicked()
+    {
+        if (currentUnlockItem != null)
+        {
+            bool success = await currentUnlockItem.TryUnlock(); // ✅ 等待非同步結果
+>>>>>>> parent of 30a45e6 (更)
             if (success)
                 Debug.Log($"{currentUnlockItem.gameObject.name} 已成功解鎖！");
             else
@@ -45,3 +53,4 @@ public class MyPurchaseUIManager : MonoBehaviour
         panel.SetActive(false);
     }
 }
+
