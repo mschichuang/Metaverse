@@ -560,10 +560,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 112.5, y: -50}
-  m_SizeDelta: {x: 225, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &73692827
 MonoBehaviour:
@@ -609,8 +609,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TabManager, NewAssembly
+      - m_Target: {fileID: 691836934}
+        m_TargetAssemblyTypeName: ShopManager, NewAssembly
         m_MethodName: ShowPage
         m_Mode: 3
         m_Arguments:
@@ -829,10 +829,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1012.5, y: -50}
-  m_SizeDelta: {x: 225, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &103956749
 MonoBehaviour:
@@ -878,8 +878,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TabManager, NewAssembly
+      - m_Target: {fileID: 691836934}
+        m_TargetAssemblyTypeName: ShopManager, NewAssembly
         m_MethodName: ShowPage
         m_Mode: 3
         m_Arguments:
@@ -1955,10 +1955,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 337.5, y: -50}
-  m_SizeDelta: {x: 225, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &144461131
 MonoBehaviour:
@@ -2004,8 +2004,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TabManager, NewAssembly
+      - m_Target: {fileID: 691836934}
+        m_TargetAssemblyTypeName: ShopManager, NewAssembly
         m_MethodName: ShowPage
         m_Mode: 3
         m_Arguments:
@@ -3048,10 +3048,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 562.5, y: -50}
-  m_SizeDelta: {x: 225, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &338164040
 MonoBehaviour:
@@ -3097,8 +3097,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TabManager, NewAssembly
+      - m_Target: {fileID: 691836934}
+        m_TargetAssemblyTypeName: ShopManager, NewAssembly
         m_MethodName: ShowPage
         m_Mode: 3
         m_Arguments:
@@ -3294,10 +3294,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1687.5, y: -50}
-  m_SizeDelta: {x: 225, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &386616502
 MonoBehaviour:
@@ -3343,8 +3343,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TabManager, NewAssembly
+      - m_Target: {fileID: 691836934}
+        m_TargetAssemblyTypeName: ShopManager, NewAssembly
         m_MethodName: ShowPage
         m_Mode: 3
         m_Arguments:
@@ -5024,7 +5024,7 @@ RectTransform:
   m_Children:
   - {fileID: 908128956}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5448,6 +5448,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 100
+--- !u!1 &691836932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 691836933}
+  - component: {fileID: 691836934}
+  m_Layer: 0
+  m_Name: Emily'sManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &691836933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691836932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 672.5, y: 440, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &691836934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691836932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ebf656dd5d44d5dabf11e490a73188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pages:
+  - {fileID: 203173421}
+  - {fileID: 1736926382}
+  - {fileID: 1483897220}
+  - {fileID: 702569820}
+  - {fileID: 223319087}
+  - {fileID: 1999178856}
+  - {fileID: 844946630}
+  - {fileID: 1184430402}
 --- !u!1 &702569820
 GameObject:
   m_ObjectHideFlags: 0
@@ -7021,7 +7074,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1012687989
 GameObject:
@@ -7121,7 +7174,7 @@ RectTransform:
   - {fileID: 1140722507}
   - {fileID: 150521412}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8929,7 +8982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1432011771
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9070,10 +9123,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1462.5, y: -50}
-  m_SizeDelta: {x: 225, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1436012852
 MonoBehaviour:
@@ -9119,8 +9172,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TabManager, NewAssembly
+      - m_Target: {fileID: 691836934}
+        m_TargetAssemblyTypeName: ShopManager, NewAssembly
         m_MethodName: ShowPage
         m_Mode: 3
         m_Arguments:
@@ -10010,10 +10063,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 787.5, y: -50}
-  m_SizeDelta: {x: 225, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1584162539
 MonoBehaviour:
@@ -10059,8 +10112,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TabManager, NewAssembly
+      - m_Target: {fileID: 691836934}
+        m_TargetAssemblyTypeName: ShopManager, NewAssembly
         m_MethodName: ShowPage
         m_Mode: 3
         m_Arguments:
@@ -11715,10 +11768,10 @@ RectTransform:
   m_Father: {fileID: 1058490036}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1237.5, y: -50}
-  m_SizeDelta: {x: 225, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1789101111
 MonoBehaviour:
@@ -11764,8 +11817,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TabManager, NewAssembly
+      - m_Target: {fileID: 691836934}
+        m_TargetAssemblyTypeName: ShopManager, NewAssembly
         m_MethodName: ShowPage
         m_Mode: 3
         m_Arguments:
