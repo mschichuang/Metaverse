@@ -9,8 +9,7 @@ public class DragAndDrop : MonoBehaviour
     private UnlockManager unlockManager;
 
     // 在 Inspector 指派 PurchaseUIManager（Canvas 上的腳本）
-    public MyPurchaseUIManager purchaseUI;
-
+    public PurchaseUIManager purchaseUI;
 
     void Start()
     {
