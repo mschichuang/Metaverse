@@ -65,15 +65,14 @@ public class DragAndDropManager1 : MonoBehaviour
             // ✅ 零件 ID 符合才能組裝
             if (socket.allowedPartID == part.partID)
             {
-                // 吸附對齊
+                // ✅ 只吸附位置，不改變原本旋轉
                 partObj.transform.position = socket.transform.position;
-                partObj.transform.rotation = socket.transform.rotation;
 
-                // 設為子物件（若啟用）
+                // ✅ 設為子物件（若啟用）
                 if (socket.attachAsChild)
                     partObj.transform.SetParent(socket.transform);
 
-                // 鎖定
+                // ✅ 鎖定剛體
                 if (socket.lockTransform)
                 {
                     Rigidbody rb = partObj.GetComponent<Rigidbody>();

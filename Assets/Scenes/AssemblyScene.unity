@@ -3037,7 +3037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14465daa21c6804697092be83f34964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedPartID: 
+  allowedPartID: Wheel01
   attachAsChild: 1
   lockTransform: 1
 --- !u!135 &330610752
@@ -5476,6 +5476,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &594100459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594100451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4e11d07266eb94a8203df1c2b2da21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partID: Wheel01
+  anchorPoint: {fileID: 330610750}
+--- !u!114 &594100460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594100451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f454a31023302042a0c69287094ebad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &691836932
 GameObject:
   m_ObjectHideFlags: 0
@@ -7717,7 +7743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4e11d07266eb94a8203df1c2b2da21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partID: wheei
+  partID: Wheel01
   anchorPoint: {fileID: 330610750}
 --- !u!114 &1127159947
 MonoBehaviour:
@@ -8623,17 +8649,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f3dcc295090f8504e971008d97b9ec42,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f3dcc295090f8504e971008d97b9ec42,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f3dcc295090f8504e971008d97b9ec42,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f3dcc295090f8504e971008d97b9ec42,
         type: 3}
