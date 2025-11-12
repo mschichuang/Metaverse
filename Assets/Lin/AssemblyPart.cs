@@ -9,33 +9,26 @@ public class AssemblyPart : MonoBehaviour
     public string partID;
 
     private Rigidbody rb;
-    private bool isGrabbed = false;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    // Spatial 抓取開始
     public void OnGrab()
     {
-        isGrabbed = true;
-        rb.isKinematic = true;  // 抓起時暫停物理
+        rb.isKinematic = true;
     }
 
-    // Spatial 放開
     public void OnRelease()
     {
-        isGrabbed = false;
-        rb.isKinematic = false; // 放開時恢復物理
-
+        rb.isKinematic = false;
         TrySnapToSocket();
     }
 
-    // 嘗試吸附到插槽
     private void TrySnapToSocket()
     {
-        float snapRadius = 0.25f;
+        float snapRadius = 0.6f;
         Collider[] hits = Physics.OverlapSphere(transform.position, snapRadius);
 
         foreach (var hit in hits)
@@ -43,17 +36,22 @@ public class AssemblyPart : MonoBehaviour
             AssemblySocket1 socket = hit.GetComponent<AssemblySocket1>();
             if (socket != null && socket.allowedPartID == partID)
             {
-                // ✅ 對應成功 → 吸附位置
-                transform.position = socket.transform.position;
+                // 🔍 尋找子物件 SnapPoint
+                Transform snapPoint = socket.transform.Find("SnapPoint");
 
-                // ✅ 保留原角度（不改旋轉）
-                // 如果要轉向，可改成：
-                // transform.rotation = socket.transform.rotation;
+                if (snapPoint != null)
+                {
+                    transform.position = snapPoint.position;
+                    transform.rotation = snapPoint.rotation;
+                }
+                else
+                {
+                    transform.position = socket.transform.position;
+                    transform.rotation = socket.transform.rotation;
+                }
 
-                // ✅ 設為子物件（固定）
+                // ✅ 設為子物件、鎖定
                 transform.SetParent(socket.transform);
-
-                // ✅ 鎖定不再掉落
                 rb.isKinematic = true;
                 rb.useGravity = false;
 
@@ -65,4 +63,5 @@ public class AssemblyPart : MonoBehaviour
         Debug.Log($"❌ {name} 沒有找到匹配插槽");
     }
 }
+
 
