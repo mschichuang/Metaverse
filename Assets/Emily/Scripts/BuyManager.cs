@@ -13,6 +13,7 @@ public class BuyManager : MonoBehaviour
     public Button actionButton;
     public Button infoButton;
     private bool isPurchased = false;
+    private bool hasViewedSpec = false;
 
     void Awake()
     {
@@ -23,11 +24,18 @@ public class BuyManager : MonoBehaviour
     {
         actionButton.onClick.AddListener(HandleAction);
         infoButton.onClick.AddListener(ShowSpec);
+
         UpdateButton();
     }
 
     private void HandleAction()
     {
+        if (!hasViewedSpec)
+        {
+            popupManager.ShowMessage("請先查看此元件的規格後再進行購買。");
+            return;
+        }
+
         if (isPurchased)
         {
             ReturnItem();
@@ -58,41 +66,44 @@ public class BuyManager : MonoBehaviour
 
         coinUIManager.SetCoins(currentCoins - price);
 
-        string itemID = productCard.itemID;
-        SpatialBridge.inventoryService.AddItem(itemID, 1);
-
+        SpatialBridge.inventoryService.AddItem(productCard.itemID, 1);
         purchaseHistoryManager.AddPurchasedCategory(category, productCard.productName);
-        popupManager.ShowMessage("購買成功！");
 
+        popupManager.ShowMessage("購買成功！");
         isPurchased = true;
         UpdateButton();
     }
 
     private void ReturnItem()
     {
+        SpatialBridge.inventoryService.DeleteItem(productCard.itemID);
+
         int price = productCard.price;
         string category = productCard.category;
-
-        SpatialBridge.inventoryService.DeleteItem(productCard.itemID);
 
         coinUIManager.SetCoins(coinUIManager.CurrentCoins + price);
         purchaseHistoryManager.RemovePurchasedCategory(category);
 
         popupManager.ShowMessage("退款成功！");
-
         isPurchased = false;
         UpdateButton();
     }
 
     private void UpdateButton()
     {
-        actionButton.GetComponentInChildren<TMP_Text>().text = isPurchased ? "取消" : "購買";
-        actionButton.GetComponent<Image>().color = isPurchased ? new Color32(220, 50, 70, 255) : new Color32(255, 255, 50, 255);
+        actionButton.GetComponentInChildren<TMP_Text>().text =
+            isPurchased ? "取消" : "購買";
+
+        actionButton.GetComponent<Image>().color =
+            isPurchased ? new Color32(220, 50, 70, 255)
+                        : new Color32(255, 255, 50, 255);
     }
 
     private void ShowSpec()
     {
         Texture specTexture = productCard.specTexture;
         specManager.ShowSpec(specTexture);
+
+        hasViewedSpec = true;
     }
 }

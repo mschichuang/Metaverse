@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class AssemblySocket1 : MonoBehaviour
 {
-    [Tooltip("¤¹³\ªº¹s¥ó ID¡]¬Û¦P string ¤~¯à²Õ¸Ë¡^")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ IDï¿½]ï¿½Û¦P string ï¿½~ï¿½ï¿½Õ¸Ë¡^")]
     public string allowedPartID;
 
-    [Tooltip("©ñ¤J«á¬O§_©T©w¬°¤lª«¥ó")]
+    [Tooltip("ï¿½ï¿½Jï¿½ï¿½Oï¿½_ï¿½Tï¿½wï¿½ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½")]
     public bool attachAsChild = true;
 
-    [Tooltip("¬O§_¦b©ñ¤J«áÂê©w¦ì¸m»P±ÛÂà")]
+    [Tooltip("ï¿½Oï¿½_ï¿½bï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½wï¿½ï¿½mï¿½Pï¿½ï¿½ï¿½ï¿½")]
     public bool lockTransform = true;
 
     private void OnDrawGizmos()
