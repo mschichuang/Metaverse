@@ -4755,6 +4755,7 @@ GameObject:
   - component: {fileID: 530228024}
   - component: {fileID: 530228025}
   - component: {fileID: 530228026}
+  - component: {fileID: 530228027}
   m_Layer: 0
   m_Name: Socket_Screw
   m_TagString: Untagged
@@ -4837,6 +4838,20 @@ MonoBehaviour:
   allowedPartID: Wheel
   attachAsChild: 1
   lockTransform: 1
+--- !u!114 &530228027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530228021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3554a00f0a03a9d4f9ba41c6f9cf9cf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allowedPartID: Wheel
+  snapPoint: {fileID: 1370875649}
 --- !u!1001 &532150419
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7760,6 +7775,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partID: Wheel
+--- !u!114 &1127159948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127159939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a949553b46f8d624989ce576f5d203f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partID: Wheel
 --- !u!1 &1140722506
 GameObject:
   m_ObjectHideFlags: 0
@@ -8726,7 +8754,6 @@ GameObject:
   - component: {fileID: 1370875649}
   - component: {fileID: 1370875652}
   - component: {fileID: 1370875651}
-  - component: {fileID: 1370875650}
   m_Layer: 0
   m_Name: SnapPoint
   m_TagString: Untagged
@@ -8749,21 +8776,6 @@ Transform:
   m_Father: {fileID: 530228022}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1370875650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370875648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e39cba76e0065d0418cd31d0d0542e3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allowedPartID: Wheel
-  attachAsChild: 1
-  lockTransform: 1
 --- !u!54 &1370875651
 Rigidbody:
   m_ObjectHideFlags: 0
