@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class AssemblySocket_Spatial : MonoBehaviour
 {
-    [Tooltip("¤¹³\´¡¤Jªº¹s¥óID")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½sï¿½ï¿½ID")]
     public string allowedPartID;
 
-[Tooltip("¹s¥ó§lªþÂI¡A¥i¿ï")]
+[Tooltip("ï¿½sï¿½ï¿½lï¿½ï¿½ï¿½Iï¿½Aï¿½iï¿½ï¿½")]
     public Transform snapPoint;
 
     private void OnDrawGizmos()
