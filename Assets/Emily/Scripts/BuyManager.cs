@@ -12,6 +12,8 @@ public class BuyManager : MonoBehaviour
     public PurchaseHistoryManager purchaseHistoryManager;
     public Button actionButton;
     public Button infoButton;
+    public GameObject componentPrefab;
+    private GameObject spawnedComponent;
     private bool isPurchased = false;
     private bool hasViewedSpec = false;
 
@@ -72,6 +74,7 @@ public class BuyManager : MonoBehaviour
         popupManager.ShowMessage("購買成功！");
         isPurchased = true;
         UpdateButton();
+        SpawnComponent(componentPrefab);
     }
 
     private void ReturnItem()
@@ -87,6 +90,7 @@ public class BuyManager : MonoBehaviour
         popupManager.ShowMessage("退款成功！");
         isPurchased = false;
         UpdateButton();
+        Destroy(spawnedComponent);
     }
 
     private void UpdateButton()
@@ -105,5 +109,16 @@ public class BuyManager : MonoBehaviour
         specManager.ShowSpec(specTexture);
 
         hasViewedSpec = true;
+    }
+
+    private void SpawnComponent(GameObject prefab)
+    {
+        var avatar = SpatialBridge.actorService.localActor.avatar;
+
+        Vector3 forward = avatar.rotation * Vector3.forward;
+        Vector3 spawnPos = avatar.position + forward * 1.5f;
+        Quaternion spawnRot = Quaternion.LookRotation(forward, Vector3.up);
+
+        spawnedComponent = Instantiate(prefab, spawnPos, spawnRot);
     }
 }

@@ -218,6 +218,12 @@ PrefabInstance:
       objectReference: {fileID: 1498735171}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 7981779189989496421, guid: 274330e117a3b464a877da2331b9a49d,
+        type: 3}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: purchaseHistoryManager
       value: 
       objectReference: {fileID: 691836935}
@@ -2474,6 +2480,12 @@ PrefabInstance:
       objectReference: {fileID: 1498735171}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 7387435901795809405, guid: 453a6c42d9f9d438f81608934fa9c959,
+        type: 3}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: purchaseHistoryManager
       value: 
       objectReference: {fileID: 691836935}
@@ -3615,6 +3627,12 @@ PrefabInstance:
       objectReference: {fileID: 1498735171}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 2368794877303995819, guid: 680aa3879182e42c693c86fdee0ddcde,
+        type: 3}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: purchaseHistoryManager
       value: 
       objectReference: {fileID: 691836935}
@@ -3811,6 +3829,12 @@ PrefabInstance:
       objectReference: {fileID: 1498735171}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 1055761267241415214, guid: 274dee9f62c6c48bf8aaa3af088d2288,
+        type: 3}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: purchaseHistoryManager
       value: 
       objectReference: {fileID: 691836935}
@@ -4005,6 +4029,12 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 9125874767422415387, guid: 3f9420e9474a34f1c87a337d5b5774da,
+        type: 3}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: purchaseHistoryManager
@@ -4247,6 +4277,12 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 8764524560186977923, guid: 3e55a006ef0064e85bbea756022f9359,
+        type: 3}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: purchaseHistoryManager
@@ -4874,6 +4910,12 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 4823091562658428512, guid: 72d2473489b874a1182a1dadab24f1b1,
+        type: 3}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: purchaseHistoryManager
@@ -5655,6 +5697,12 @@ PrefabInstance:
       objectReference: {fileID: 1498735171}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 7199500945631531606, guid: b9bd6a849c6034f599af9167538bc648,
+        type: 3}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: purchaseHistoryManager
       value: 
       objectReference: {fileID: 691836935}
@@ -6020,6 +6068,12 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 1007992456184895692, guid: ebb5e9df41f8148c38b793cc6a5ce1de,
+        type: 3}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: purchaseHistoryManager
@@ -6659,6 +6713,12 @@ PrefabInstance:
       objectReference: {fileID: 1498735171}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 650741322731131421, guid: aeaddfba14f8448c497564ebfdb83416,
+        type: 3}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: purchaseHistoryManager
       value: 
       objectReference: {fileID: 691836935}
@@ -6923,6 +6983,12 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 5666512230397707468, guid: 85c62952b50704036a8883bc97baf859,
+        type: 3}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: purchaseHistoryManager
@@ -7424,6 +7490,12 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 1762376993808057838, guid: 50f44b699179a4ddc9de60022e91576d,
+        type: 3}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: purchaseHistoryManager
@@ -8096,6 +8168,12 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 5542009165459420633, guid: 47a36c5d66e8b42aea249db5dea46605,
+        type: 3}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: purchaseHistoryManager
@@ -10858,6 +10936,12 @@ PrefabInstance:
       objectReference: {fileID: 1498735171}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 7986386781062941298, guid: 5214bef6406564ccc95865e99d939c1a,
+        type: 3}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: purchaseHistoryManager
       value: 
       objectReference: {fileID: 691836935}
@@ -11188,6 +11272,12 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 8172978109508890071, guid: 8755425bde2cd4d8f8e32e2c34588b7e,
+        type: 3}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: purchaseHistoryManager
@@ -11926,6 +12016,12 @@ PrefabInstance:
       objectReference: {fileID: 1498735171}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 630946433844246840, guid: 6973bdc7d1fb245be86b8de3410342af,
+        type: 3}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: purchaseHistoryManager
       value: 
       objectReference: {fileID: 691836935}
@@ -12512,6 +12608,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: spawnPrefab
+      value: 
+      objectReference: {fileID: 1762376993808057838, guid: 50f44b699179a4ddc9de60022e91576d,
+        type: 3}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: specManager
       value: 
       objectReference: {fileID: 150521417}
@@ -12525,6 +12627,12 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 5361242134319243682, guid: 44127e5715ae3470786f252def5927b8,
+        type: 3}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: purchaseHistoryManager
@@ -12950,6 +13058,12 @@ PrefabInstance:
       objectReference: {fileID: 1498735171}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 3376575358542175124, guid: 026d9c85363034f0281d2cebed1ac84f,
+        type: 3}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: purchaseHistoryManager
       value: 
       objectReference: {fileID: 691836935}
@@ -13144,6 +13258,12 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 2244169117984193288, guid: 556a82fadde3845988dc42da4173c711,
+        type: 3}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: purchaseHistoryManager
@@ -13990,6 +14110,12 @@ PrefabInstance:
       objectReference: {fileID: 1498735171}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 976187207125813922, guid: dd8962ad920c84b7b840a2291a4677d4,
+        type: 3}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
       propertyPath: purchaseHistoryManager
       value: 
       objectReference: {fileID: 691836935}
@@ -14335,6 +14461,12 @@ PrefabInstance:
       propertyPath: coinUIManager
       value: 
       objectReference: {fileID: 1498735171}
+    - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
+        type: 3}
+      propertyPath: componentPrefab
+      value: 
+      objectReference: {fileID: 3339871750470706600, guid: db54a44d4f97944cfa1579f7d77988f4,
+        type: 3}
     - target: {fileID: 4762889977315484471, guid: f85b5a502dcb240e6845947a9f4fda5e,
         type: 3}
       propertyPath: purchaseHistoryManager
