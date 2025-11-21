@@ -2,10 +2,7 @@ using UnityEngine;
 
 public class AssemblySocket_Spatial : MonoBehaviour
 {
-    [Tooltip("������J���s��ID")]
     public string allowedPartID;
-
-[Tooltip("�s��l���I�A�i��")]
     public Transform snapPoint;
 
     private void OnDrawGizmos()
