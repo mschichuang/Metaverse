@@ -117,7 +117,13 @@ public class BuyManager : MonoBehaviour
 
         Vector3 forward = avatar.rotation * Vector3.forward;
         Vector3 spawnPos = avatar.position + forward * 1.5f;
+
+        // ⭐ 增加高度
+        spawnPos.y += 0.5f;
+
+        // ⭐ 先依玩家方向，再讓物體平躺
         Quaternion spawnRot = Quaternion.LookRotation(forward, Vector3.up);
+        spawnRot *= Quaternion.Euler(90f, 0f, 0f);
 
         spawnedComponent = Instantiate(prefab, spawnPos, spawnRot);
     }

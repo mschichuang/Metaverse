@@ -4790,7 +4790,6 @@ GameObject:
   - component: {fileID: 530228023}
   - component: {fileID: 530228024}
   - component: {fileID: 530228025}
-  - component: {fileID: 530228026}
   - component: {fileID: 530228027}
   m_Layer: 0
   m_Name: Socket_Screw
@@ -4859,21 +4858,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &530228026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530228021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e39cba76e0065d0418cd31d0d0542e3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allowedPartID: Wheel
-  attachAsChild: 1
-  lockTransform: 1
 --- !u!114 &530228027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7834,19 +7818,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.77684003
   m_Center: {x: 0, y: -0.00000003352761, z: 0}
---- !u!114 &1127159946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127159939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21eab131215926147b0b24de853a0a15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  partID: Wheel
 --- !u!114 &1127159948
 MonoBehaviour:
   m_ObjectHideFlags: 0
