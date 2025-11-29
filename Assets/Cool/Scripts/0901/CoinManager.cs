@@ -21,7 +21,6 @@ public class CoinManager : MonoBehaviour
         UpdateCoinText(); // 開始時把 UI 更新成 0
     }
 
-    // 這個方法就是「撿到金幣就加數字」
     public void AddCoin(int amount)
     {
         coinCount += amount;
