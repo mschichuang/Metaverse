@@ -12,6 +12,7 @@ namespace Emily.Scripts
         
         private VideoPlayer videoPlayer;
         private RenderTexture renderTexture;
+        private bool isPreloaded = false;
 
         private void Awake()
         {
@@ -27,41 +28,97 @@ namespace Emily.Scripts
             
             videoPlayer.prepareCompleted += OnVideoPrepared;
             videoPlayer.errorReceived += OnVideoError;
+            videoPlayer.seekCompleted += OnSeekCompleted;
+        }
+
+        private void Start()
+        {
+            // Auto-preload on start
+            PreloadVideo();
         }
 
         private void OnEnable()
         {
-            PlayVideo();
+            // If already prepared, rewind and play immediately
+            if (videoPlayer.isPrepared)
+            {
+                RewindAndPlay();
+            }
+            else if (!isPreloaded)
+            {
+                PreloadVideo();
+            }
         }
 
         private void OnDisable()
         {
-            StopVideo();
+            if (videoPlayer != null)
+            {
+                videoPlayer.Pause(); // Pause instead of Stop to keep buffer
+            }
+        }
+
+        public void PreloadVideo()
+        {
+            if (videoPlayer == null || isPreloaded) return;
+
+            // Setup Source for URL if needed (Inspector URL is handled automatically by VideoPlayer, 
+            // but we need to trigger Prepare)
+            
+            Debug.Log($"[SpatialVideoPlayer] Preloading video...");
+            videoPlayer.Prepare();
+            isPreloaded = true;
+        }
+
+        // [NEW] Method to manually rewind and play
+        public void RewindAndPlay()
+        {
+            if (videoPlayer != null && videoPlayer.isPrepared)
+            {
+                // Hide image to prevent flash of old frame
+                if (targetImage != null) targetImage.color = new Color(1, 1, 1, 0);
+                
+                videoPlayer.time = 0;
+                videoPlayer.Play();
+            }
+            else
+            {
+                PlayVideo();
+            }
+        }
+
+        private void OnSeekCompleted(VideoPlayer vp)
+        {
+            // Restore visibility when seek is done and new frame is ready
+            if (targetImage != null) targetImage.color = Color.white;
         }
 
         public void PlayVideo()
         {
             if (videoPlayer == null) return;
 
-            // Note: We do NOT access videoPlayer.clip.width here because it causes MissingMethodException on WebGL
-            // We wait for Prepare() to finish to get the correct dimensions.
-
-            Debug.Log($"[SpatialVideoPlayer] Preparing video...");
-            videoPlayer.Prepare();
+            if (videoPlayer.isPrepared)
+            {
+                videoPlayer.Play();
+            }
+            else
+            {
+                PreloadVideo();
+            }
         }
 
         private void OnVideoPrepared(VideoPlayer vp)
         {
             Debug.Log($"[SpatialVideoPlayer] Video Prepared. Dimensions: {vp.width}x{vp.height}");
 
-            // Create RenderTexture with correct dimensions from the prepared video
-            // If vp.width is 0 (error), fallback to 1920x1080
+            // Create RenderTexture with correct dimensions
             int width = (vp.width > 0) ? (int)vp.width : 1920;
             int height = (vp.height > 0) ? (int)vp.height : 1080;
 
             if (renderTexture == null || renderTexture.width != width || renderTexture.height != height)
             {
                 if (renderTexture != null) renderTexture.Release();
+
                 renderTexture = new RenderTexture(width, height, 0);
                 renderTexture.Create();
             }
@@ -71,9 +128,15 @@ namespace Emily.Scripts
             if (targetImage != null)
             {
                 targetImage.texture = renderTexture;
+                targetImage.color = Color.white; // Ensure visible
             }
 
-            vp.Play();
+            // If the object is active (user is looking at it), play. 
+            // If not (background preload), just stay prepared.
+            if (gameObject.activeInHierarchy)
+            {
+                vp.Play();
+            }
         }
 
         private void OnVideoError(VideoPlayer vp, string message)

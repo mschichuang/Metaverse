@@ -56,7 +56,20 @@ namespace Emily.Scripts
             {
                 foreach (var page in pages)
                 {
-                    if (page != null) page.SetActive(false);
+                    if (page != null)
+                    {
+                        // Hide using CanvasGroup to keep video buffered
+                        CanvasGroup cg = page.GetComponent<CanvasGroup>();
+                        if (cg != null)
+                        {
+                            cg.alpha = 0;
+                            cg.blocksRaycasts = false;
+                        }
+                        else
+                        {
+                            page.SetActive(false);
+                        }
+                    }
                 }
             }
 
@@ -92,8 +105,50 @@ namespace Emily.Scripts
             {
                 if (pages[i] != null)
                 {
-                    bool isActive = (i == index);
-                    pages[i].SetActive(isActive);
+                    bool isTarget = (i == index);
+                    
+                    // Strategy: To allow video preloading, we keep the GameObject ACTIVE,
+                    // but we hide it using CanvasGroup or by disabling the RawImage.
+                    // Here we try to find a CanvasGroup, if not, we fallback to SetActive (which stops preload).
+                    
+                    CanvasGroup cg = pages[i].GetComponent<CanvasGroup>();
+                    if (cg == null)
+                    {
+                        // If no CanvasGroup, we MUST add one to support preloading without deactivating
+                        cg = pages[i].AddComponent<CanvasGroup>();
+                    }
+
+                    if (cg != null)
+                    {
+                        // Keep object active so VideoPlayer can buffer
+                        if (!pages[i].activeSelf) pages[i].SetActive(true); 
+
+                        cg.alpha = isTarget ? 1 : 0;
+                        cg.interactable = isTarget;
+                        cg.blocksRaycasts = isTarget;
+                        
+                        // [NEW] If this is the target page, force video rewind
+                        if (isTarget)
+                        {
+                            var videoPlayer = pages[i].GetComponent<SpatialVideoPlayer>();
+                            if (videoPlayer != null)
+                            {
+                                videoPlayer.RewindAndPlay();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // Fallback (shouldn't happen if we add component)
+                        pages[i].SetActive(isTarget);
+                        
+                        // Also rewind for fallback case
+                        if (isTarget)
+                        {
+                            var videoPlayer = pages[i].GetComponent<SpatialVideoPlayer>();
+                            if (videoPlayer != null) videoPlayer.RewindAndPlay();
+                        }
+                    }
                 }
             }
             
