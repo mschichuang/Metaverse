@@ -20,6 +20,7 @@ public class QuizManager : MonoBehaviour
     public AudioClip wrongSound;
     public CoinUIManager coinUIManager;
     public GameObject coinPanel;
+    public Emily.Scripts.UserGuideBoard userGuideBoard; // Reference to UserGuideBoard
 
     private QuestionData[] questions;
     private int currentIndex = 0;
@@ -28,6 +29,21 @@ public class QuizManager : MonoBehaviour
 
     void Start()
     {
+        // Don't load automatically if we want to start on button click
+        // LoadQuestions(); 
+    }
+
+    // Call this from the Start Button Interactable
+    public void StartQuiz()
+    {
+        quizPanel.SetActive(true);
+        if (userGuideBoard != null && userGuideBoard.guideButton != null)
+        {
+            userGuideBoard.guideButton.gameObject.SetActive(false);
+        }
+        
+        currentIndex = 0;
+        correctCount = 0;
         LoadQuestions();
     }
 
@@ -53,6 +69,12 @@ public class QuizManager : MonoBehaviour
         {
             quizPanel.SetActive(false);
             startQuizInteractable.enabled = false;
+
+            // Show Guide Button again
+            if (userGuideBoard != null && userGuideBoard.guideButton != null)
+            {
+                userGuideBoard.guideButton.gameObject.SetActive(true);
+            }
 
             string name = PlayerInfoManager.GetPlayerName();
             await UploadScoreAndCoins(name, correctCount);
