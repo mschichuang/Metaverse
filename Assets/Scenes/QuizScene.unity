@@ -857,6 +857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7731eabb1788441fb9e533dd67c9ae39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trailerBoard: {fileID: 0}
   startQuizInteractable: {fileID: 2046031915}
   quizPanel: {fileID: 1683805966}
   questionText: {fileID: 1599444426}
@@ -874,7 +875,6 @@ MonoBehaviour:
   wrongSound: {fileID: 8300000, guid: 39f6862f61a71489a8ac7b5c1e769b72, type: 3}
   coinUIManager: {fileID: 2144306349}
   coinPanel: {fileID: 2144306345}
-  userGuideBoard: {fileID: 1409897552}
 --- !u!4 &279688813
 Transform:
   m_ObjectHideFlags: 0
@@ -6597,7 +6597,7 @@ GameObject:
   - component: {fileID: 1409897551}
   - component: {fileID: 1409897552}
   m_Layer: 5
-  m_Name: UserGuideBoard
+  m_Name: TrailerBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6635,13 +6635,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1409897550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c4dc2f4860841a9b0d420b80776805, type: 3}
+  m_Script: {fileID: 11500000, guid: 58c8c7f4635424448ac3a0c1b4009fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guidePage: {fileID: 1506633075}
+  trailerPage: {fileID: 1506633075}
   skipButton: {fileID: 1158913910}
-  guideButton: {fileID: 440958019}
-  autoOpenOnStart: 1
+  replayButton: {fileID: 440958019}
+  autoPlayOnStart: 1
 --- !u!1 &1436428433
 GameObject:
   m_ObjectHideFlags: 0

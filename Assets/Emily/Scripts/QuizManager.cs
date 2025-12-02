@@ -4,9 +4,12 @@ using UnityEngine.Networking;
 using TMPro;
 using System.Threading.Tasks;
 using SpatialSys.UnitySDK;
+using Emily.Scripts;
 
 public class QuizManager : MonoBehaviour
 {
+    [Header("References")]
+    public TrailerBoard trailerBoard;
     public SpatialInteractable startQuizInteractable;
     public GameObject quizPanel;
     public TMP_Text questionText;
@@ -20,7 +23,6 @@ public class QuizManager : MonoBehaviour
     public AudioClip wrongSound;
     public CoinUIManager coinUIManager;
     public GameObject coinPanel;
-    public Emily.Scripts.UserGuideBoard userGuideBoard; // Reference to UserGuideBoard
 
     private QuestionData[] questions;
     private int currentIndex = 0;
@@ -37,9 +39,11 @@ public class QuizManager : MonoBehaviour
     public void StartQuiz()
     {
         quizPanel.SetActive(true);
-        if (userGuideBoard != null && userGuideBoard.guideButton != null)
+        
+        // Hide the trailer button when quiz starts
+        if (trailerBoard != null && trailerBoard.replayButton != null)
         {
-            userGuideBoard.guideButton.gameObject.SetActive(false);
+            trailerBoard.replayButton.gameObject.SetActive(false);
         }
         
         currentIndex = 0;
@@ -67,19 +71,7 @@ public class QuizManager : MonoBehaviour
     {
         if (currentIndex >= 10)
         {
-            quizPanel.SetActive(false);
-            startQuizInteractable.enabled = false;
-
-            // Show Guide Button again
-            if (userGuideBoard != null && userGuideBoard.guideButton != null)
-            {
-                userGuideBoard.guideButton.gameObject.SetActive(true);
-            }
-
-            string name = PlayerInfoManager.GetPlayerName();
-            await UploadScoreAndCoins(name, correctCount);
-            await coinUIManager.UpdateCoinUI();
-            coinPanel.SetActive(true);
+            await EndQuiz();
             return;
         }
 
@@ -127,6 +119,29 @@ public class QuizManager : MonoBehaviour
 
         currentIndex++;
         ShowQuestion();
+    }
+
+    private async Task EndQuiz()
+    {
+        quizPanel.SetActive(false);
+        resultPanel.SetActive(true);
+        
+        resultText.text = $"Quiz Completed!\nScore: {correctCount}/{questions.Length}";
+        
+        // Show the trailer replay button again
+        if (trailerBoard != null && trailerBoard.replayButton != null)
+        {
+            trailerBoard.replayButton.gameObject.SetActive(true);
+        }
+        
+        // Upload score to Spatial (Commented out as userWorldService is not found/valid)
+        // SpatialBridge.userWorldService.SetUserWorldData("quiz_score", correctCount);
+
+        // Upload to Google Sheets and update Coin UI
+        string name = PlayerInfoManager.GetPlayerName();
+        await UploadScoreAndCoins(name, correctCount);
+        if (coinUIManager != null) await coinUIManager.UpdateCoinUI();
+        if (coinPanel != null) coinPanel.SetActive(true);
     }
 
     private async Task UploadScoreAndCoins(string name, int correctCount)
