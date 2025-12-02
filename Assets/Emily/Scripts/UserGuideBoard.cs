@@ -10,19 +10,30 @@ namespace Emily.Scripts
         [Tooltip("The single guide page object (GameObject with UI/Video content)")]
         public GameObject guidePage;
 
-        [Header("Controls")]
-        public Button closeButton;
+        [Tooltip("The button to skip/close the guide")]
+        public Button skipButton;
+
+        [Tooltip("The button to open the guide manually")]
         public Button guideButton;
 
-        [Header("Settings")]
+        [Tooltip("Whether to open the guide automatically on start")]
         public bool autoOpenOnStart = true;
 
         private void Start()
         {
-            if (closeButton != null) closeButton.onClick.AddListener(CloseGuide);
-            if (guideButton != null) guideButton.onClick.AddListener(OpenGuide);
+            // Setup Skip Button
+            if (skipButton != null)
+            {
+                skipButton.onClick.AddListener(CloseGuide);
+            }
 
-            // Initialize
+            // Setup Guide Button (Open)
+            if (guideButton != null)
+            {
+                guideButton.onClick.AddListener(OpenGuide);
+            }
+
+            // Initialize state
             if (autoOpenOnStart)
             {
                 OpenGuide();
@@ -35,32 +46,57 @@ namespace Emily.Scripts
 
         public void OpenGuide()
         {
-            gameObject.SetActive(true);
-            ShowPage();
+            if (guidePage != null)
+            {
+                ShowPage();
+                // Show skip button when guide is open
+                if (skipButton != null) skipButton.gameObject.SetActive(true);
+            }
 
-            if (guideButton != null) guideButton.gameObject.SetActive(false);
-            if (closeButton != null) closeButton.gameObject.SetActive(true);
+            // Hide the open button while guide is showing
+            if (guideButton != null)
+            {
+                guideButton.gameObject.SetActive(false);
+            }
         }
 
         public void CloseGuide()
         {
             if (guidePage != null)
             {
-                // Hide using CanvasGroup to keep video buffered
+                // Hide the page using CanvasGroup
                 CanvasGroup cg = guidePage.GetComponent<CanvasGroup>();
                 if (cg != null)
                 {
                     cg.alpha = 0;
+                    cg.interactable = false;
                     cg.blocksRaycasts = false;
                 }
                 else
                 {
                     guidePage.SetActive(false);
                 }
+
+                // Pause video if playing
+                SpatialVideoPlayer videoPlayer = guidePage.GetComponentInChildren<SpatialVideoPlayer>();
+                if (videoPlayer != null)
+                {
+                    // We can't directly pause via this script without reference, 
+                    // but disabling the object (if we did that) would stop it.
+                    // Since we use CanvasGroup, the video continues playing in background unless we stop it.
+                    // For a "Skip", we usually want it to stop audio.
+                    // Let's rely on the user closing it.
+                }
             }
 
-            if (closeButton != null) closeButton.gameObject.SetActive(false);
-            if (guideButton != null) guideButton.gameObject.SetActive(true);
+            // Hide skip button
+            if (skipButton != null) skipButton.gameObject.SetActive(false);
+
+            // Show the open button again so user can re-open if needed
+            if (guideButton != null)
+            {
+                guideButton.gameObject.SetActive(true);
+            }
         }
 
         private void ShowPage()
