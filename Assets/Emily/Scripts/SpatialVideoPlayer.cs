@@ -21,7 +21,7 @@ namespace Emily.Scripts
             // Ensure correct settings for Spatial
             videoPlayer.playOnAwake = false; 
             videoPlayer.renderMode = VideoRenderMode.RenderTexture;
-            videoPlayer.isLooping = true;
+            videoPlayer.isLooping = false; // Disable looping for auto-close
             
             // Force mute to ensure autoplay works on WebGL
             videoPlayer.audioOutputMode = VideoAudioOutputMode.None;
@@ -29,6 +29,15 @@ namespace Emily.Scripts
             videoPlayer.prepareCompleted += OnVideoPrepared;
             videoPlayer.errorReceived += OnVideoError;
             videoPlayer.seekCompleted += OnSeekCompleted;
+            videoPlayer.loopPointReached += OnVideoLoopPointReached;
+        }
+
+        public System.Action onVideoFinished;
+
+        private void OnVideoLoopPointReached(VideoPlayer vp)
+        {
+            Debug.Log("[SpatialVideoPlayer] Video finished playing.");
+            onVideoFinished?.Invoke();
         }
 
         private void Start()

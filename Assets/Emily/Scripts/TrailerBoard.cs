@@ -45,6 +45,8 @@ namespace Emily.Scripts
             }
         }
 
+        private SpatialVideoPlayer activeVideoPlayer;
+
         public void PlayTrailer()
         {
             Debug.Log("[TrailerBoard] PlayTrailer called");
@@ -69,6 +71,14 @@ namespace Emily.Scripts
         public void CloseTrailer()
         {
             Debug.Log("[TrailerBoard] CloseTrailer called");
+            
+            // Unsubscribe from event
+            if (activeVideoPlayer != null)
+            {
+                activeVideoPlayer.onVideoFinished -= CloseTrailer;
+                activeVideoPlayer = null;
+            }
+
             if (trailerPage != null)
             {
                 // Hide the page using CanvasGroup
@@ -82,13 +92,6 @@ namespace Emily.Scripts
                 else
                 {
                     trailerPage.SetActive(false);
-                }
-
-                // Pause video if playing
-                SpatialVideoPlayer videoPlayer = trailerPage.GetComponentInChildren<SpatialVideoPlayer>();
-                if (videoPlayer != null)
-                {
-                    // We rely on the user closing it to stop watching.
                 }
             }
 
@@ -128,11 +131,15 @@ namespace Emily.Scripts
             }
 
             // Auto-play video when page is shown
-            SpatialVideoPlayer videoPlayer = trailerPage.GetComponentInChildren<SpatialVideoPlayer>();
-            if (videoPlayer != null)
+            activeVideoPlayer = trailerPage.GetComponentInChildren<SpatialVideoPlayer>();
+            if (activeVideoPlayer != null)
             {
                 Debug.Log("[TrailerBoard] Found SpatialVideoPlayer, calling RewindAndPlay");
-                videoPlayer.RewindAndPlay();
+                // Subscribe to finish event
+                activeVideoPlayer.onVideoFinished -= CloseTrailer; // Safety unsubscribe
+                activeVideoPlayer.onVideoFinished += CloseTrailer;
+                
+                activeVideoPlayer.RewindAndPlay();
             }
             else
             {
