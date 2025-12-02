@@ -24,7 +24,7 @@ namespace Emily.Scripts
             videoPlayer.isLooping = false; // Disable looping for auto-close
             
             // Force mute to ensure autoplay works on WebGL
-            videoPlayer.audioOutputMode = VideoAudioOutputMode.None;
+            // videoPlayer.audioOutputMode = VideoAudioOutputMode.None; // Removed as per user request, using SetDirectAudioVolume instead
             
             videoPlayer.prepareCompleted += OnVideoPrepared;
             videoPlayer.errorReceived += OnVideoError;
@@ -116,9 +116,17 @@ namespace Emily.Scripts
             }
         }
 
+        [Tooltip("Whether the video should be muted")]
+        public bool isMuted = true;
+
         private void OnVideoPrepared(VideoPlayer vp)
         {
-            Debug.Log($"[SpatialVideoPlayer] Video Prepared. Dimensions: {vp.width}x{vp.height}");
+            // Set volume based on isMuted flag
+            float volume = isMuted ? 0f : 1f;
+            for (ushort i = 0; i < vp.audioTrackCount; i++)
+            {
+                vp.SetDirectAudioVolume(i, volume);
+            }
 
             // Create RenderTexture with correct dimensions
             int width = (vp.width > 0) ? (int)vp.width : 1920;
@@ -150,7 +158,7 @@ namespace Emily.Scripts
 
         private void OnVideoError(VideoPlayer vp, string message)
         {
-            Debug.LogError($"[SpatialVideoPlayer] Error: {message}");
+            // Error handling logic if needed
         }
 
         public void StopVideo()

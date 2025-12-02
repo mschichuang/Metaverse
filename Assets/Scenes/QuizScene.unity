@@ -6641,7 +6641,7 @@ MonoBehaviour:
   trailerPage: {fileID: 1506633075}
   skipButton: {fileID: 1158913910}
   replayButton: {fileID: 440958019}
-  autoPlayOnStart: 1
+  isMuted: 1
 --- !u!1 &1436428433
 GameObject:
   m_ObjectHideFlags: 0
@@ -7121,6 +7121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetImage: {fileID: 1506633078}
+  isMuted: 1
 --- !u!1 &1510249683
 GameObject:
   m_ObjectHideFlags: 0

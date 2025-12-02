@@ -17,8 +17,8 @@ namespace Emily.Scripts
         [Tooltip("The button to replay the trailer manually")]
         public Button replayButton;
 
-        [Tooltip("Whether to play the trailer automatically on start")]
-        public bool autoPlayOnStart = true;
+        [Tooltip("Whether the trailer should be muted")]
+        public bool isMuted = true;
 
         private void Start()
         {
@@ -34,31 +34,19 @@ namespace Emily.Scripts
                 replayButton.onClick.AddListener(PlayTrailer);
             }
 
-            // Initialize state
-            if (autoPlayOnStart)
-            {
-                PlayTrailer();
-            }
-            else
-            {
-                CloseTrailer();
-            }
+            // Always play on start
+            PlayTrailer();
         }
 
         private SpatialVideoPlayer activeVideoPlayer;
 
         public void PlayTrailer()
         {
-            Debug.Log("[TrailerBoard] PlayTrailer called");
             if (trailerPage != null)
             {
                 ShowPage();
                 // Show skip button when trailer is playing
                 if (skipButton != null) skipButton.gameObject.SetActive(true);
-            }
-            else
-            {
-                Debug.LogError("[TrailerBoard] Trailer Page is not assigned!");
             }
 
             // Hide the replay button while trailer is showing
@@ -70,8 +58,6 @@ namespace Emily.Scripts
 
         public void CloseTrailer()
         {
-            Debug.Log("[TrailerBoard] CloseTrailer called");
-            
             // Unsubscribe from event
             if (activeVideoPlayer != null)
             {
@@ -134,16 +120,14 @@ namespace Emily.Scripts
             activeVideoPlayer = trailerPage.GetComponentInChildren<SpatialVideoPlayer>();
             if (activeVideoPlayer != null)
             {
-                Debug.Log("[TrailerBoard] Found SpatialVideoPlayer, calling RewindAndPlay");
+                // Set mute state
+                activeVideoPlayer.isMuted = this.isMuted;
+
                 // Subscribe to finish event
                 activeVideoPlayer.onVideoFinished -= CloseTrailer; // Safety unsubscribe
                 activeVideoPlayer.onVideoFinished += CloseTrailer;
                 
                 activeVideoPlayer.RewindAndPlay();
-            }
-            else
-            {
-                Debug.LogError("[TrailerBoard] SpatialVideoPlayer component not found in Trailer Page children!");
             }
         }
     }
