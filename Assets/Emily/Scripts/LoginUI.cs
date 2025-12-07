@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using SpatialSys.UnitySDK;
 
 namespace Emily.Scripts
 {
@@ -25,6 +26,9 @@ namespace Emily.Scripts
 
         private void Start()
         {
+            // 登入畫面時隱藏 Quest UI
+            SpatialBridge.coreGUIService.SetCoreGUIEnabled(SpatialCoreGUITypeFlags.QuestSystem, false);
+
             // 初始化 StudentData (從 Spatial DataStore 讀取)
             StudentData.Initialize(OnDataInitialized);
         }
@@ -42,28 +46,59 @@ namespace Emily.Scripts
                     loginPanel.SetActive(false);
                 }
 
+                // 自動登入時直接顯示 Quest UI
+                SpatialBridge.coreGUIService.SetCoreGUIEnabled(SpatialCoreGUITypeFlags.QuestSystem, true);
+
                 Debug.Log($"[LoginUI] 自動登入: {StudentData.StudentID}");
             }
             else
             {
                 // 顯示登入面板
-                if (loginPanel != null)
-                {
-                    loginPanel.SetActive(true);
-                }
+                ShowLoginPanel();
+            }
+        }
 
-                // 設定按鈕事件
-                if (startButton != null)
-                {
-                    startButton.onClick.AddListener(OnStartButtonClicked);
-                    startButton.interactable = false; // 預設不可點擊
-                }
+        /// <summary>
+        /// 重置登入表單（供 DebugClearData 呼叫）
+        /// </summary>
+        public void ResetLoginForm()
+        {
+            // 清空輸入框
+            if (studentIdInput != null) studentIdInput.text = "";
+            if (groupNumberInput != null) groupNumberInput.text = "";
 
-                // 監聽輸入變化以驗證欄位
-                if (studentIdInput != null)
-                    studentIdInput.onValueChanged.AddListener(_ => ValidateInputs());
-                if (groupNumberInput != null)
-                    groupNumberInput.onValueChanged.AddListener(_ => ValidateInputs());
+            // 顯示登入面板
+            ShowLoginPanel();
+        }
+
+        /// <summary>
+        /// 顯示登入面板並設定事件
+        /// </summary>
+        private void ShowLoginPanel()
+        {
+            if (loginPanel != null)
+            {
+                loginPanel.SetActive(true);
+            }
+
+            // 設定按鈕事件（先移除舊的防止重複綁定）
+            if (startButton != null)
+            {
+                startButton.onClick.RemoveAllListeners();
+                startButton.onClick.AddListener(OnStartButtonClicked);
+                startButton.interactable = false;
+            }
+
+            // 監聽輸入變化（先移除舊的防止重複綁定）
+            if (studentIdInput != null)
+            {
+                studentIdInput.onValueChanged.RemoveAllListeners();
+                studentIdInput.onValueChanged.AddListener(_ => ValidateInputs());
+            }
+            if (groupNumberInput != null)
+            {
+                groupNumberInput.onValueChanged.RemoveAllListeners();
+                groupNumberInput.onValueChanged.AddListener(_ => ValidateInputs());
             }
         }
 
@@ -112,6 +147,9 @@ namespace Emily.Scripts
                 {
                     loginPanel.SetActive(false);
                 }
+
+                // 顯示 Quest UI
+                SpatialBridge.coreGUIService.SetCoreGUIEnabled(SpatialCoreGUITypeFlags.QuestSystem, true);
             }
             else
             {
