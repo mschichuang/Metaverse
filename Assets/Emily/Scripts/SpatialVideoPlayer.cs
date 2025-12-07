@@ -167,6 +167,7 @@ namespace Emily.Scripts
             {
                 videoPlayer.Stop();
             }
+            isPreloaded = false; // [FIX] Reset preload state so it can be prepared again
         }
 
         private void OnDestroy()

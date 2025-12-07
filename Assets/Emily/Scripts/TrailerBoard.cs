@@ -62,6 +62,7 @@ namespace Emily.Scripts
             if (activeVideoPlayer != null)
             {
                 activeVideoPlayer.onVideoFinished -= CloseTrailer;
+                activeVideoPlayer.StopVideo(); // [FIX] Stop video to kill audio
                 activeVideoPlayer = null;
             }
 
