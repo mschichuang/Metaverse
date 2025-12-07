@@ -6641,7 +6641,7 @@ MonoBehaviour:
   trailerPage: {fileID: 1506633075}
   skipButton: {fileID: 1158913910}
   replayButton: {fileID: 440958019}
-  isMuted: 1
+  isMuted: 0
 --- !u!1 &1436428433
 GameObject:
   m_ObjectHideFlags: 0
@@ -7063,7 +7063,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: https://mschichuang.github.io/Metaverse/PublicMedia/QuizGuide.mp4
+  m_Url: https://mschichuang.github.io/Metaverse/PublicMedia/QuizTrailer.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
