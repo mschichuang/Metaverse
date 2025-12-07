@@ -5,28 +5,24 @@ using System;
 namespace Emily.Scripts
 {
     /// <summary>
-    /// 管理學生資料的單例類別。
-    /// 使用 Spatial DataStore (雲端) 持久化儲存學生資訊。
-    /// 注意：所有讀寫操作皆為非同步 (Async)。
+    /// 管理學生資料的靜態類別。
+    /// 從 Spatial Display Name 解析資料，格式：「組別 姓名」
     /// </summary>
     public static class StudentData
     {
         // DataStore Keys
-        private const string KEY_STUDENT_ID = "student_id";
-        private const string KEY_GROUP_NUMBER = "group_number";
         private const string KEY_COINS = "coins";
 
-        // 本地快取 (Spatial DataStore 是雲端，存取較慢，本地快取加速讀取)
-        private static string _cachedStudentID = null;
+        // 本地快取
         private static string _cachedGroupNumber = null;
+        private static string _cachedStudentName = null;
         private static int _cachedCoins = 0;
         private static bool _isInitialized = false;
 
         #region Initialization
 
         /// <summary>
-        /// 初始化：從 Spatial DataStore 讀取資料到本地快取。
-        /// 應在場景啟動時呼叫 (例如 LoginUI.Start())。
+        /// 初始化：從 Spatial Display Name 解析學生資訊
         /// </summary>
         public static void Initialize(Action<bool> onComplete = null)
         {
@@ -36,101 +32,63 @@ namespace Emily.Scripts
                 return;
             }
 
-            // 使用 HasVariable 檢查是否有註冊資料
-            var request = SpatialBridge.userWorldDataStoreService.HasVariable(KEY_STUDENT_ID);
-            request.SetCompletedEvent((req) =>
-            {
-                if (req.hasVariable)
-                {
-                    // 有資料，載入所有欄位
-                    LoadAllData(() =>
-                    {
-                        _isInitialized = true;
-                        onComplete?.Invoke(true);
-                    });
-                }
-                else
-                {
-                    // 沒有資料，首次使用
-                    _isInitialized = true;
-                    onComplete?.Invoke(false);
-                }
-            });
-        }
+            // 讀取 Spatial Display Name
+            string displayName = SpatialBridge.actorService.localActor.displayName;
+            ParseDisplayName(displayName);
 
-        /// <summary>
-        /// 從 DataStore 載入所有資料到本地快取
-        /// </summary>
-        private static void LoadAllData(Action onComplete)
-        {
-            int pendingRequests = 3;
-            Action checkComplete = () =>
-            {
-                pendingRequests--;
-                if (pendingRequests == 0) onComplete?.Invoke();
-            };
-
-            // Load StudentID
-            var req1 = SpatialBridge.userWorldDataStoreService.GetVariable(KEY_STUDENT_ID, "");
-            req1.SetCompletedEvent((r) =>
-            {
-                _cachedStudentID = r.stringValue ?? "";
-                checkComplete();
-            });
-
-            // Load GroupNumber
-            var req3 = SpatialBridge.userWorldDataStoreService.GetVariable(KEY_GROUP_NUMBER, "");
-            req3.SetCompletedEvent((r) =>
-            {
-                _cachedGroupNumber = r.stringValue ?? "";
-                checkComplete();
-            });
-
-            // Load Coins
-            var req4 = SpatialBridge.userWorldDataStoreService.GetVariable(KEY_COINS, 0);
-            req4.SetCompletedEvent((r) =>
+            // 載入金幣資料
+            var request = SpatialBridge.userWorldDataStoreService.GetVariable(KEY_COINS, 0);
+            request.SetCompletedEvent((r) =>
             {
                 _cachedCoins = r.intValue;
-                checkComplete();
+                _isInitialized = true;
+                onComplete?.Invoke(IsValidFormat);
             });
         }
 
-        #endregion
-
-        #region Properties (讀取：使用快取)
-
-        public static string StudentID => _cachedStudentID ?? "";
-        public static string GroupNumber => _cachedGroupNumber ?? "";
-        public static int Coins => _cachedCoins;
-        public static bool HasRegisteredData => !string.IsNullOrEmpty(_cachedStudentID);
-
-        #endregion
-
-        #region Save Methods (寫入：同時更新快取和雲端)
-
         /// <summary>
-        /// 儲存學生基本資訊
+        /// 解析 Display Name (格式：「組別 姓名」)
         /// </summary>
-        public static void SaveStudentInfo(string studentID, string groupNumber, Action<bool> onComplete = null)
+        private static void ParseDisplayName(string displayName)
         {
-            _cachedStudentID = studentID;
-            _cachedGroupNumber = groupNumber;
-
-            int pendingRequests = 2;
-            bool allSucceeded = true;
-            Action<bool> checkComplete = (success) =>
+            if (string.IsNullOrEmpty(displayName))
             {
-                if (!success) allSucceeded = false;
-                pendingRequests--;
-                if (pendingRequests == 0) onComplete?.Invoke(allSucceeded);
-            };
+                Debug.LogWarning("[StudentData] Display Name 是空的！");
+                return;
+            }
 
-            var req1 = SpatialBridge.userWorldDataStoreService.SetVariable(KEY_STUDENT_ID, studentID);
-            req1.SetCompletedEvent((r) => checkComplete(r.succeeded));
+            // 移除多餘空格並分割
+            string[] parts = displayName.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-            var req2 = SpatialBridge.userWorldDataStoreService.SetVariable(KEY_GROUP_NUMBER, groupNumber);
-            req2.SetCompletedEvent((r) => checkComplete(r.succeeded));
+            if (parts.Length >= 2)
+            {
+                _cachedGroupNumber = parts[0];
+                _cachedStudentName = string.Join(" ", parts, 1, parts.Length - 1);
+                
+                Debug.Log($"[StudentData] 解析成功 - 組別: {_cachedGroupNumber}, 姓名: {_cachedStudentName}");
+            }
+            else
+            {
+                Debug.LogError($"[StudentData] Display Name 格式錯誤！應為「組別 姓名」，實際為: {displayName}");
+            }
         }
+
+        #endregion
+
+        #region Properties
+
+        public static string GroupNumber => _cachedGroupNumber ?? "";
+        public static string StudentName => _cachedStudentName ?? "";
+        public static int Coins => _cachedCoins;
+        
+        /// <summary>
+        /// 檢查 Display Name 格式是否正確
+        /// </summary>
+        public static bool IsValidFormat => !string.IsNullOrEmpty(_cachedGroupNumber) && !string.IsNullOrEmpty(_cachedStudentName);
+
+        #endregion
+
+        #region Coin Management
 
         /// <summary>
         /// 增加金幣
@@ -143,7 +101,7 @@ namespace Emily.Scripts
         }
 
         /// <summary>
-        /// 扣除金幣 (如果餘額不足則返回 false)
+        /// 扣除金幣
         /// </summary>
         public static bool SpendCoins(int amount, Action<bool> onComplete = null)
         {
@@ -159,16 +117,12 @@ namespace Emily.Scripts
         }
 
         /// <summary>
-        /// 清除所有資料 (用於測試或登出)
+        /// 清除金幣資料（測試用）
         /// </summary>
-        public static void ClearAllData(Action<bool> onComplete = null)
+        public static void ClearCoins(Action<bool> onComplete = null)
         {
-            _cachedStudentID = null;
-            _cachedGroupNumber = null;
             _cachedCoins = 0;
-            _isInitialized = false;
-
-            var request = SpatialBridge.userWorldDataStoreService.ClearAllVariables();
+            var request = SpatialBridge.userWorldDataStoreService.SetVariable(KEY_COINS, 0);
             request.SetCompletedEvent((r) => onComplete?.Invoke(r.succeeded));
         }
 
