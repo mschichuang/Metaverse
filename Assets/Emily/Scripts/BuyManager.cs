@@ -2,6 +2,7 @@ using UnityEngine;
 using SpatialSys.UnitySDK;
 using UnityEngine.UI;
 using TMPro;
+using Emily.Scripts;
 
 public class BuyManager : MonoBehaviour
 {
@@ -50,28 +51,41 @@ public class BuyManager : MonoBehaviour
 
     private void BuyItem()
     {
-        int currentCoins = coinUIManager.CurrentCoins;
+        int currentCoins = StudentData.Coins;
         int price = productCard.price;
         string category = productCard.category;
 
         if (purchaseHistoryManager.HasPurchasedCategory(category))
         {
-            popupManager.ShowMessage($"已擁有{category}，不能重複購買！");
+            popupManager.ShowMessage($"已擁有{category},不能重複購買!");
             return;
         }
 
         if (currentCoins < price)
         {
-            popupManager.ShowMessage("金幣不足！");
+            popupManager.ShowMessage("金幣不足!");
             return;
         }
 
-        coinUIManager.SetCoins(currentCoins - price);
+        // 使用 StudentData.SpendCoins 扣除金幣並存到 DataStore
+        bool success = StudentData.SpendCoins(price, (result) => {
+            if (result)
+            {
+                // 扣款成功,更新 UI
+                coinUIManager.SetCoins(StudentData.Coins);
+            }
+        });
+        
+        if (!success)
+        {
+            popupManager.ShowMessage("金幣不足!");
+            return;
+        }
 
         SpatialBridge.inventoryService.AddItem(productCard.itemID, 1);
         purchaseHistoryManager.AddPurchasedCategory(category, productCard.productName);
 
-        popupManager.ShowMessage("購買成功！");
+        popupManager.ShowMessage("購買成功!");
         isPurchased = true;
         UpdateButton();
         SpawnComponent(componentPrefab);
@@ -84,10 +98,18 @@ public class BuyManager : MonoBehaviour
         int price = productCard.price;
         string category = productCard.category;
 
-        coinUIManager.SetCoins(coinUIManager.CurrentCoins + price);
+        // 使用 StudentData.AddCoins 增加金幣並存到 DataStore
+        StudentData.AddCoins(price, (result) => {
+            if (result)
+            {
+                // 退款成功,更新 UI
+                coinUIManager.SetCoins(StudentData.Coins);
+            }
+        });
+        
         purchaseHistoryManager.RemovePurchasedCategory(category);
 
-        popupManager.ShowMessage("退款成功！");
+        popupManager.ShowMessage("退款成功!");
         isPurchased = false;
         UpdateButton();
         Destroy(spawnedComponent);

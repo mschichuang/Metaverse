@@ -97,6 +97,11 @@ namespace Emily.Scripts
         #endregion
 
         #region Coin Management
+        
+        /// <summary>
+        /// 金幣變更事件 (新金幣數量)
+        /// </summary>
+        public static event Action<int> OnCoinsChanged;
 
         /// <summary>
         /// 增加金幣
@@ -105,7 +110,14 @@ namespace Emily.Scripts
         {
             _cachedCoins += amount;
             var request = SpatialBridge.userWorldDataStoreService.SetVariable(KEY_COINS, _cachedCoins);
-            request.SetCompletedEvent((r) => onComplete?.Invoke(r.succeeded));
+            request.SetCompletedEvent((r) => {
+                if (r.succeeded)
+                {
+                    // 觸發金幣變更事件
+                    OnCoinsChanged?.Invoke(_cachedCoins);
+                }
+                onComplete?.Invoke(r.succeeded);
+            });
         }
 
         /// <summary>
@@ -117,7 +129,14 @@ namespace Emily.Scripts
             {
                 _cachedCoins -= amount;
                 var request = SpatialBridge.userWorldDataStoreService.SetVariable(KEY_COINS, _cachedCoins);
-                request.SetCompletedEvent((r) => onComplete?.Invoke(r.succeeded));
+                request.SetCompletedEvent((r) => {
+                    if (r.succeeded)
+                    {
+                        // 觸發金幣變更事件
+                        OnCoinsChanged?.Invoke(_cachedCoins);
+                    }
+                    onComplete?.Invoke(r.succeeded);
+                });
                 return true;
             }
             onComplete?.Invoke(false);

@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Networking;
 using System.Threading.Tasks;
+using Emily.Scripts;
 
 public class CoinUIManager : MonoBehaviour
 {
@@ -10,24 +11,30 @@ public class CoinUIManager : MonoBehaviour
 
     void Start()
     {
+        // 訂閱金幣變更事件
+        StudentData.OnCoinsChanged += OnCoinsChanged;
+        
         _ = UpdateCoinUI();
+    }
+    
+    void OnDestroy()
+    {
+        // 取消訂閱
+        StudentData.OnCoinsChanged -= OnCoinsChanged;
+    }
+    
+    /// <summary>
+    /// 金幣變更時自動更新 UI
+    /// </summary>
+    private void OnCoinsChanged(int newCoins)
+    {
+        SetCoins(newCoins);
     }
 
     public async Task UpdateCoinUI()
     {
-        string name = PlayerInfoManager.GetPlayerName();
-        string url = $"{PlayerInfoManager.Url}?action=getCoins&name={name}";
-        
-        using (UnityWebRequest request = UnityWebRequest.Get(url))
-        {
-            request.SendWebRequest();
-            while (!request.isDone)
-                await Task.Yield();
-
-            string json = request.downloadHandler.text;
-            CoinResponse data = JsonUtility.FromJson<CoinResponse>(json);
-            SetCoins(data.coins);
-        }
+        // 從 StudentData DataStore 讀取金幣
+        SetCoins(StudentData.Coins);
     }
 
     public void SetCoins(int amount)
