@@ -28,7 +28,7 @@ public class QuizManager : MonoBehaviour
     [Tooltip("測驗完成後的提交 Interactable")]
     public SpatialInteractable submitScoreInteractable;
     [Tooltip("Google Apps Script Web App URL")]
-    public string googleScriptURL = "https://script.google.com/macros/s/AKfycbx_dFr08pDSFm22YGbXq6GJGAAuNmhY228cUkbz-WyuUWB68DUgFS2WxIy5191Pi-2f/exec";
+
 
     private QuestionData[] questions;
     private int currentIndex = 0;
@@ -262,9 +262,7 @@ public class QuizManager : MonoBehaviour
         nextQuestionButton.onClick.RemoveAllListeners();
         nextQuestionButton.onClick.AddListener(OnFinalScoreOKClicked);
         
-        // 上傳成績到 Google Sheets (保留原有功能,async 放最後)
-        string name = PlayerInfoManager.GetPlayerName();
-        await UploadScoreAndCoins(name, correctCount);
+        // 更新金幣 UI
         if (coinUIManager != null) await coinUIManager.UpdateCoinUI();
     }
     
@@ -288,24 +286,7 @@ public class QuizManager : MonoBehaviour
         }
     }
 
-    private async Task UploadScoreAndCoins(string name, int correctCount)
-    {
-        int score = correctCount * 10;
-        int coins = correctCount * coinsPerQuestion;
-        string json = $"{{\"name\":\"{name}\", \"score\":{score}, \"coins\":{coins}}}";
-        string url = PlayerInfoManager.Url + "?action=uploadQuiz";
 
-        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
-        {
-            request.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(json));
-            request.downloadHandler = new DownloadHandlerBuffer();
-            request.SetRequestHeader("Content-Type", "application/json");
-
-            request.SendWebRequest();
-            while (!request.isDone)
-                await Task.Yield();
-        }
-    }
 
     [System.Serializable]
     public class QuestionList
@@ -329,10 +310,8 @@ public class QuizManager : MonoBehaviour
     /// </summary>
     public void OnSubmitScoreClicked()
     {
-        if (string.IsNullOrEmpty(googleScriptURL) || googleScriptURL.Contains("YOUR_SCRIPT_ID"))
-        {
-            return;
-        }
+        // Google Apps Script Web App URL (用於學生成績提交)
+        string googleScriptURL = "https://script.google.com/macros/s/AKfycbx_dFr08pDSFm22YGbXq6GJGAAuNmhY228cUkbz-WyuUWB68DUgFS2WxIy5191Pi-2f/exec";
         
         // 建構提交 URL
         string url = StudentData.BuildSubmissionURL(googleScriptURL);
