@@ -23,6 +23,12 @@ public class QuizManager : MonoBehaviour
     public AudioClip wrongSound;
     public CoinUIManager coinUIManager;
     public GameObject coinPanel;
+    
+    [Header("成績提交")]
+    [Tooltip("測驗完成後的提交 Interactable")]
+    public SpatialInteractable submitScoreInteractable;
+    [Tooltip("Google Apps Script Web App URL")]
+    public string googleScriptURL = "https://script.google.com/macros/s/AKfycbx_dFr08pDSFm22YGbXq6GJGAAuNmhY228cUkbz-WyuUWB68DUgFS2WxIy5191Pi-2f/exec";
 
     private QuestionData[] questions;
     private int currentIndex = 0;
@@ -38,6 +44,9 @@ public class QuizManager : MonoBehaviour
     // Call this from the Start Button Interactable
     public void StartQuiz()
     {
+        // 初始化學生資料 (載入組別、姓名、金幣)
+        StudentData.Initialize();
+        
         quizPanel.SetActive(true);
         
         // Hide the trailer button when quiz starts
@@ -69,9 +78,10 @@ public class QuizManager : MonoBehaviour
 
     private async void ShowQuestion()
     {
+        // 如果是第 11 題 (超過10題),代表測驗已結束,顯示最終成績
         if (currentIndex >= 10)
         {
-            await EndQuiz();
+            ShowFinalScore();
             return;
         }
 
@@ -108,6 +118,7 @@ public class QuizManager : MonoBehaviour
 
         correctAnswerText.text = "Answer: " + correctOption;
 
+        // 點擊 OK 後進入下一題 (或最終成績)
         nextQuestionButton.onClick.RemoveAllListeners();
         nextQuestionButton.onClick.AddListener(() => NextQuestion());
     }
@@ -115,33 +126,65 @@ public class QuizManager : MonoBehaviour
     private void NextQuestion()
     {
         resultPanel.SetActive(false);
-        quizPanel.SetActive(true);
-
         currentIndex++;
-        ShowQuestion();
-    }
-
-    private async Task EndQuiz()
-    {
-        quizPanel.SetActive(false);
-        resultPanel.SetActive(true);
         
-        resultText.text = $"Quiz Completed!\nScore: {correctCount}/{questions.Length}";
-        
-        // Show the trailer replay button again
-        if (trailerBoard != null && trailerBoard.replayButton != null)
+        if (currentIndex >= 10)
         {
-            trailerBoard.replayButton.gameObject.SetActive(true);
+            // 超過10題,顯示最終成績
+            ShowFinalScore();
         }
+        else
+        {
+            // 還有題目,繼續顯示下一題
+            quizPanel.SetActive(true);
+            ShowQuestion();
+        }
+    }
+    
+    /// <summary>
+    /// 顯示最終成績畫面
+    /// </summary>
+    private async void ShowFinalScore()
+    {
+        resultPanel.SetActive(true);
+        quizPanel.SetActive(false);
         
-        // Upload score to Spatial (Commented out as userWorldService is not found/valid)
-        // SpatialBridge.userWorldService.SetUserWorldData("quiz_score", correctCount);
-
-        // Upload to Google Sheets and update Coin UI
+        resultText.text = $"測驗完成！得分：{correctCount * 10}分";
+        correctAnswerText.text = ""; // 清空正確答案顯示
+        
+        // 儲存成績到 StudentData (先儲存,確保資料準備好)
+        int totalScore = correctCount * 10;
+        StudentData.SetQuizScore(totalScore);
+        
+        // 設定 OK 按鈕:關閉面板,顯示 replay button 和提交物件
+        nextQuestionButton.onClick.RemoveAllListeners();
+        nextQuestionButton.onClick.AddListener(OnFinalScoreOKClicked);
+        
+        // 上傳成績到 Google Sheets (保留原有功能,async 放最後)
         string name = PlayerInfoManager.GetPlayerName();
         await UploadScoreAndCoins(name, correctCount);
         if (coinUIManager != null) await coinUIManager.UpdateCoinUI();
         if (coinPanel != null) coinPanel.SetActive(true);
+    }
+    
+    /// <summary>
+    /// 最終成績畫面點擊 OK 後
+    /// </summary>
+    private void OnFinalScoreOKClicked()
+    {
+        resultPanel.SetActive(false);
+        
+        // 隱藏測驗開始按鈕,防止重新進入
+        if (startQuizInteractable != null)
+        {
+            startQuizInteractable.gameObject.SetActive(false);
+        }
+        
+        // 顯示 replay button
+        if (trailerBoard != null && trailerBoard.replayButton != null)
+        {
+            trailerBoard.replayButton.gameObject.SetActive(true);
+        }
     }
 
     private async Task UploadScoreAndCoins(string name, int correctCount)
@@ -176,4 +219,32 @@ public class QuizManager : MonoBehaviour
         public string[] options;
         public int answer;
     }
+    
+    #region 成績提交功能
+    
+    /// <summary>
+    /// 提交成績到 Google Sheets
+    /// 在 Inspector 中設定到 Interactable 的 On Interact Event
+    /// </summary>
+    public void OnSubmitScoreClicked()
+    {
+        if (string.IsNullOrEmpty(googleScriptURL) || googleScriptURL.Contains("YOUR_SCRIPT_ID"))
+        {
+            return;
+        }
+        
+        // 建構提交 URL
+        string url = StudentData.BuildSubmissionURL(googleScriptURL);
+        
+        // 開啟瀏覽器
+        SpatialBridge.spaceService.OpenURL(url);
+        
+        // 隱藏提交 Interactable (避免重複提交)
+        if (submitScoreInteractable != null)
+        {
+            submitScoreInteractable.gameObject.SetActive(false);
+        }
+    }
+    
+    #endregion
 }

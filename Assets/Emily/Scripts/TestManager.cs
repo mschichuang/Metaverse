@@ -2,9 +2,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using SpatialSys.UnitySDK;
+using Emily.Scripts;
 
 public class TestManager : MonoBehaviour
 {
+    [Header("Quiz UI")]
     public GameObject testPanel;
     public GameObject resultPanel;
     public TMP_Text questionText;
@@ -14,7 +17,18 @@ public class TestManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip correctSound;
     public AudioClip wrongSound;
+    
+    [Header("Completion UI")]
+    public GameObject completionPanel;
+    public TMP_Text completionSummaryText;
+    public Button submitButton;
+    
+    [Header("Google Apps Script Settings")]
+    [Tooltip("部署的 Google Apps Script Web App URL")]
+    public string googleScriptURL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+    
     private string currentComponent;
+    private HashSet<string> completedQuizzes = new HashSet<string>();
     
     private Dictionary<string, string> questions = new Dictionary<string, string>()
     {
@@ -89,6 +103,11 @@ public class TestManager : MonoBehaviour
         {
             resultText.text = "Correct!";
             audioSource.PlayOneShot(correctSound);
+            
+            // 記錄成績到 StudentData
+            StudentData.UpdateScore(currentComponent, 100);
+            completedQuizzes.Add(currentComponent);
+            
             nextQuestionButton.onClick.RemoveAllListeners();
             nextQuestionButton.onClick.AddListener(() => CloseResultPanel());
         }
@@ -111,4 +130,76 @@ public class TestManager : MonoBehaviour
         resultPanel.SetActive(false);
         testPanel.SetActive(true);
     }
+    
+    #region Completion & Submission
+    
+    /// <summary>
+    /// 顯示完成面板，讓學生提交成績
+    /// </summary>
+    public void ShowCompletionPanel()
+    {
+        if (completionPanel == null)
+        {
+            Debug.LogError("[TestManager] completionPanel 未設定!");
+            return;
+        }
+        
+        completionPanel.SetActive(true);
+        
+        // 顯示成績摘要
+        if (completionSummaryText != null)
+        {
+            completionSummaryText.text = BuildSummaryText();
+        }
+        
+        // 設定提交按鈕
+        if (submitButton != null)
+        {
+            submitButton.onClick.RemoveAllListeners();
+            submitButton.onClick.AddListener(OnSubmitButtonClick);
+        }
+    }
+    
+    private string BuildSummaryText()
+    {
+        return $@"<b>=== 🎉 測驗完成! ===</b>
+
+<b>組別:</b> {StudentData.GroupNumber}
+<b>姓名:</b> {StudentData.StudentName}
+
+<b>測驗成績:</b>
+  MB:  {StudentData.GetScoreOrNA("MB")}
+  CPU: {StudentData.GetScoreOrNA("CPU")}
+  RAM: {StudentData.GetScoreOrNA("RAM")}
+  SSD: {StudentData.GetScoreOrNA("SSD")}
+
+<b>總金幣:</b> {StudentData.Coins}";
+    }
+    
+    private void OnSubmitButtonClick()
+    {
+        if (string.IsNullOrEmpty(googleScriptURL) || googleScriptURL.Contains("YOUR_SCRIPT_ID"))
+        {
+            Debug.LogError("[TestManager] 請設定正確的 Google Apps Script URL!");
+            return;
+        }
+        
+        string url = StudentData.BuildSubmissionURL(googleScriptURL);
+        SpatialBridge.spaceService.OpenURL(url);
+        
+        Debug.Log($"[TestManager] 開啟提交頁面: {url}");
+    }
+    
+    /// <summary>
+    /// 關閉完成面板
+    /// </summary>
+    public void CloseCompletionPanel()
+    {
+        if (completionPanel != null)
+        {
+            completionPanel.SetActive(false);
+        }
+    }
+    
+    #endregion
 }

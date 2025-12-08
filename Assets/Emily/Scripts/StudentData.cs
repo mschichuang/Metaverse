@@ -1,6 +1,7 @@
 using UnityEngine;
 using SpatialSys.UnitySDK;
 using System;
+using System.Collections.Generic;
 
 namespace Emily.Scripts
 {
@@ -12,12 +13,19 @@ namespace Emily.Scripts
     {
         // DataStore Keys
         private const string KEY_COINS = "coins";
+        private const string KEY_SCORES = "scores";
 
         // 本地快取
         private static string _cachedGroupNumber = null;
         private static string _cachedStudentName = null;
         private static int _cachedCoins = 0;
         private static bool _isInitialized = false;
+        
+        // 成績快取 (MB, CPU, RAM, SSD - TestManager 用)
+        private static Dictionary<string, int> _cachedScores = new Dictionary<string, int>();
+        
+        // 測驗總分 (QuizManager 10題測驗用)
+        private static int _quizTotalScore = 0;
 
         #region Initialization
 
@@ -124,6 +132,76 @@ namespace Emily.Scripts
             _cachedCoins = 0;
             var request = SpatialBridge.userWorldDataStoreService.SetVariable(KEY_COINS, 0);
             request.SetCompletedEvent((r) => onComplete?.Invoke(r.succeeded));
+        }
+
+        #endregion
+
+        #region Score Management
+
+        /// <summary>
+        /// 更新測驗成績
+        /// </summary>
+        public static void UpdateScore(string subject, int score)
+        {
+            _cachedScores[subject] = score;
+            Debug.Log($"[StudentData] 成績更新 - {subject}: {score}");
+        }
+
+        /// <summary>
+        /// 取得特定科目成績
+        /// </summary>
+        public static int GetScore(string subject)
+        {
+            return _cachedScores.ContainsKey(subject) ? _cachedScores[subject] : -1;
+        }
+
+        /// <summary>
+        /// 取得所有成績
+        /// </summary>
+        public static Dictionary<string, int> GetAllScores()
+        {
+            return new Dictionary<string, int>(_cachedScores);
+        }
+
+        /// <summary>
+        /// 取得成績或顯示 "-"
+        /// </summary>
+        public static string GetScoreOrNA(string subject)
+        {
+            return _cachedScores.ContainsKey(subject) ? _cachedScores[subject].ToString() : "-";
+        }
+        
+        /// <summary>
+        /// 設定測驗總分 (QuizManager 用)
+        /// </summary>
+        public static void SetQuizScore(int score)
+        {
+            _quizTotalScore = score;
+            Debug.Log($"[StudentData] 測驗總分設定為: {score}");
+        }
+        
+        /// <summary>
+        /// 取得測驗總分
+        /// </summary>
+        public static int QuizScore => _quizTotalScore;
+
+        #endregion
+
+        #region Submission
+
+        /// <summary>
+        /// 建構 Google Apps Script 提交頁面 URL
+        /// 只傳送: 組別、姓名、總金幣、測驗總分
+        /// </summary>
+        public static string BuildSubmissionURL(string baseURL)
+        {
+            string url = baseURL + "?";
+            url += $"group={Uri.EscapeDataString(GroupNumber)}";
+            url += $"&name={Uri.EscapeDataString(StudentName)}";
+            url += $"&coins={Coins}";
+            url += $"&score={QuizScore}";
+            
+            return url;
         }
 
         #endregion
