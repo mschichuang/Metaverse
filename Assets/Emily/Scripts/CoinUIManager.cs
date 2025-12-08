@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.Networking;
 using System.Threading.Tasks;
 using Emily.Scripts;
 
@@ -66,11 +65,5 @@ public class CoinUIManager : MonoBehaviour
     {
         CurrentCoins = amount;
         coinText.text = amount.ToString();
-    }
-
-    [System.Serializable]
-    private class CoinResponse
-    {
-        public int coins;
     }
 }

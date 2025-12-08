@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Networking;
 using TMPro;
 using System.Threading.Tasks;
 using SpatialSys.UnitySDK;
