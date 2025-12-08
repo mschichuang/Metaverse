@@ -1071,7 +1071,6 @@ MonoBehaviour:
   coinUIManager: {fileID: 0}
   coinPanel: {fileID: 0}
   submitScoreInteractable: {fileID: 790912591}
-  googleScriptURL: https://script.google.com/macros/s/AKfycbx_dFr08pDSFm22YGbXq6GJGAAuNmhY228cUkbz-WyuUWB68DUgFS2WxIy5191Pi-2f/exec
 --- !u!4 &279688813
 Transform:
   m_ObjectHideFlags: 0
@@ -6238,7 +6237,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070939816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.11, y: -0.05, z: -1.51}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
