@@ -60,20 +60,119 @@ public class QuizManager : MonoBehaviour
         LoadQuestions();
     }
 
-    private async void LoadQuestions()
+    private void LoadQuestions()
     {
-        string url = "https://script.google.com/macros/s/AKfycbwWQGMamOQ8WOanSBUXOqW005QNCoX_VRWOCAH4MqohSD89y_BTnzM0CkCROuy7LWUT-Q/exec";
-
-        using (UnityWebRequest request = UnityWebRequest.Get(url))
-        {
-            request.SendWebRequest();
-            while (!request.isDone)
-                await Task.Yield();
-
-            string json = request.downloadHandler.text;
-            questions = JsonUtility.FromJson<QuestionList>(json).questions;
-            ShowQuestion();
-        }
+        // 題目 JSON (直接寫在程式碼中,避免 Spatial SDK 的 Resources.Load 限制)
+        string questionsJson = @"{
+  ""questions"": [
+    {
+      ""question"": ""What are the five components of the von Neumann architecture?"",
+      ""options"": [
+        ""CPU, RAM, Hard Drive, Keyboard, Monitor"",
+        ""Bus System, Cache Memory, Registers, Input/Output Unit, Control Unit"",
+        ""Memory Unit, Arithmetic/Logic Unit, Input Unit, Output Unit, Control Unit"",
+        ""Memory Unit, Cache Memory, Arithmetic/Logic Unit, Input Unit, Output Unit""
+      ],
+      ""answer"": 3
+    },
+    {
+      ""question"": ""Why is cache memory used in computer systems?"",
+      ""options"": [
+        ""To store large amounts of data permanently"",
+        ""To increase the capacity of the main memory"",
+        ""To reduce the time taken for memory accesses"",
+        ""To perform complex arithmetic and logic operations""
+      ],
+      ""answer"": 3
+    },
+    {
+      ""question"": ""What is the role of the bus in a von Neumann machine?"",
+      ""options"": [
+        ""Manages the flow of control signals"",
+        ""Performs data processing operations"",
+        ""Holds data and instructions temporarily"",
+        ""Moves data between CPU, memory, and I/O devices""
+      ],
+      ""answer"": 4
+    },
+    {
+      ""question"": ""Which component of the CPU acts as the organizing force responsible for the fetch-execute cycle?"",
+      ""options"": [
+        ""Bus System"",
+        ""Control Unit"",
+        ""Cache Memory"",
+        ""Arithmetic/Logic Unit""
+      ],
+      ""answer"": 2
+    },
+    {
+      ""question"": ""What role do registers play in a CPU?"",
+      ""options"": [
+        ""They store instructions for future execution"",
+        ""They control the flow of electricity through the CPU"",
+        ""They manage the flow of data between CPU and memory"",
+        ""They provide high-speed storage for data currently being processed""
+      ],
+      ""answer"": 4
+    },
+    {
+      ""question"": ""What is the primary function of the Arithmetic/Logic Unit in a CPU?"",
+      ""options"": [
+        ""Manages input and output devices"",
+        ""Stores data temporarily for fast access"",
+        ""Executes instructions fetched from memory"",
+        ""Performs arithmetic and logical operations on data""
+      ],
+      ""answer"": 4
+    },
+    {
+      ""question"": ""Which statement accurately describes the difference between RAM and ROM?"",
+      ""options"": [
+        ""RAM can be changed, while ROM cannot"",
+        ""ROM is volatile, while RAM is non-volatile"",
+        ""RAM is faster than ROM in accessing data"",
+        ""RAM is used for permanent storage, while ROM is used for temporary storage""
+      ],
+      ""answer"": 1
+    },
+    {
+      ""question"": ""What is the primary purpose of ROM in a computer system?"",
+      ""options"": [
+        ""To store frequently accessed data"",
+        ""To hold temporary program instructions"",
+        ""To store data during power-off situations"",
+        ""To provide permanent storage for system instructions""
+      ],
+      ""answer"": 4
+    },
+    {
+      ""question"": ""What distinguishes SSDs from traditional hard disks?"",
+      ""options"": [
+        ""SSDs use more power than hard disks"",
+        ""SSDs have no moving parts and are faster"",
+        ""SSDs have slower access times compared to hard disks"",
+        ""SSDs are smaller in physical size compared to hard disks""
+      ],
+      ""answer"": 2
+    },
+    {
+      ""question"": ""What type of memory is used in SSDs?"",
+      ""options"": [
+        ""Flash memory"",
+        ""DRAM memory"",
+        ""Volatile memory"",
+        ""Magnetic memory""
+      ],
+      ""answer"": 1
+    }
+  ]
+}";
+        
+        // 解析 JSON
+        questions = JsonUtility.FromJson<QuestionList>(questionsJson).questions;
+        
+        Debug.Log($"[QuizManager] 成功載入 {questions.Length} 題");
+        ShowQuestion();
     }
 
     private async void ShowQuestion()
