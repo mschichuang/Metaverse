@@ -16,6 +16,9 @@ namespace Emily.Scripts
 
         [Tooltip("The button to replay the trailer manually")]
         public Button replayButton;
+        
+        [Tooltip("金幣 UI Panel (播放影片時隱藏)")]
+        public GameObject coinPanel;
 
         [Tooltip("Whether the trailer should be muted")]
         public bool isMuted = true;
@@ -54,15 +57,21 @@ namespace Emily.Scripts
             {
                 replayButton.gameObject.SetActive(false);
             }
+            
+            // 隱藏金幣 UI (播放影片時)
+            if (coinPanel != null)
+            {
+                coinPanel.SetActive(false);
+            }
         }
 
         public void CloseTrailer()
         {
-            // Unsubscribe from event
+            // Unsubscribe from event and stop video
             if (activeVideoPlayer != null)
             {
                 activeVideoPlayer.onVideoFinished -= CloseTrailer;
-                activeVideoPlayer.StopVideo(); // [FIX] Stop video to kill audio
+                activeVideoPlayer.StopVideo(); // Stop video to kill audio
                 activeVideoPlayer = null;
             }
 
@@ -89,6 +98,12 @@ namespace Emily.Scripts
             if (replayButton != null)
             {
                 replayButton.gameObject.SetActive(true);
+            }
+            
+            // 重新顯示金幣 UI (影片結束)
+            if (coinPanel != null)
+            {
+                coinPanel.SetActive(true);
             }
         }
 

@@ -164,7 +164,6 @@ public class QuizManager : MonoBehaviour
         string name = PlayerInfoManager.GetPlayerName();
         await UploadScoreAndCoins(name, correctCount);
         if (coinUIManager != null) await coinUIManager.UpdateCoinUI();
-        if (coinPanel != null) coinPanel.SetActive(true);
     }
     
     /// <summary>
