@@ -14,7 +14,8 @@ public class CoinUIManager : MonoBehaviour
         // 訂閱金幣變更事件
         StudentData.OnCoinsChanged += OnCoinsChanged;
         
-        _ = UpdateCoinUI();
+        // 初始化並更新 UI
+        _ = InitializeAndUpdate();
     }
     
     void OnDestroy()
@@ -29,6 +30,30 @@ public class CoinUIManager : MonoBehaviour
     private void OnCoinsChanged(int newCoins)
     {
         SetCoins(newCoins);
+    }
+    
+    /// <summary>
+    /// 初始化 StudentData 並更新 UI
+    /// </summary>
+    private async Task InitializeAndUpdate()
+    {
+        // 如果 StudentData 還沒初始化,先初始化
+        if (!StudentData.IsInitialized)
+        {
+            bool initialized = false;
+            StudentData.Initialize((success) => {
+                initialized = true;
+            });
+            
+            // 等待初始化完成
+            while (!initialized)
+            {
+                await Task.Yield();
+            }
+        }
+        
+        // 從 StudentData DataStore 讀取金幣
+        SetCoins(StudentData.Coins);
     }
 
     public async Task UpdateCoinUI()

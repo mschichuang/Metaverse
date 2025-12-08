@@ -90,6 +90,11 @@ namespace Emily.Scripts
         public static int Coins => _cachedCoins;
         
         /// <summary>
+        /// 檢查 StudentData 是否已初始化
+        /// </summary>
+        public static bool IsInitialized => _isInitialized;
+        
+        /// <summary>
         /// 檢查 Display Name 格式是否正確
         /// </summary>
         public static bool IsValidFormat => !string.IsNullOrEmpty(_cachedGroupNumber) && !string.IsNullOrEmpty(_cachedStudentName);

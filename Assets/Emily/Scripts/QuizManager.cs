@@ -109,6 +109,9 @@ public class QuizManager : MonoBehaviour
             correctCount++;
             resultText.text = "Correct!";
             audioSource.PlayOneShot(correctSound);
+            
+            // 答對時增加金幣 (每題 2500 金幣)
+            StudentData.AddCoins(coinsPerQuestion);
         }
         else
         {
