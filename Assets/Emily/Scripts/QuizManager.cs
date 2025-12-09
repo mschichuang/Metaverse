@@ -318,8 +318,6 @@ public class QuizManager : MonoBehaviour
         // 開啟瀏覽器
         SpatialBridge.spaceService.OpenURL(url);
         
-        Debug.Log($"[QuizManager] 提交資料: 組別={StudentData.GroupNumber}, 姓名={StudentData.StudentName}, 金幣={StudentData.Coins}, 成績={StudentData.QuizScore}");
-        
         // 隱藏提交 Interactable (避免重複提交)
         if (submitScoreInteractable != null)
         {

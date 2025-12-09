@@ -241,15 +241,15 @@ namespace Emily.Scripts
 
         /// <summary>
         /// 建構 Google Apps Script 提交頁面 URL
-        /// 傳送: 組別、姓名、個人貢獻金額、測驗總分
+        /// 傳送: 組別、姓名、測驗成績、金幣貢獻
         /// </summary>
         public static string BuildSubmissionURL(string baseURL)
         {
             string url = baseURL + "?";
             url += $"group={Uri.EscapeDataString(GroupNumber)}";
             url += $"&name={Uri.EscapeDataString(StudentName)}";
-            url += $"&contribution={PersonalContribution}";
             url += $"&score={QuizScore}";
+            url += $"&contribution={PersonalContribution}";
             
             return url;
         }

@@ -20,9 +20,6 @@ namespace Emily.Scripts
         [Tooltip("金幣 Canvas (播放影片時隱藏)")]
         public GameObject coinCanvas;
 
-        [Tooltip("Whether the trailer should be muted")]
-        public bool isMuted = true;
-
         private SpatialVideoPlayer activeVideoPlayer;
 
         private void Start()
@@ -142,8 +139,8 @@ namespace Emily.Scripts
             activeVideoPlayer = trailerPage.GetComponentInChildren<SpatialVideoPlayer>();
             if (activeVideoPlayer != null)
             {
-                // Set mute state
-                activeVideoPlayer.isMuted = this.isMuted;
+                // 預設有聲音
+                activeVideoPlayer.isMuted = false;
 
                 // Subscribe to finish event
                 activeVideoPlayer.onVideoFinished -= CloseTrailer; // Safety unsubscribe
