@@ -1,1 +1,11 @@
-{"data":{"student_id":"B11102210","group_number":"1","coins":498000},"typeInfo":{"":"Dictionary`2","/student_id":"String","/group_number":"String","/coins":"Int32"}}
+{
+  "data": {
+    "coins": 0,
+    "quiz_score": 0
+  },
+  "typeInfo": {
+    "": "Dictionary`2",
+    "/coins": "Int32",
+    "/quiz_score": "Int32"
+  }
+}

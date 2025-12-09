@@ -13,6 +13,7 @@ namespace Emily.Scripts
     {
         // DataStore Keys
         private const string KEY_COINS = "coins";
+        private const string KEY_QUIZ_SCORE = "quiz_score";
         private const string KEY_SCORES = "scores";
 
         // 本地快取
@@ -36,7 +37,7 @@ namespace Emily.Scripts
         {
             if (_isInitialized)
             {
-                onComplete?.Invoke(true);
+                onComplete?.Invoke(IsValidFormat);
                 return;
             }
 
@@ -45,12 +46,19 @@ namespace Emily.Scripts
             ParseDisplayName(displayName);
 
             // 載入金幣資料
-            var request = SpatialBridge.userWorldDataStoreService.GetVariable(KEY_COINS, 0);
-            request.SetCompletedEvent((r) =>
+            var coinsRequest = SpatialBridge.userWorldDataStoreService.GetVariable(KEY_COINS, 0);
+            coinsRequest.SetCompletedEvent((r) =>
             {
                 _cachedCoins = r.intValue;
-                _isInitialized = true;
-                onComplete?.Invoke(IsValidFormat);
+                
+                // 載入測驗成績
+                var scoreRequest = SpatialBridge.userWorldDataStoreService.GetVariable(KEY_QUIZ_SCORE, 0);
+                scoreRequest.SetCompletedEvent((sr) =>
+                {
+                    _quizTotalScore = sr.intValue;
+                    _isInitialized = true;
+                    onComplete?.Invoke(IsValidFormat);
+                });
             });
         }
 
@@ -197,11 +205,25 @@ namespace Emily.Scripts
         
         /// <summary>
         /// 設定測驗總分 (QuizManager 用)
+        /// 儲存到 DataStore 以支援跨場景使用
         /// </summary>
         public static void SetQuizScore(int score)
         {
             _quizTotalScore = score;
-            Debug.Log($"[StudentData] 測驗總分設定為: {score}");
+            
+            // 儲存到 DataStore
+            var request = SpatialBridge.userWorldDataStoreService.SetVariable(KEY_QUIZ_SCORE, score);
+            request.SetCompletedEvent((r) =>
+            {
+                if (r.succeeded)
+                {
+                    Debug.Log($"[StudentData] 測驗總分已存到 DataStore: {score}");
+                }
+                else
+                {
+                    Debug.LogError($"[StudentData] 測驗總分存檔失敗: {score}");
+                }
+            });
         }
         
         /// <summary>
