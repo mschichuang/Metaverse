@@ -11,7 +11,7 @@ namespace Emily.Scripts
     {
         [Header("Dependencies (Auto-Injected)")]
         public ProductCard productCard;
-        public CoinUIManager coinUIManager;
+        public AssemblyCoinUIManager coinUIManager; // Changed to AssemblyCoinUIManager
         public PopupManager popupManager;
         public SpecManager specManager;
         public PurchaseHistoryManager purchaseHistoryManager;
@@ -24,7 +24,7 @@ namespace Emily.Scripts
         private bool isPurchased = false;
         private bool hasViewedSpec = false;
 
-        public void Setup(CoinUIManager coinUI, PopupManager popup, SpecManager spec, PurchaseHistoryManager history)
+        public void Setup(AssemblyCoinUIManager coinUI, PopupManager popup, SpecManager spec, PurchaseHistoryManager history)
         {
             coinUIManager = coinUI;
             popupManager = popup;
@@ -70,7 +70,11 @@ namespace Emily.Scripts
         {
             if (productCard.productData == null) return;
 
-            int currentCoins = StudentData.Coins;
+            int currentCoins = StudentData.Coins; // Note: You might want to use GroupCoins if this is assembly area
+            // However, BuyManager logic seems to use StudentData (Personal Coins) based on original code. 
+            // If AssemblyCoinUIManager implies Group Coins, verify if this logic needs to change to GroupCoinManager.
+            // For now, keeping StudentData logic but using AssemblyCoinUIManager for UI refresh.
+            
             int price = productCard.productData.price;
             string category = productCard.productData.category;
 
@@ -89,7 +93,7 @@ namespace Emily.Scripts
             bool success = StudentData.SpendCoins(price, (result) => {
                 if (result)
                 {
-                    coinUIManager.SetCoins(StudentData.Coins);
+                    if (coinUIManager != null) coinUIManager.RefreshCoins();
                 }
             });
             
@@ -122,7 +126,7 @@ namespace Emily.Scripts
             StudentData.AddCoins(price, (result) => {
                 if (result)
                 {
-                    coinUIManager.SetCoins(StudentData.Coins);
+                    if (coinUIManager != null) coinUIManager.RefreshCoins();
                 }
             });
             

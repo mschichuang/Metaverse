@@ -18,46 +18,60 @@ namespace Emily.Scripts
         public List<ProductData> allProducts;
         
         [Header("UI Containers")]
-        public List<CategoryMapping> categoryMappings;
+        public Transform listContainer; // The single container (Grid) where items will spawn
 
         [Header("Manager References (For Injection)")]
-        public CoinUIManager coinUIManager;
+        [Header("Manager References (For Injection)")]
+        public AssemblyCoinUIManager coinUIManager;
         public PopupManager popupManager;
         public SpecManager specManager;
         public PurchaseHistoryManager purchaseHistoryManager;
 
-        void Start()
-        {
-            GenerateShopContent();
-        }
+        // Note: No Start() generation anymore. We wait for TabController to call ShowCategory.
 
-        [ContextMenu("Refresh Shop UI")]
-        public void GenerateShopContent()
+        public void ShowCategory(string category)
         {
-            if (productCardPrefab == null)
+            Debug.Log($"[ShopContentGenerator] ShowCategory called with: '{category}'");
+
+            if (productCardPrefab == null || listContainer == null)
             {
-                Debug.LogError("ProductCardPrefab is missing!");
+                Debug.LogError("ShopContentGenerator: Missing Prefab or Container!");
                 return;
             }
 
-            // 1. Clear existing generated items (if any logic for that exists, optional)
-            // For now, we assume we append or the containers are empty at start.
+            // [Auto-Load] If list is empty, try loading from Resources
+            if (allProducts == null || allProducts.Count == 0)
+            {
+                Debug.LogWarning("[ShopContentGenerator] allProducts list is EMPTY!");
+                // Note: User manually assigned items, but just in case
+                // var loaded = Resources.LoadAll<ProductData>("Products"); 
+                // allProducts = new List<ProductData>(loaded);
+            }
+            else
+            {
+                Debug.Log($"[ShopContentGenerator] Total products loaded: {allProducts.Count}");
+            }
 
-            // 2. Loop through all products
+            // 1. Clear existing items
+            foreach (Transform child in listContainer)
+            {
+                Destroy(child.gameObject);
+            }
+
+            int matchCount = 0;
+
+            // 2. Filter and Instantiate
             foreach (var product in allProducts)
             {
                 if (product == null) continue;
 
-                // Find container for this category
-                Transform targetContainer = GetContainerForCategory(product.category);
-                if (targetContainer == null)
-                {
-                    Debug.LogWarning($"No container found for category: {product.category}");
+                // Case-insensitive comparison
+                if (!string.Equals(product.category, category, StringComparison.OrdinalIgnoreCase))
                     continue;
-                }
 
+                matchCount++;
                 // Instantiate Card
-                GameObject cardObj = Instantiate(productCardPrefab, targetContainer);
+                GameObject cardObj = Instantiate(productCardPrefab, listContainer);
                 cardObj.name = $"Card_{product.productName}";
 
                 // Setup ProductCard
@@ -68,24 +82,13 @@ namespace Emily.Scripts
                 }
 
                 // Setup BuyManager (Inject Dependencies)
+                // Note: We are now passing AssemblyCoinUIManager
                 BuyManager buyManager = cardObj.GetComponent<BuyManager>();
                 if (buyManager != null)
                 {
                     buyManager.Setup(coinUIManager, popupManager, specManager, purchaseHistoryManager);
                 }
             }
-        }
-
-        private Transform GetContainerForCategory(string category)
-        {
-            foreach (var mapping in categoryMappings)
-            {
-                if (mapping.categoryName.Equals(category, StringComparison.OrdinalIgnoreCase))
-                {
-                    return mapping.container;
-                }
-            }
-            return null;
         }
     }
 }
