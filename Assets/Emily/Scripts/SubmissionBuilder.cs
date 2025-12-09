@@ -7,11 +7,11 @@ namespace Emily.Scripts
 {
     public class SubmissionBuilder : MonoBehaviour
     {
-        [ContextMenu("Generate Ascension Terminal")]
+        [ContextMenu("Generate Submission Matrix")]
         public void Generate()
         {
             // 1. Root Object
-            GameObject root = new GameObject("AscensionTerminal");
+            GameObject root = new GameObject("SubmissionMatrix");
             root.transform.position = transform.position;
 
             // Helper to get shader
