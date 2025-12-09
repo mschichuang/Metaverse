@@ -35,6 +35,9 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
     private int personalContribution = 0;
     public int PersonalContribution => personalContribution;
     
+    // 確保 NetworkObject 已 Spawn 且變數可存取
+    public bool IsReady { get; private set; } = false;
+
     void Awake()
     {
         if (Instance == null)
@@ -51,6 +54,7 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
     {
         base.Spawned();
         Debug.Log("[GroupCoinManager] Network Object 已 Spawn");
+        IsReady = true;
         
         // 自動轉換個人金幣到組別金幣池
         TransferPersonalCoinsToGroup();
@@ -212,8 +216,14 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
             case "9": return group9Coins;
             case "10": return group10Coins;
             default:
+#if UNITY_EDITOR
+                // 在編輯器測試時，如果找不到組別，預設使用第一組，避免報錯卡住
+                Debug.LogWarning($"[GroupCoinManager] (Editor Only) 不支援的組別編號: {groupNumber}，自動切換至 Group 1 進行測試。");
+                return group1Coins;
+#else
                 Debug.LogError($"[GroupCoinManager] 不支援的組別編號: {groupNumber}");
                 return null;
+#endif
         }
     }
     

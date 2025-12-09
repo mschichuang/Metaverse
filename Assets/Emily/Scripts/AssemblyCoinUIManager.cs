@@ -53,7 +53,7 @@ public class AssemblyCoinUIManager : MonoBehaviour
     {
         // 等待 GroupCoinManager 實例（最多等 3 秒）
         float timeout = 3f;
-        while (GroupCoinManager.Instance == null && timeout > 0)
+        while ((GroupCoinManager.Instance == null || !GroupCoinManager.Instance.IsReady) && timeout > 0)
         {
             timeout -= Time.deltaTime;
             yield return null;

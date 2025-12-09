@@ -31,8 +31,6 @@ namespace Emily.Scripts
 
         public void ShowCategory(string category)
         {
-            Debug.Log($"[ShopContentGenerator] ShowCategory called with: '{category}'");
-
             if (productCardPrefab == null || listContainer == null)
             {
                 Debug.LogError("ShopContentGenerator: Missing Prefab or Container!");
@@ -42,14 +40,9 @@ namespace Emily.Scripts
             // [Auto-Load] If list is empty, try loading from Resources
             if (allProducts == null || allProducts.Count == 0)
             {
-                Debug.LogWarning("[ShopContentGenerator] allProducts list is EMPTY!");
                 // Note: User manually assigned items, but just in case
                 // var loaded = Resources.LoadAll<ProductData>("Products"); 
                 // allProducts = new List<ProductData>(loaded);
-            }
-            else
-            {
-                Debug.Log($"[ShopContentGenerator] Total products loaded: {allProducts.Count}");
             }
 
             // 1. Clear existing items
@@ -57,8 +50,6 @@ namespace Emily.Scripts
             {
                 Destroy(child.gameObject);
             }
-
-            int matchCount = 0;
 
             // 2. Filter and Instantiate
             foreach (var product in allProducts)
@@ -69,7 +60,6 @@ namespace Emily.Scripts
                 if (!string.Equals(product.category, category, StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                matchCount++;
                 // Instantiate Card
                 GameObject cardObj = Instantiate(productCardPrefab, listContainer);
                 cardObj.name = $"Card_{product.productName}";
