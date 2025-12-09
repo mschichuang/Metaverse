@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d77d5e1cbfd44c7f88ae4064c52122c, type: 3}
+  m_Name: "\u91D1\u58EB\u9813_64GB_DDR5-6400-CL32_FURY_Beast"
+  m_EditorClassIdentifier: 
+  productName: "\u91D1\u58EB\u9813 64GB DDR5-6400/CL32 FURY Beast"
+  itemID: ram_kingston_64g
+  price: 7500
+  category: RAM
+  productSprite: {fileID: 21300000, guid: bb30125ead55144a5bc146aabed9c14f, type: 3}
+  specTexture: {fileID: 2800000, guid: b4933ece8ef184624827316ac7b4bf7b, type: 3}
+  componentPrefab: {fileID: 1055761267241415214, guid: 274dee9f62c6c48bf8aaa3af088d2288,
+    type: 3}

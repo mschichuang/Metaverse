@@ -2,31 +2,31 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ProductCard : MonoBehaviour
+
+namespace Emily.Scripts
 {
-    public TMP_Text nameText;
-    public Image productImage;
-    public TMP_Text priceText;
-
-    [Header("商品資料")]
-    public string productName;
-    public Sprite productSprite;
-    public int price;
-    public string itemID;
-    public string category;
-    public RawImage specImage;
-    public Texture specTexture;
-
-    void Start()
+    public class ProductCard : MonoBehaviour
     {
-        InitializeCard();
-    }
+        public TMP_Text nameText;
+        public Image productImage;
+        public TMP_Text priceText;
+        public RawImage specImage;
 
-    public void InitializeCard()
-    {
-        nameText.text = productName;
-        productImage.sprite = productSprite;
-        priceText.text = price.ToString();
-        specImage.texture = specTexture;
+        [Header("Debug Info")]
+        public ProductData productData; // Reference to source data
+
+        /// <summary>
+        /// Initialize the card with data
+        /// </summary>
+        public void Setup(ProductData data)
+        {
+            productData = data;
+
+            if (nameText != null) nameText.text = data.productName;
+            if (productImage != null) productImage.sprite = data.productSprite;
+            if (priceText != null) priceText.text = data.price.ToString();
+            // specImage is usually for the popup, but if there's a mini spec view on card:
+            if (specImage != null && data.specTexture != null) specImage.texture = data.specTexture;
+        }
     }
 }

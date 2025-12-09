@@ -4,149 +4,177 @@ using UnityEngine.UI;
 using TMPro;
 using Emily.Scripts;
 
-public class BuyManager : MonoBehaviour
+
+namespace Emily.Scripts
 {
-    public ProductCard productCard;
-    public CoinUIManager coinUIManager;
-    public PopupManager popupManager;
-    public SpecManager specManager;
-    public PurchaseHistoryManager purchaseHistoryManager;
-    public Button actionButton;
-    public Button infoButton;
-    public GameObject componentPrefab;
-    private GameObject spawnedComponent;
-    private bool isPurchased = false;
-    private bool hasViewedSpec = false;
-
-    void Awake()
+    public class BuyManager : MonoBehaviour
     {
-        productCard = GetComponent<ProductCard>();
-    }
-
-    void Start()
-    {
-        actionButton.onClick.AddListener(HandleAction);
-        infoButton.onClick.AddListener(ShowSpec);
-
-        UpdateButton();
-    }
-
-    private void HandleAction()
-    {
-        if (!hasViewedSpec)
-        {
-            popupManager.ShowMessage("請先查看此元件的規格後再進行購買。");
-            return;
-        }
-
-        if (isPurchased)
-        {
-            ReturnItem();
-        }
-        else
-        {
-            BuyItem();
-        }
-    }
-
-    private void BuyItem()
-    {
-        int currentCoins = StudentData.Coins;
-        int price = productCard.price;
-        string category = productCard.category;
-
-        if (purchaseHistoryManager.HasPurchasedCategory(category))
-        {
-            popupManager.ShowMessage($"已擁有{category},不能重複購買!");
-            return;
-        }
-
-        if (currentCoins < price)
-        {
-            popupManager.ShowMessage("金幣不足!");
-            return;
-        }
-
-        // 使用 StudentData.SpendCoins 扣除金幣並存到 DataStore
-        bool success = StudentData.SpendCoins(price, (result) => {
-            if (result)
-            {
-                // 扣款成功,更新 UI
-                coinUIManager.SetCoins(StudentData.Coins);
-            }
-        });
+        [Header("Dependencies (Auto-Injected)")]
+        public ProductCard productCard;
+        public CoinUIManager coinUIManager;
+        public PopupManager popupManager;
+        public SpecManager specManager;
+        public PurchaseHistoryManager purchaseHistoryManager;
         
-        if (!success)
+        [Header("UI Components")]
+        public Button actionButton;
+        public Button infoButton;
+        
+        private GameObject spawnedComponent;
+        private bool isPurchased = false;
+        private bool hasViewedSpec = false;
+
+        public void Setup(CoinUIManager coinUI, PopupManager popup, SpecManager spec, PurchaseHistoryManager history)
         {
-            popupManager.ShowMessage("金幣不足!");
-            return;
+            coinUIManager = coinUI;
+            popupManager = popup;
+            specManager = spec;
+            purchaseHistoryManager = history;
+            
+            productCard = GetComponent<ProductCard>();
+
+            actionButton.onClick.RemoveAllListeners();
+            infoButton.onClick.RemoveAllListeners();
+
+            actionButton.onClick.AddListener(HandleAction);
+            infoButton.onClick.AddListener(ShowSpec);
+
+            // Check if already purchased
+            if (productCard.productData != null)
+            {
+                isPurchased = purchaseHistoryManager.HasPurchasedCategory(productCard.productData.category);
+            }
+            
+            UpdateButton();
         }
 
-        SpatialBridge.inventoryService.AddItem(productCard.itemID, 1);
-        purchaseHistoryManager.AddPurchasedCategory(category, productCard.productName);
-
-        popupManager.ShowMessage("購買成功!");
-        isPurchased = true;
-        UpdateButton();
-        SpawnComponent(componentPrefab);
-    }
-
-    private void ReturnItem()
-    {
-        SpatialBridge.inventoryService.DeleteItem(productCard.itemID);
-
-        int price = productCard.price;
-        string category = productCard.category;
-
-        // 使用 StudentData.AddCoins 增加金幣並存到 DataStore
-        StudentData.AddCoins(price, (result) => {
-            if (result)
+        private void HandleAction()
+        {
+            if (!hasViewedSpec)
             {
-                // 退款成功,更新 UI
-                coinUIManager.SetCoins(StudentData.Coins);
+                popupManager.ShowMessage("請先查看此元件的規格後再進行購買。");
+                return;
             }
-        });
-        
-        purchaseHistoryManager.RemovePurchasedCategory(category);
 
-        popupManager.ShowMessage("退款成功!");
-        isPurchased = false;
-        UpdateButton();
-        Destroy(spawnedComponent);
-    }
+            if (isPurchased)
+            {
+                ReturnItem();
+            }
+            else
+            {
+                BuyItem();
+            }
+        }
 
-    private void UpdateButton()
-    {
-        actionButton.GetComponentInChildren<TMP_Text>().text =
-            isPurchased ? "取消" : "購買";
+        private void BuyItem()
+        {
+            if (productCard.productData == null) return;
 
-        actionButton.GetComponent<Image>().color =
-            isPurchased ? new Color32(220, 50, 70, 255)
-                        : new Color32(255, 255, 50, 255);
-    }
+            int currentCoins = StudentData.Coins;
+            int price = productCard.productData.price;
+            string category = productCard.productData.category;
 
-    private void ShowSpec()
-    {
-        Texture specTexture = productCard.specTexture;
-        specManager.ShowSpec(specTexture);
+            if (purchaseHistoryManager.HasPurchasedCategory(category))
+            {
+                popupManager.ShowMessage($"已擁有{category},不能重複購買!");
+                return;
+            }
 
-        hasViewedSpec = true;
-    }
+            if (currentCoins < price)
+            {
+                popupManager.ShowMessage("金幣不足!");
+                return;
+            }
 
-    private void SpawnComponent(GameObject prefab)
-    {
-        var avatar = SpatialBridge.actorService.localActor.avatar;
+            bool success = StudentData.SpendCoins(price, (result) => {
+                if (result)
+                {
+                    coinUIManager.SetCoins(StudentData.Coins);
+                }
+            });
+            
+            if (!success)
+            {
+                popupManager.ShowMessage("金幣不足!");
+                return;
+            }
 
-        Vector3 forward = avatar.rotation * Vector3.forward;
-        Vector3 spawnPos = avatar.position + forward * 1.5f;
+            // SpatialBridge.inventoryService.AddItem(productCard.productData.itemID, 1);
+            purchaseHistoryManager.AddPurchasedCategory(category, productCard.productData.productName);
 
-        // ⭐ 增加高度
-        spawnPos.y += 0.5f;
+            popupManager.ShowMessage("購買成功!");
+            isPurchased = true;
+            UpdateButton();
+            
+            if (productCard.productData.componentPrefab != null)
+            {
+                SpawnComponent(productCard.productData.componentPrefab);
+            }
+        }
 
-        // ⭐ 先依玩家方向，再讓物體平躺
-        Quaternion spawnRot = Quaternion.LookRotation(forward, Vector3.up);
-        spawnRot *= Quaternion.Euler(90f, 0f, 0f);
+        private void ReturnItem()
+        {
+            if (productCard.productData == null) return;
 
-        spawnedComponent = Instantiate(prefab, spawnPos, spawnRot);
+            int price = productCard.productData.price;
+            string category = productCard.productData.category;
+
+            StudentData.AddCoins(price, (result) => {
+                if (result)
+                {
+                    coinUIManager.SetCoins(StudentData.Coins);
+                }
+            });
+            
+            purchaseHistoryManager.RemovePurchasedCategory(category);
+
+            popupManager.ShowMessage("退款成功!");
+            isPurchased = false;
+            UpdateButton();
+            
+            if (spawnedComponent != null)
+            {
+                Destroy(spawnedComponent);
+            }
+        }
+
+        private void UpdateButton()
+        {
+            if (actionButton == null) return;
+            
+            var textComp = actionButton.GetComponentInChildren<TMP_Text>();
+            if (textComp != null) textComp.text = isPurchased ? "取消" : "購買";
+
+            var imgComp = actionButton.GetComponent<Image>();
+            if (imgComp != null)
+            {
+                imgComp.color = isPurchased ? new Color32(220, 50, 70, 255) : new Color32(255, 255, 50, 255);
+            }
+        }
+
+        private void ShowSpec()
+        {
+            if (productCard.productData != null)
+            {
+                specManager.ShowSpec(productCard.productData.specTexture);
+                hasViewedSpec = true;
+            }
+        }
+
+        private void SpawnComponent(GameObject prefab)
+        {
+            if (prefab == null) return;
+
+            var avatar = SpatialBridge.actorService.localActor.avatar;
+
+            Vector3 forward = avatar.rotation * Vector3.forward;
+            Vector3 spawnPos = avatar.position + forward * 1.5f;
+            spawnPos.y += 0.5f;
+
+            Quaternion spawnRot = Quaternion.LookRotation(forward, Vector3.up);
+            spawnRot *= Quaternion.Euler(90f, 0f, 0f);
+
+            spawnedComponent = Instantiate(prefab, spawnPos, spawnRot);
+        }
     }
 }

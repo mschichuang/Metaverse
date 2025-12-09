@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d77d5e1cbfd44c7f88ae4064c52122c, type: 3}
+  m_Name: "\u6280\u5609_AORUS_RTX4080_SUPER_MASTER_16G"
+  m_EditorClassIdentifier: 
+  productName: "\u6280\u5609 AORUS RTX4080 SUPER MASTER 16G"
+  itemID: gpu_4080_super
+  price: 40590
+  category: GPU
+  productSprite: {fileID: 21300000, guid: ef0bb6f5cfe6244e08e7b302e415a9a2, type: 3}
+  specTexture: {fileID: 2800000, guid: 16b5d9f5e9f4d4d09acf72c516998441, type: 3}
+  componentPrefab: {fileID: 630946433844246840, guid: 6973bdc7d1fb245be86b8de3410342af,
+    type: 3}

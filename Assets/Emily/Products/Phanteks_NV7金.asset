@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d77d5e1cbfd44c7f88ae4064c52122c, type: 3}
+  m_Name: "Phanteks_NV7\u91D1"
+  m_EditorClassIdentifier: 
+  productName: "Phanteks NV7\u91D1"
+  itemID: case_nv7_gold
+  price: 6790
+  category: Case
+  productSprite: {fileID: 21300000, guid: 1793f9313ef9e4d4d93d09692d8ff111, type: 3}
+  specTexture: {fileID: 2800000, guid: bc29bd4aaabed4e97a677ce8fcce51b9, type: 3}
+  componentPrefab: {fileID: 1762376993808057838, guid: 50f44b699179a4ddc9de60022e91576d,
+    type: 3}

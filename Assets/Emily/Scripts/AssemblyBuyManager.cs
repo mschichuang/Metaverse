@@ -56,8 +56,10 @@ public class AssemblyBuyManager : MonoBehaviour
 
     private void BuyItem()
     {
-        int price = productCard.price;
-        string category = productCard.category;
+        if (productCard.productData == null) return;
+        
+        int price = productCard.productData.price;
+        string category = productCard.productData.category;
 
         if (purchaseHistoryManager.HasPurchasedCategory(category))
         {
@@ -89,13 +91,17 @@ public class AssemblyBuyManager : MonoBehaviour
         }
 
         // 購買成功
-        SpatialBridge.inventoryService.AddItem(productCard.itemID, 1);
-        purchaseHistoryManager.AddPurchasedCategory(category, productCard.productName);
+        // SpatialBridge.inventoryService.AddItem(productCard.productData.itemID, 1);
+        purchaseHistoryManager.AddPurchasedCategory(category, productCard.productData.productName);
 
         popupManager.ShowMessage("購買成功!");
         isPurchased = true;
         UpdateButton();
-        SpawnComponent(componentPrefab);
+        
+        if (productCard.productData.componentPrefab != null)
+        {
+            SpawnComponent(productCard.productData.componentPrefab);
+        }
 
         // 更新 UI
         if (coinUIManager != null)
@@ -106,10 +112,12 @@ public class AssemblyBuyManager : MonoBehaviour
 
     private void ReturnItem()
     {
-        SpatialBridge.inventoryService.DeleteItem(productCard.itemID);
+        if (productCard.productData == null) return;
+        
+        // SpatialBridge.inventoryService.DeleteItem(productCard.productData.itemID);
 
-        int price = productCard.price;
-        string category = productCard.category;
+        int price = productCard.productData.price;
+        string category = productCard.productData.category;
 
         // 退款到組別金幣池
         if (GroupCoinManager.Instance != null)
@@ -143,9 +151,11 @@ public class AssemblyBuyManager : MonoBehaviour
 
     private void ShowSpec()
     {
-        Texture specTexture = productCard.specTexture;
-        specManager.ShowSpec(specTexture);
-
+        if (productCard.productData != null)
+        {
+            Texture specTexture = productCard.productData.specTexture;
+            specManager.ShowSpec(specTexture);
+        }
         hasViewedSpec = true;
     }
 

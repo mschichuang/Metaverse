@@ -1,0 +1,21 @@
+{
+    "name": "Emily.Scripts.Editor",
+    "rootNamespace": "Emily.Scripts.Editor",
+    "references": [
+        "Emily.Scripts",
+        "SpatialSys.UnitySDK",
+        "SpatialSys.UnitySDK.Editor",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

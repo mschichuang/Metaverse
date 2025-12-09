@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d77d5e1cbfd44c7f88ae4064c52122c, type: 3}
+  m_Name: "\u4E09\u661F_990_PRO_4TB\u542B\u6563\u71B1\u7247"
+  m_EditorClassIdentifier: 
+  productName: "\u4E09\u661F 990 PRO 4TB\u542B\u6563\u71B1\u7247"
+  itemID: ssd_990pro_4tb
+  price: 13499
+  category: SSD
+  productSprite: {fileID: 21300000, guid: ef6d6e375005b483286af0fd96a0c193, type: 3}
+  specTexture: {fileID: 2800000, guid: 0a74d283807974b8b9f325f1cbdfae50, type: 3}
+  componentPrefab: {fileID: 2368794877303995819, guid: 680aa3879182e42c693c86fdee0ddcde,
+    type: 3}
