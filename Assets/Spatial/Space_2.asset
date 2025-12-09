@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   sku: zsiltyfn18r6smlsqyv3isag
-  packageName: ass
+  packageName: "\u7D44\u88DD\u5340"
   thumbnail: {fileID: 2800000, guid: 437152f3729ab48e494ff0822a6ee630, type: 3}
   savedProjectSettings: {fileID: 11400000, guid: b4d3f3931508d4e3381693ee23f6fe04,
     type: 2}

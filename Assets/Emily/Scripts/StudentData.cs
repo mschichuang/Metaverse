@@ -97,6 +97,10 @@ namespace Emily.Scripts
         public static string StudentName => _cachedStudentName ?? "";
         public static int Coins => _cachedCoins;
         
+        // 個人貢獻金額（用於提交到 Google Sheets）
+        private static int _personalContribution = 0;
+        public static int PersonalContribution => _personalContribution;
+        
         /// <summary>
         /// 檢查 StudentData 是否已初始化
         /// </summary>
@@ -237,17 +241,26 @@ namespace Emily.Scripts
 
         /// <summary>
         /// 建構 Google Apps Script 提交頁面 URL
-        /// 只傳送: 組別、姓名、總金幣、測驗總分
+        /// 傳送: 組別、姓名、個人貢獻金額、測驗總分
         /// </summary>
         public static string BuildSubmissionURL(string baseURL)
         {
             string url = baseURL + "?";
             url += $"group={Uri.EscapeDataString(GroupNumber)}";
             url += $"&name={Uri.EscapeDataString(StudentName)}";
-            url += $"&coins={Coins}";
+            url += $"&contribution={PersonalContribution}";
             url += $"&score={QuizScore}";
             
             return url;
+        }
+        
+        /// <summary>
+        /// 設定個人貢獻金額
+        /// </summary>
+        public static void SetPersonalContribution(int amount)
+        {
+            _personalContribution = amount;
+            Debug.Log($"[StudentData] 設定個人貢獻: {amount}");
         }
 
         #endregion
