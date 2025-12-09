@@ -17,14 +17,22 @@ namespace Emily.Scripts
         [Tooltip("The button to replay the trailer manually")]
         public Button replayButton;
         
-        [Tooltip("金幣 UI Panel (播放影片時隱藏)")]
-        public GameObject coinPanel;
+        [Tooltip("金幣 Canvas (播放影片時隱藏)")]
+        public GameObject coinCanvas;
 
         [Tooltip("Whether the trailer should be muted")]
         public bool isMuted = true;
 
+        private SpatialVideoPlayer activeVideoPlayer;
+
         private void Start()
         {
+            // 一開始就隱藏金幣 Canvas
+            if (coinCanvas != null)
+            {
+                coinCanvas.SetActive(false);
+            }
+            
             // Setup Skip Button
             if (skipButton != null)
             {
@@ -41,10 +49,14 @@ namespace Emily.Scripts
             PlayTrailer();
         }
 
-        private SpatialVideoPlayer activeVideoPlayer;
-
         public void PlayTrailer()
         {
+            // 隱藏金幣 Canvas (播放影片時)
+            if (coinCanvas != null)
+            {
+                coinCanvas.SetActive(false);
+            }
+            
             if (trailerPage != null)
             {
                 ShowPage();
@@ -56,12 +68,6 @@ namespace Emily.Scripts
             if (replayButton != null)
             {
                 replayButton.gameObject.SetActive(false);
-            }
-            
-            // 隱藏金幣 UI (播放影片時)
-            if (coinPanel != null)
-            {
-                coinPanel.SetActive(false);
             }
         }
 
@@ -100,10 +106,10 @@ namespace Emily.Scripts
                 replayButton.gameObject.SetActive(true);
             }
             
-            // 重新顯示金幣 UI (影片結束)
-            if (coinPanel != null)
+            // 重新顯示金幣 Canvas (影片結束)
+            if (coinCanvas != null)
             {
-                coinPanel.SetActive(true);
+                coinCanvas.SetActive(true);
             }
         }
 

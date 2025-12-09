@@ -6836,7 +6836,7 @@ MonoBehaviour:
   trailerPage: {fileID: 1506633075}
   skipButton: {fileID: 1158913910}
   replayButton: {fileID: 440958019}
-  coinPanel: {fileID: 274444778}
+  coinCanvas: {fileID: 203111731}
   isMuted: 0
 --- !u!1 &1436428433
 GameObject:
