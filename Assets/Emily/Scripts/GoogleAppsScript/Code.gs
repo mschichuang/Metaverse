@@ -43,23 +43,24 @@ function submitData(data) {
       };
     }
     
-    // 依照使用者需求順序: 組別, 姓名, 測驗成績, 金幣, 時間
+    // 依照使用者需求順序: 組別, 姓名, 測驗成績, 金幣 (不含時間)
     sheet.appendRow([
       data.group,
       data.name,
       data.score,
-      data.coins,
-      new Date()
+      data.coins
     ]);
     
     // ---------------------------
-    // 2. 寫入小組組裝 (只記錄組別，表示該組已提交)
+    // 2. 寫入小組組裝 (組別 + 組裝等級資料 + 時間)
+    // 組裝格式: CPU:3;GPU:2;RAM:1;... (金=3, 銀=2, 銅=1, 未購買=0)
     // ---------------------------
     var sheetAssembly = ss.getSheetByName(SHEET_ASSEMBLY);
     if (sheetAssembly) {
-      // 欄位: 組別, 時間
+      // 欄位: 組別, 組裝等級資料, 時間
       sheetAssembly.appendRow([
         data.group,
+        data.assembly || '',
         new Date()
       ]);
     }

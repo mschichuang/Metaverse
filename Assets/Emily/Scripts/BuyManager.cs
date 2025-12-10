@@ -103,7 +103,7 @@ namespace Emily.Scripts
             }
 
             // 購買成功
-            purchaseHistoryManager.AddPurchasedCategory(category, productCard.productData.productName);
+            purchaseHistoryManager.AddPurchasedCategory(category, productCard.productData.tier);
 
             popupManager.ShowMessage("購買成功!");
             isPurchased = true;

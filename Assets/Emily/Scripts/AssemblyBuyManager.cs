@@ -92,7 +92,7 @@ public class AssemblyBuyManager : MonoBehaviour
 
         // 購買成功
         // SpatialBridge.inventoryService.AddItem(productCard.productData.itemID, 1);
-        purchaseHistoryManager.AddPurchasedCategory(category, productCard.productData.productName);
+        purchaseHistoryManager.AddPurchasedCategory(category, productCard.productData.tier);
 
         popupManager.ShowMessage("購買成功!");
         isPurchased = true;
