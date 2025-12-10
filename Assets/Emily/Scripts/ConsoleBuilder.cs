@@ -7,12 +7,13 @@ namespace Emily.Scripts
 {
     public class ConsoleBuilder : MonoBehaviour
     {
-        [ContextMenu("Generate Console V2")]
+        [ContextMenu("Generate Console")]
         public void Generate()
         {
             // 1. Root Object
-            GameObject root = new GameObject("Holographic_Console_V2");
+            GameObject root = new GameObject("HolographicConsole");
             root.transform.position = transform.position;
+            root.transform.rotation = Quaternion.Euler(0, 180, 0); // 朝向前方
 
             // Helper to get shader
             Shader litShader = Shader.Find("Universal Render Pipeline/Lit");
@@ -136,15 +137,33 @@ namespace Emily.Scripts
             holo.transform.localScale = new Vector3(0.8f, 0.5f, 0.02f);
             holo.GetComponent<Renderer>().sharedMaterial = matHolo;
             
-            // Note: No rotation script added as requested.
+            // --- ANIMATION SETUP ---
+            
+            // 10. Add ConsoleAnimator and setup references
+            ConsoleAnimator animator = root.AddComponent<ConsoleAnimator>();
+            
+            // 只設定全息螢幕（旋轉動畫）
+            animator.hologramScreen = holo.transform;
 
-            // 10. Collider for Interaction
-            SphereCollider col = root.AddComponent<SphereCollider>();
-            col.center = new Vector3(0, 1.5f, 0);
+            // 11. Add Interaction Point
+            GameObject interactPoint = new GameObject("InteractPoint");
+            interactPoint.transform.SetParent(root.transform);
+            interactPoint.transform.localPosition = new Vector3(0, 1.5f, 0);
+            
+            // Add SpatialInteractable
+            SpatialSys.UnitySDK.SpatialInteractable interactable = interactPoint.AddComponent<SpatialSys.UnitySDK.SpatialInteractable>();
+            interactable.interactText = "測驗";
+            interactable.iconType = SpatialSys.UnitySDK.SpatialInteractable.IconType.Weapon;
+
+            // 12. Collider for Interaction
+            SphereCollider col = interactPoint.AddComponent<SphereCollider>();
+            col.center = Vector3.zero;
             col.radius = 1.2f;
-            col.isTrigger = true;
 
-            Debug.Log("Console V2 Generated! Hologram is now double-sided (thin cube).");
+            Debug.Log("✓ Holographic Console Generated!\n" +
+                "✓ 全息螢幕旋轉動畫已設定\n" +
+                "✓ SpatialInteractable 已設定（測驗）\n" +
+                "請手動設定 On Interact Event → QuizManager.StartQuiz()");
         }
     }
 }

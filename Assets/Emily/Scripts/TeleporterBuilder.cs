@@ -7,11 +7,11 @@ namespace Emily.Scripts
 {
     public class TeleporterBuilder : MonoBehaviour
     {
-        [ContextMenu("Generate Teleporter")]
+        [ContextMenu("Generate Teleporter Pad")]
         public void Generate()
         {
             // 1. Root Object
-            GameObject root = new GameObject("SciFi_Teleporter_Pad");
+            GameObject root = new GameObject("TeleporterPad");
             root.transform.position = transform.position;
 
             // Helper to get shader
@@ -125,7 +125,41 @@ namespace Emily.Scripts
             var beamCol = beam.GetComponent<Collider>();
             if (beamCol != null) beamCol.enabled = false;
 
-            // 6. Collider for Interaction (Restricted to Beam area)
+            // 6. Energy Particles (螺旋上升的能量粒子)
+            int particleCount = 6;
+            GameObject[] particles = new GameObject[particleCount];
+            for (int i = 0; i < particleCount; i++)
+            {
+                GameObject particle = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                particle.name = $"Energy_Particle_{i}";
+                particle.transform.SetParent(root.transform);
+                particle.transform.localPosition = Vector3.zero; // 動畫會控制位置
+                particle.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+                particle.GetComponent<Renderer>().sharedMaterial = matCore; // 使用核心的發光材質
+                
+                // 禁用粒子碰撞器
+                var particleCol = particle.GetComponent<Collider>();
+                if (particleCol != null) particleCol.enabled = false;
+                
+                particles[i] = particle;
+            }
+
+            // --- ANIMATION SETUP ---
+            
+            // Add TeleporterAnimator and setup references
+            TeleporterAnimator animator = root.AddComponent<TeleporterAnimator>();
+            
+            // 設定傳送光束
+            animator.teleportBeam = beam.transform;
+            
+            // 設定能量粒子
+            animator.energyParticles = new Transform[particleCount];
+            for (int i = 0; i < particleCount; i++)
+            {
+                animator.energyParticles[i] = particles[i].transform;
+            }
+
+            // 7. Collider for Interaction (Restricted to Beam area)
             // Beam is at y=1.5, scale y=1.5 (height ~3m), scale x/z=1.4 (radius ~0.7m)
             CapsuleCollider col = root.AddComponent<CapsuleCollider>();
             col.center = new Vector3(0, 1.5f, 0);
@@ -133,7 +167,14 @@ namespace Emily.Scripts
             col.height = 3.0f; // 2.0 * 1.5
             col.isTrigger = true;
 
-            Debug.Log("Teleporter Generated! Add 'Space Portal' component manually.");
+            // 7. Add SpacePortal component
+            SpacePortal portal = root.AddComponent<SpacePortal>();
+            // Note: spaceID needs to be set manually in Inspector
+
+            Debug.Log("✓ Teleporter Generated!\n" +
+                "✓ 螺旋上升動畫已設定（6個能量粒子）\n" +
+                "✓ SpacePortal 已自動掛載\n" +
+                "請手動設定 Space ID");
         }
     }
 }

@@ -250,7 +250,7 @@ public class QuizManager : MonoBehaviour
         resultPanel.SetActive(true);
         quizPanel.SetActive(false);
         
-        resultText.text = $"成績: {correctCount * 10}分";
+        resultText.text = $"Score: {correctCount * 10}";
         correctAnswerText.text = ""; // 清空正確答案顯示
         
         // 儲存成績到 StudentData (先儲存,確保資料準備好)
