@@ -49,11 +49,13 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
             Debug.LogWarning("[GroupCoinManager] 已存在實例！");
         }
     }
+
+
     
     public override void Spawned()
     {
         base.Spawned();
-        Debug.Log("[GroupCoinManager] Network Object 已 Spawn");
+
         IsReady = true;
         
         // 自動轉換個人金幣到組別金幣池
@@ -68,7 +70,6 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
         // 通知 UI 更新
         int currentGroupCoins = GetGroupCoins();
         OnGroupCoinsChanged?.Invoke(currentGroupCoins);
-        Debug.Log($"[GroupCoinManager] 金幣變更通知: {currentGroupCoins}");
     }
     
     /// <summary>
@@ -78,7 +79,7 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
     {
         if (hasTransferred)
         {
-            Debug.Log("[GroupCoinManager] 已經轉換過金幣");
+
             return;
         }
         
@@ -93,7 +94,7 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
                 }
                 else
                 {
-                    Debug.LogError("[GroupCoinManager] StudentData 初始化失敗！");
+
                 }
             });
         }
@@ -109,7 +110,7 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
         
         if (personalCoins <= 0)
         {
-            Debug.Log("[GroupCoinManager] 個人金幣為 0，不需轉換");
+
             hasTransferred = true;
             return;
         }
@@ -127,7 +128,7 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
         if (groupCoins != null)
         {
             groupCoins.value += personalCoins;
-            Debug.Log($"[GroupCoinManager] 轉換成功！組別: {groupNumber}, 貢獻: {personalCoins}, 組別總金幣: {groupCoins.value}");
+
         }
         
         // 清空個人金幣
@@ -136,7 +137,7 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
             if (cleared)
             {
                 hasTransferred = true;
-                Debug.Log("[GroupCoinManager] 個人金幣已清空");
+
             }
         });
         
@@ -164,13 +165,13 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
         
         if (groupCoins == null)
         {
-            Debug.LogError("[GroupCoinManager] 找不到組別金幣池");
+
             return false;
         }
         
         if (groupCoins.value < amount)
         {
-            Debug.LogWarning($"[GroupCoinManager] 金幣不足！當前: {groupCoins.value}, 需要: {amount}");
+
             return false;
         }
         
@@ -178,7 +179,7 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
         networkObject.RequestOwnership();
         groupCoins.value -= amount;
         
-        Debug.Log($"[GroupCoinManager] 扣除 {amount}，剩餘: {groupCoins.value}");
+
         return true;
     }
     
@@ -194,7 +195,10 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
         {
             networkObject.RequestOwnership();
             groupCoins.value += amount;
-            Debug.Log($"[GroupCoinManager] 增加 {amount}，總計: {groupCoins.value}");
+
+            
+            // 手動觸發 UI 更新事件（在編輯器中 OnVariablesChanged 不會自動觸發）
+            OnGroupCoinsChanged?.Invoke(groupCoins.value);
         }
     }
     
@@ -216,14 +220,7 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
             case "9": return group9Coins;
             case "10": return group10Coins;
             default:
-#if UNITY_EDITOR
-                // 在編輯器測試時，如果找不到組別，預設使用第一組，避免報錯卡住
-                Debug.LogWarning($"[GroupCoinManager] (Editor Only) 不支援的組別編號: {groupNumber}，自動切換至 Group 1 進行測試。");
-                return group1Coins;
-#else
-                Debug.LogError($"[GroupCoinManager] 不支援的組別編號: {groupNumber}");
                 return null;
-#endif
         }
     }
     

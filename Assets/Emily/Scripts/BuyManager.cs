@@ -69,11 +69,6 @@ namespace Emily.Scripts
         private void BuyItem()
         {
             if (productCard.productData == null) return;
-
-            int currentCoins = StudentData.Coins; // Note: You might want to use GroupCoins if this is assembly area
-            // However, BuyManager logic seems to use StudentData (Personal Coins) based on original code. 
-            // If AssemblyCoinUIManager implies Group Coins, verify if this logic needs to change to GroupCoinManager.
-            // For now, keeping StudentData logic but using AssemblyCoinUIManager for UI refresh.
             
             int price = productCard.productData.price;
             string category = productCard.productData.category;
@@ -84,26 +79,30 @@ namespace Emily.Scripts
                 return;
             }
 
+            // 檢查組別金幣
+            if (GroupCoinManager.Instance == null)
+            {
+                popupManager.ShowMessage("金幣系統尚未初始化!");
+                return;
+            }
+            
+            int currentCoins = GroupCoinManager.Instance.GetGroupCoins();
             if (currentCoins < price)
             {
-                popupManager.ShowMessage("金幣不足!");
+                popupManager.ShowMessage("組別金幣不足!");
                 return;
             }
 
-            bool success = StudentData.SpendCoins(price, (result) => {
-                if (result)
-                {
-                    if (coinUIManager != null) coinUIManager.RefreshCoins();
-                }
-            });
+            // 扣除組別金幣
+            bool success = GroupCoinManager.Instance.SpendGroupCoins(price);
             
             if (!success)
             {
-                popupManager.ShowMessage("金幣不足!");
+                popupManager.ShowMessage("購買失敗，請稍後再試!");
                 return;
             }
 
-            // SpatialBridge.inventoryService.AddItem(productCard.productData.itemID, 1);
+            // 購買成功
             purchaseHistoryManager.AddPurchasedCategory(category, productCard.productData.productName);
 
             popupManager.ShowMessage("購買成功!");
@@ -114,6 +113,12 @@ namespace Emily.Scripts
             {
                 SpawnComponent(productCard.productData.componentPrefab);
             }
+
+            // 更新 UI
+            if (coinUIManager != null)
+            {
+                coinUIManager.RefreshCoins();
+            }
         }
 
         private void ReturnItem()
@@ -123,12 +128,11 @@ namespace Emily.Scripts
             int price = productCard.productData.price;
             string category = productCard.productData.category;
 
-            StudentData.AddCoins(price, (result) => {
-                if (result)
-                {
-                    if (coinUIManager != null) coinUIManager.RefreshCoins();
-                }
-            });
+            // 退款到組別金幣池
+            if (GroupCoinManager.Instance != null)
+            {
+                GroupCoinManager.Instance.AddGroupCoins(price);
+            }
             
             purchaseHistoryManager.RemovePurchasedCategory(category);
 

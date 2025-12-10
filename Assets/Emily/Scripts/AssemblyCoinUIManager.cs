@@ -11,9 +11,6 @@ public class AssemblyCoinUIManager : MonoBehaviour
     [Header("組別金幣 UI")]
     public TMP_Text groupCoinText;
     
-    [Header("個人貢獻 UI")]
-    public TMP_Text personalCoinText;
-    
     private GroupCoinManager groupCoinManager;
     private bool isInitialized = false;
     
@@ -21,32 +18,6 @@ public class AssemblyCoinUIManager : MonoBehaviour
     {
         // 等待 GroupCoinManager 初始化
         StartCoroutine(WaitForGroupCoinManager());
-        
-        // 同時讀取個人貢獻（從 DataStore）
-        LoadPersonalContribution();
-    }
-    
-    /// <summary>
-    /// 從 DataStore 讀取個人貢獻金額
-    /// </summary>
-    private void LoadPersonalContribution()
-    {
-        // 確保 StudentData 已初始化
-        if (!StudentData.IsInitialized)
-        {
-            StudentData.Initialize((success) =>
-            {
-                if (success)
-                {
-                    // 讀取並顯示個人金幣（這是進入組裝區前的金幣，即個人貢獻）
-                    UpdatePersonalContributionUI(StudentData.PersonalContribution);
-                }
-            });
-        }
-        else
-        {
-            UpdatePersonalContributionUI(StudentData.PersonalContribution);
-        }
     }
     
     private System.Collections.IEnumerator WaitForGroupCoinManager()
@@ -61,7 +32,6 @@ public class AssemblyCoinUIManager : MonoBehaviour
         
         if (GroupCoinManager.Instance == null)
         {
-            Debug.LogWarning("[AssemblyCoinUIManager] GroupCoinManager 未找到");
             yield break;
         }
         
@@ -72,12 +42,6 @@ public class AssemblyCoinUIManager : MonoBehaviour
         
         // 立即顯示（不再延遲）
         UpdateGroupCoinsUI(groupCoinManager.GetGroupCoins());
-        
-        // 如果 GroupCoinManager 有個人貢獻記錄，也更新
-        if (groupCoinManager.PersonalContribution > 0)
-        {
-            UpdatePersonalContributionUI(groupCoinManager.PersonalContribution);
-        }
         
         isInitialized = true;
     }
@@ -90,17 +54,6 @@ public class AssemblyCoinUIManager : MonoBehaviour
         if (groupCoinText != null)
         {
             groupCoinText.text = coins.ToString("N0");
-        }
-    }
-    
-    /// <summary>
-    /// 更新個人貢獻 UI
-    /// </summary>
-    private void UpdatePersonalContributionUI(int contribution)
-    {
-        if (personalCoinText != null)
-        {
-            personalCoinText.text = contribution.ToString("N0");
         }
     }
     
@@ -124,12 +77,7 @@ public class AssemblyCoinUIManager : MonoBehaviour
         if (groupCoinManager != null)
         {
             UpdateGroupCoinsUI(groupCoinManager.GetGroupCoins());
-            UpdatePersonalContributionUI(groupCoinManager.PersonalContribution);
-        }
-        else
-        {
-            // GroupCoinManager 還沒準備好，從 StudentData 讀取
-            UpdatePersonalContributionUI(StudentData.PersonalContribution);
+
         }
     }
     
@@ -139,14 +87,6 @@ public class AssemblyCoinUIManager : MonoBehaviour
     public int GetCurrentGroupCoins()
     {
         return groupCoinManager?.GetGroupCoins() ?? 0;
-    }
-    
-    /// <summary>
-    /// 獲取個人貢獻金額
-    /// </summary>
-    public int GetPersonalContribution()
-    {
-        return groupCoinManager?.PersonalContribution ?? StudentData.PersonalContribution;
     }
     
     void OnDestroy()
