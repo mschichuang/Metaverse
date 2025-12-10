@@ -1,5 +1,6 @@
 const SPREADSHEET_ID = '1XDwrk7MuCOlNCTEg56pvsP8t8BpoNzYVBGZ3FfkxoZI';
 const SHEET_NAME = '學生成績';
+const SHEET_ASSEMBLY = '組裝資料'; // 第二個工作表名稱
 
 /**
  * 處理 GET 請求,顯示確認頁面
@@ -9,7 +10,8 @@ function doGet(e) {
     group: e.parameter.group || '',
     name: e.parameter.name || '',
     coins: e.parameter.coins || '0',
-    score: e.parameter.score || '0'
+    score: e.parameter.score || '0',
+    assembly: e.parameter.assembly || '' // 新增: 讀取組裝資料參數
   };
   
   var template = HtmlService.createTemplateFromFile('ConfirmPage');
@@ -23,13 +25,17 @@ function doGet(e) {
 
 /**
  * 提交資料到 Google Sheets
- * 注意:請先手動在 Google Sheets 建立「學生成績」Sheet,並建立標題行:
- * | 組別 | 姓名 | 總金幣 | 測驗成績 |
+ * 1. 寫入學生成績
+ * 2. 如果有組裝資料，寫入組裝資料工作表
  */
 function submitData(data) {
   try {
-    var sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName(SHEET_NAME);
+    var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
     
+    // ---------------------------
+    // 1. 寫入學生成績
+    // ---------------------------
+    var sheet = ss.getSheetByName(SHEET_NAME);
     if (!sheet) {
       return { 
         success: false, 
@@ -37,13 +43,28 @@ function submitData(data) {
       };
     }
     
-    // 直接新增資料行 (假設第1行是標題)
     sheet.appendRow([
       data.group,
       data.name,
       data.coins,
-      data.score
+      data.score,
+      new Date() // 加入時間戳記
     ]);
+    
+    // ---------------------------
+    // 2. 寫入組裝資料 (如果有)
+    // ---------------------------
+    if (data.assembly && data.assembly !== "") {
+      var sheetAssembly = ss.getSheetByName(SHEET_ASSEMBLY);
+      if (sheetAssembly) {
+        sheetAssembly.appendRow([
+          data.group,
+          data.name,      // 也記錄姓名方便對照
+          data.assembly,  // 組裝內容字串
+          new Date()
+        ]);
+      }
+    }
     
     return { success: true, message: '提交成功!' };
   } catch (error) {

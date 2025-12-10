@@ -20,10 +20,18 @@ public class SubmitManager : MonoBehaviour
     /// </summary>
     public void OnSubmitClicked()
     {
-        // 建構提交 URL
-        string url = StudentData.BuildSubmissionURL(GOOGLE_SCRIPT_URL);
+        // 取得組裝資料 (從 PurchaseHistoryManager)
+        string assemblyData = "";
+        PurchaseHistoryManager historyManager = FindObjectOfType<PurchaseHistoryManager>();
+        if (historyManager != null)
+        {
+            assemblyData = historyManager.GetAssemblyDataString();
+        }
+
+        // 建構提交 URL (包含 assemblyData)
+        string url = StudentData.BuildSubmissionURL(GOOGLE_SCRIPT_URL, assemblyData);
         
-        Debug.Log($"[SubmitManager] 提交: 組別={StudentData.GroupNumber}, 姓名={StudentData.StudentName}, 成績={StudentData.QuizScore}, 貢獻={StudentData.PersonalContribution}");
+        Debug.Log($"[SubmitManager] 提交: 組別={StudentData.GroupNumber}, 姓名={StudentData.StudentName}, 成績={StudentData.QuizScore}, 貢獻={StudentData.PersonalContribution}, 組裝={assemblyData}");
         
         // 開啟瀏覽器
         SpatialBridge.spaceService.OpenURL(url);

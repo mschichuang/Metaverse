@@ -5,23 +5,47 @@ using UnityEngine.Networking;
 
 public class PurchaseHistoryManager : MonoBehaviour
 {
-    private HashSet<string> purchasedCategories = new HashSet<string>();
+    private Dictionary<string, string> purchasedItems = new Dictionary<string, string>();
 
     public bool HasPurchasedCategory(string category)
     {
-        return purchasedCategories.Contains(category);
+        return purchasedItems.ContainsKey(category);
     }
 
     public void AddPurchasedCategory(string category, string productName)
     {
-        purchasedCategories.Add(category);
+        if (purchasedItems.ContainsKey(category))
+        {
+            purchasedItems[category] = productName;
+        }
+        else
+        {
+            purchasedItems.Add(category, productName);
+        }
+        
         RecordPurchase(category, productName);
     }
 
     public void RemovePurchasedCategory(string category)
     {
-        purchasedCategories.Remove(category);
+        if (purchasedItems.ContainsKey(category))
+        {
+            purchasedItems.Remove(category);
+        }
         ClearPurchase(category);
+    }
+
+    /// <summary>
+    /// 回傳組裝資料字串，格式範例: [機殼:NV7銀][CPU:i9-14900K]
+    /// </summary>
+    public string GetAssemblyDataString()
+    {
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        foreach (var kvp in purchasedItems)
+        {
+            sb.Append($"[{kvp.Key}:{kvp.Value}]");
+        }
+        return sb.ToString();
     }
 
     private async void RecordPurchase(string category, string productName)
