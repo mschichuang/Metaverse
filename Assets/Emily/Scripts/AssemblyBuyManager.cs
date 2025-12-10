@@ -40,7 +40,7 @@ public class AssemblyBuyManager : MonoBehaviour
     {
         if (!hasViewedSpec)
         {
-            popupManager.ShowMessage("請先查看此元件的規格後再進行購買。");
+            popupManager.ShowMessage("請先查看此元件的規格後再進行購買");
             return;
         }
 

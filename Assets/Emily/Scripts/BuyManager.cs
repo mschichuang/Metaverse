@@ -52,7 +52,7 @@ namespace Emily.Scripts
         {
             if (!hasViewedSpec)
             {
-                popupManager.ShowMessage("請先查看此元件的規格後再進行購買。");
+                popupManager.ShowMessage("請先查看此元件的規格後再進行購買");
                 return;
             }
 
@@ -75,21 +75,21 @@ namespace Emily.Scripts
 
             if (purchaseHistoryManager.HasPurchasedCategory(category))
             {
-                popupManager.ShowMessage($"已擁有{category},不能重複購買！");
+                popupManager.ShowMessage($"已擁有{category},不能重複購買!");
                 return;
             }
 
             // 檢查組別金幣
             if (GroupCoinManager.Instance == null)
             {
-                popupManager.ShowMessage("金幣系統尚未初始化！");
+                popupManager.ShowMessage("金幣系統尚未初始化!");
                 return;
             }
             
             int currentCoins = GroupCoinManager.Instance.GetGroupCoins();
             if (currentCoins < price)
             {
-                popupManager.ShowMessage("組別金幣不足！");
+                popupManager.ShowMessage("組別金幣不足!");
                 return;
             }
 
@@ -98,14 +98,14 @@ namespace Emily.Scripts
             
             if (!success)
             {
-                popupManager.ShowMessage("購買失敗，請稍後再試！");
+                popupManager.ShowMessage("購買失敗，請稍後再試!");
                 return;
             }
 
             // 購買成功
             purchaseHistoryManager.AddPurchasedCategory(category, productCard.productData.productName);
 
-            popupManager.ShowMessage("購買成功！");
+            popupManager.ShowMessage("購買成功!");
             isPurchased = true;
             UpdateButton();
             
@@ -136,7 +136,7 @@ namespace Emily.Scripts
             
             purchaseHistoryManager.RemovePurchasedCategory(category);
 
-            popupManager.ShowMessage("退款成功！");
+            popupManager.ShowMessage("退款成功!");
             isPurchased = false;
             UpdateButton();
             
