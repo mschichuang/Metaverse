@@ -16,6 +16,7 @@ MonoBehaviour:
   itemID: mb_rog_z790_hero
   price: 19290
   category: "\u4E3B\u6A5F\u677F"
+  tier: 3
   productSprite: {fileID: 21300000, guid: 6fa2cd00538424cf3b03e5c15d9b7c2a, type: 3}
   specTexture: {fileID: 2800000, guid: 29010f9f49b5845fc9d23b3784178c92, type: 3}
   componentPrefab: {fileID: 5666512230397707468, guid: 85c62952b50704036a8883bc97baf859,

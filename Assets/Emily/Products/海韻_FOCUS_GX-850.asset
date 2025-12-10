@@ -16,6 +16,7 @@ MonoBehaviour:
   itemID: psu_focus_850w
   price: 3890
   category: "\u96FB\u6E90\u4F9B\u61C9\u5668"
+  tier: 1
   productSprite: {fileID: 21300000, guid: 75837f1cb5fa940089a1f58b6ae91786, type: 3}
   specTexture: {fileID: 2800000, guid: 66037ac708a0d4ab09712530aa651aa9, type: 3}
   componentPrefab: {fileID: 7387435901795809405, guid: 453a6c42d9f9d438f81608934fa9c959,

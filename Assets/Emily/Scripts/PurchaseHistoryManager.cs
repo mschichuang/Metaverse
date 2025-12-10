@@ -5,16 +5,35 @@ public class PurchaseHistoryManager : MonoBehaviour
 {
     // 儲存: 類別 -> 等級分數 (金=3, 銀=2, 銅=1, 未購買=0)
     private Dictionary<string, int> purchasedTiers = new Dictionary<string, int>();
+    
+    // 儲存: 類別 -> 產品ID (用於區分同類別中哪個產品被購買)
+    private Dictionary<string, string> purchasedProductIds = new Dictionary<string, string>();
 
     public bool HasPurchasedCategory(string category)
     {
         return purchasedTiers.ContainsKey(category) && purchasedTiers[category] > 0;
     }
+    
+    /// <summary>
+    /// 檢查特定產品是否被購買
+    /// </summary>
+    public bool IsProductPurchased(string category, string productId)
+    {
+        return purchasedProductIds.ContainsKey(category) && purchasedProductIds[category] == productId;
+    }
+    
+    /// <summary>
+    /// 取得該類別購買的產品ID (如果有)
+    /// </summary>
+    public string GetPurchasedProductId(string category)
+    {
+        return purchasedProductIds.ContainsKey(category) ? purchasedProductIds[category] : null;
+    }
 
     /// <summary>
-    /// 記錄購買，儲存等級分數
+    /// 記錄購買，儲存等級分數和產品ID
     /// </summary>
-    public void AddPurchasedCategory(string category, int tier)
+    public void AddPurchasedCategory(string category, int tier, string productId = null)
     {
         if (purchasedTiers.ContainsKey(category))
         {
@@ -23,6 +42,19 @@ public class PurchaseHistoryManager : MonoBehaviour
         else
         {
             purchasedTiers.Add(category, tier);
+        }
+        
+        // 儲存產品ID
+        if (!string.IsNullOrEmpty(productId))
+        {
+            if (purchasedProductIds.ContainsKey(category))
+            {
+                purchasedProductIds[category] = productId;
+            }
+            else
+            {
+                purchasedProductIds.Add(category, productId);
+            }
         }
     }
 
@@ -34,6 +66,10 @@ public class PurchaseHistoryManager : MonoBehaviour
         if (purchasedTiers.ContainsKey(category))
         {
             purchasedTiers[category] = 0;
+        }
+        if (purchasedProductIds.ContainsKey(category))
+        {
+            purchasedProductIds.Remove(category);
         }
     }
 

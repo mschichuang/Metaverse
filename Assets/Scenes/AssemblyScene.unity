@@ -5264,8 +5264,8 @@ MonoBehaviour:
     font: {fileID: 11400000, guid: 24515a18a3c494c7ca236adf5c017cd6, type: 2}
     material: {fileID: -8569379770916906386, guid: 24515a18a3c494c7ca236adf5c017cd6,
       type: 2}
-  iconType: 0
-  icon: {fileID: 0}
+  iconType: 4
+  icon: {fileID: 21300000, guid: 069822f99ff554d6a9c433a8d2729773, type: 3}
   interactiveRadius: 5
   visibilityRadius: 10
   onInteractEvent:

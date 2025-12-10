@@ -23,7 +23,44 @@ namespace Emily.Scripts
         private GameObject spawnedComponent;
         private bool isPurchased = false;
         private bool hasViewedSpec = false;
+        private bool isInitialized = false; // 避免重複初始化
 
+        void Awake()
+        {
+            // 嘗試從同物件取得 ProductCard (如果在 Inspector 中沒有設定)
+            if (productCard == null)
+            {
+                productCard = GetComponent<ProductCard>();
+            }
+        }
+
+        void Start()
+        {
+            // 如果依賴都已在 Inspector 中設定，直接初始化
+            // 否則等待 Setup() 被呼叫
+            if (CanAutoInitialize())
+            {
+                Initialize();
+            }
+        }
+
+        /// <summary>
+        /// 檢查是否所有依賴都已設定 (用於 Inspector 設定的情況)
+        /// </summary>
+        private bool CanAutoInitialize()
+        {
+            return productCard != null && 
+                   productCard.productData != null && 
+                   purchaseHistoryManager != null && 
+                   popupManager != null && 
+                   specManager != null &&
+                   actionButton != null &&
+                   infoButton != null;
+        }
+
+        /// <summary>
+        /// 透過程式碼注入依賴 (用於 ShopContentGenerator 動態生成的情況)
+        /// </summary>
         public void Setup(AssemblyCoinUIManager coinUI, PopupManager popup, SpecManager spec, PurchaseHistoryManager history)
         {
             coinUIManager = coinUI;
@@ -31,7 +68,21 @@ namespace Emily.Scripts
             specManager = spec;
             purchaseHistoryManager = history;
             
-            productCard = GetComponent<ProductCard>();
+            if (productCard == null)
+            {
+                productCard = GetComponent<ProductCard>();
+            }
+
+            Initialize();
+        }
+
+        /// <summary>
+        /// 核心初始化邏輯 (Setup 和 Start 都會呼叫)
+        /// </summary>
+        private void Initialize()
+        {
+            if (isInitialized) return; // 避免重複初始化
+            isInitialized = true;
 
             actionButton.onClick.RemoveAllListeners();
             infoButton.onClick.RemoveAllListeners();
@@ -39,10 +90,17 @@ namespace Emily.Scripts
             actionButton.onClick.AddListener(HandleAction);
             infoButton.onClick.AddListener(ShowSpec);
 
-            // Check if already purchased
-            if (productCard.productData != null)
+            // 預設為未購買
+            isPurchased = false;
+            
+            // Check if already purchased (用產品ID區分，不是類別)
+            if (productCard != null && productCard.productData != null && purchaseHistoryManager != null)
             {
-                isPurchased = purchaseHistoryManager.HasPurchasedCategory(productCard.productData.category);
+                string category = productCard.productData.category;
+                string productId = productCard.productData.itemID;
+                
+                // 只有這個特定產品被購買時才顯示取消
+                isPurchased = purchaseHistoryManager.IsProductPurchased(category, productId);
             }
             
             UpdateButton();
@@ -103,7 +161,8 @@ namespace Emily.Scripts
             }
 
             // 購買成功
-            purchaseHistoryManager.AddPurchasedCategory(category, productCard.productData.tier);
+            string productId = productCard.productData.itemID;
+            purchaseHistoryManager.AddPurchasedCategory(category, productCard.productData.tier, productId);
 
             popupManager.ShowMessage("購買成功!");
             isPurchased = true;
