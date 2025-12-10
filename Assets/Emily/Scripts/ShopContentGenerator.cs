@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 namespace Emily.Scripts
 {
@@ -22,7 +23,6 @@ namespace Emily.Scripts
 
         [Header("Manager References (For Injection)")]
         [Header("Manager References (For Injection)")]
-        public AssemblyCoinUIManager coinUIManager;
         public PopupManager popupManager;
         public SpecManager specManager;
         public PurchaseHistoryManager purchaseHistoryManager;
@@ -38,12 +38,16 @@ namespace Emily.Scripts
             }
 
             // [Auto-Load] If list is empty, try loading from Resources
+            // [Auto-Load] If list is empty, try loading from Resources
             if (allProducts == null || allProducts.Count == 0)
             {
-                // Note: User manually assigned items, but just in case
-                // var loaded = Resources.LoadAll<ProductData>("Products"); 
-                // allProducts = new List<ProductData>(loaded);
+                // Resources.LoadAll is banned in Spatial. 
+                // Please ensure allProducts are assigned in Inspector or via Editor Script.
+                Debug.LogWarning("ShopContentGenerator: allProducts list is empty! Items must be assigned in Inspector.");
             }
+
+            // Find CoinUIManager automatically
+            var coinUIManager = FindObjectOfType<AssemblyCoinUIManager>();
 
             // 1. Clear existing items
             foreach (Transform child in listContainer)
@@ -51,14 +55,14 @@ namespace Emily.Scripts
                 Destroy(child.gameObject);
             }
 
-            // 2. Filter and Instantiate
-            foreach (var product in allProducts)
-            {
-                if (product == null) continue;
+            // 2. Filter, Sort, and Instantiate
+            // Sort by Price Descending (Expensive -> Cheap)
+            var filteredProducts = allProducts
+                .Where(p => p != null && string.Equals(p.category, category, StringComparison.OrdinalIgnoreCase))
+                .OrderByDescending(p => p.price);
 
-                // Case-insensitive comparison
-                if (!string.Equals(product.category, category, StringComparison.OrdinalIgnoreCase))
-                    continue;
+            foreach (var product in filteredProducts)
+            {
 
                 // Instantiate Card
                 GameObject cardObj = Instantiate(productCardPrefab, listContainer);

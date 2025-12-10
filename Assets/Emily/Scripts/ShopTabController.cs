@@ -19,8 +19,18 @@ namespace Emily.Scripts
         public List<TabPagePair> tabs;
         
         [Header("Settings")]
-        public Color activeColor = Color.white;
+        public Color activeColor = Color.black;
         public Color inactiveColor = Color.gray;
+
+        private void OnValidate()
+        {
+            // 在 Editor 中調整數值時即時更新
+            if (!Application.isPlaying && tabs != null && tabs.Count > 0)
+            {
+                // 這邊只是為了讓 Inspector 變更時有反應，真正的邏輯還是在 Runtime 跑
+                // 為了避免與 Runtime 狀態衝突，這裡不做任何事，只改變預設值
+            }
+        }
 
         private void Start()
         {
