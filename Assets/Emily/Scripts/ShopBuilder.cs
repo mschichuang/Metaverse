@@ -13,6 +13,11 @@ namespace Emily.Scripts
             // 1. Root Object
             GameObject root = new GameObject("Shop");
             root.transform.position = transform.position;
+            
+            // Add interaction components to Shop model
+            root.AddComponent<BoxCollider>();
+            root.AddComponent<ShopInteraction>();
+            root.AddComponent<SpatialSys.UnitySDK.SpatialInteractable>();
 
             // Helper to get shader
             Shader litShader = Shader.Find("Universal Render Pipeline/Lit");
@@ -99,13 +104,25 @@ namespace Emily.Scripts
             roof.GetComponent<Renderer>().sharedMaterial = matWhite;
 
             // 2. THE STOREFRONT (Glass & Sign)
-            // Big Sign Board
+            // Big Sign Board - Glowing Entrance Sign
             GameObject signBoard = GameObject.CreatePrimitive(PrimitiveType.Cube);
             signBoard.name = "Main_Sign";
             signBoard.transform.SetParent(root.transform);
             signBoard.transform.localPosition = new Vector3(0, height + 0.8f, -depth/2f - 0.5f); // Front edge top
             signBoard.transform.localScale = new Vector3(width, 1.2f, 0.3f);
-            signBoard.GetComponent<Renderer>().sharedMaterial = matBlue;
+            
+            // Glowing material for sign
+            Material matSignGlow = new Material(litShader);
+            matSignGlow.name = "Mat_SignGlow";
+            matSignGlow.color = new Color(0.1f, 0.6f, 1.0f);
+            matSignGlow.EnableKeyword("_EMISSION");
+            matSignGlow.SetColor("_EmissionColor", new Color(0.2f, 0.6f, 1.0f) * 2.5f);
+            if (litShader.name.Contains("Universal")) 
+            { 
+                matSignGlow.SetFloat("_Metallic", 0.3f); 
+                matSignGlow.SetFloat("_Smoothness", 0.9f); 
+            }
+            signBoard.GetComponent<Renderer>().sharedMaterial = matSignGlow;
 
             // "SHOP" Text Simulation (Glowing Strip)
             GameObject signText = GameObject.CreatePrimitive(PrimitiveType.Cube);
