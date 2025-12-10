@@ -289,6 +289,9 @@ namespace Emily.Scripts
             // 11. Add Animation Script & Setup References
             SubmissionMatrixAnimator animator = root.AddComponent<SubmissionMatrixAnimator>();
             
+            // Add SubmitManager to root (SubmissionMatrix)
+            SubmitManager submitMgr = root.AddComponent<SubmitManager>();
+            
             // Crystal
             Transform crystalTrans = root.transform.Find("Ascension_Crystal");
             if(crystalTrans) animator.crystalRoot = crystalTrans;
@@ -320,24 +323,28 @@ namespace Emily.Scripts
                 if(p) animator.particles[i] = p;
             }
 
-            // 12. Add Interaction Components to a child object at y=1
+            // 12. Add Interaction Components to a child object at y=1.4
             GameObject interactPoint = new GameObject("InteractPoint");
             interactPoint.transform.SetParent(root.transform);
-            interactPoint.transform.localPosition = new Vector3(0, 1f, 0);
+            interactPoint.transform.localPosition = new Vector3(0, 1.4f, 0);
             
             // Add Box Collider for interaction
             BoxCollider col = interactPoint.AddComponent<BoxCollider>();
             col.center = Vector3.zero;
             col.size = new Vector3(2.5f, 2.0f, 2.5f);
-
-            // Add SubmitManager
-            SubmitManager submitMgr = interactPoint.AddComponent<SubmitManager>();
             
-            // Add Spatial Interactable
+            // Add Spatial Interactable with settings
             SpatialSys.UnitySDK.SpatialInteractable interactable = interactPoint.AddComponent<SpatialSys.UnitySDK.SpatialInteractable>();
-            // Note: Event linking must be done manually in Inspector
+            interactable.interactText = "提交";
+            interactable.iconType = SpatialSys.UnitySDK.SpatialInteractable.IconType.Timer;
+            
+            // Set SubmitManager's submitMatrix reference
+            submitMgr.submitMatrix = root;
 
-            Debug.Log("✓ Sleek Ascension Terminal Generated!\n請手動設定 SpatialInteractable 組件：\n1. 展開 SubmissionMatrix，選取 InteractPoint 子物件\n2. 在 Inspector 中的 On Interact Event，點擊 + 號\n3. 拖入 InteractPoint 物件\n4. 選擇 SubmitManager -> OnSubmitClicked()");
+            Debug.Log("✓ Submission Matrix Generated!\n" +
+                "請手動設定：\n" +
+                "1. SubmitManager 的 Submit Mode（Quiz 或 Assembly）\n" +
+                "2. InteractPoint → SpatialInteractable → On Interact Event → SubmitManager.OnSubmitClicked()");
         }
     }
 }

@@ -250,7 +250,7 @@ public class QuizManager : MonoBehaviour
         resultPanel.SetActive(true);
         quizPanel.SetActive(false);
         
-        resultText.text = $"測驗完成！得分：{correctCount * 10}分";
+        resultText.text = $"成績: {correctCount * 10}分";
         correctAnswerText.text = ""; // 清空正確答案顯示
         
         // 儲存成績到 StudentData (先儲存,確保資料準備好)
@@ -309,16 +309,16 @@ public class QuizManager : MonoBehaviour
     /// </summary>
     public void OnSubmitScoreClicked()
     {
-        // Google Apps Script Web App URL (用於學生成績提交)
+        // Google Apps Script Web App URL
         string googleScriptURL = "https://script.google.com/macros/s/AKfycbx_dFr08pDSFm22YGbXq6GJGAAuNmhY228cUkbz-WyuUWB68DUgFS2WxIy5191Pi-2f/exec";
         
-        // 建構提交 URL (測驗區不含組裝資料)
-        string url = StudentData.BuildSubmissionURL(googleScriptURL, new System.Collections.Generic.Dictionary<string, int>());
+        // 建構測驗區提交 URL（只有個人成績）
+        string url = StudentData.BuildQuizSubmissionURL(googleScriptURL);
         
         // 開啟瀏覽器
         SpatialBridge.spaceService.OpenURL(url);
         
-        // 隱藏提交 Interactable (避免重複提交)
+        // 點擊後直接隱藏提交 Interactable（避免重複提交）
         if (submitScoreInteractable != null)
         {
             submitScoreInteractable.gameObject.SetActive(false);

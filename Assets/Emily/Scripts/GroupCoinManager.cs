@@ -22,11 +22,26 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
     public NetworkVariable<int> group9Coins = new NetworkVariable<int>(0);
     public NetworkVariable<int> group10Coins = new NetworkVariable<int>(0);
     
+    // 各組的提交狀態（用於同步隱藏同組組員的提交矩陣）
+    public NetworkVariable<bool> group1Submitted = new NetworkVariable<bool>(false);
+    public NetworkVariable<bool> group2Submitted = new NetworkVariable<bool>(false);
+    public NetworkVariable<bool> group3Submitted = new NetworkVariable<bool>(false);
+    public NetworkVariable<bool> group4Submitted = new NetworkVariable<bool>(false);
+    public NetworkVariable<bool> group5Submitted = new NetworkVariable<bool>(false);
+    public NetworkVariable<bool> group6Submitted = new NetworkVariable<bool>(false);
+    public NetworkVariable<bool> group7Submitted = new NetworkVariable<bool>(false);
+    public NetworkVariable<bool> group8Submitted = new NetworkVariable<bool>(false);
+    public NetworkVariable<bool> group9Submitted = new NetworkVariable<bool>(false);
+    public NetworkVariable<bool> group10Submitted = new NetworkVariable<bool>(false);
+    
     // 單例實例（方便其他腳本存取）
     public static GroupCoinManager Instance { get; private set; }
     
     // 金幣變更事件（用於更新 UI）
     public event Action<int> OnGroupCoinsChanged;
+    
+    // 組別已提交事件（用於同步隱藏提交矩陣）
+    public event Action OnGroupSubmitted;
     
     // 記錄本地玩家是否已轉換金幣
     private bool hasTransferred = false;
@@ -66,6 +81,12 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
         // 通知 UI 更新
         int currentGroupCoins = GetGroupCoins();
         OnGroupCoinsChanged?.Invoke(currentGroupCoins);
+        
+        // 檢查是否有組別提交狀態變更
+        if (IsGroupSubmitted())
+        {
+            OnGroupSubmitted?.Invoke();
+        }
     }
     
     /// <summary>
@@ -218,6 +239,57 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
             default:
                 return null;
         }
+    }
+    
+    /// <summary>
+    /// 根據組別編號獲取對應的提交狀態 NetworkVariable
+    /// </summary>
+    private NetworkVariable<bool> GetGroupSubmittedVariable(string groupNumber)
+    {
+        switch (groupNumber)
+        {
+            case "1": return group1Submitted;
+            case "2": return group2Submitted;
+            case "3": return group3Submitted;
+            case "4": return group4Submitted;
+            case "5": return group5Submitted;
+            case "6": return group6Submitted;
+            case "7": return group7Submitted;
+            case "8": return group8Submitted;
+            case "9": return group9Submitted;
+            case "10": return group10Submitted;
+            default:
+                return null;
+        }
+    }
+    
+    /// <summary>
+    /// 設定當前組別為已提交狀態（會同步通知所有同組組員）
+    /// </summary>
+    public void SetGroupSubmitted()
+    {
+        string groupNumber = StudentData.GroupNumber;
+        NetworkVariable<bool> submitted = GetGroupSubmittedVariable(groupNumber);
+        
+        if (submitted != null)
+        {
+            networkObject.RequestOwnership();
+            submitted.value = true;
+            Debug.Log($"[GroupCoinManager] 組別 {groupNumber} 已設定為已提交");
+            
+            // 本地也觸發事件
+            OnGroupSubmitted?.Invoke();
+        }
+    }
+    
+    /// <summary>
+    /// 檢查當前組別是否已提交
+    /// </summary>
+    public bool IsGroupSubmitted()
+    {
+        string groupNumber = StudentData.GroupNumber;
+        NetworkVariable<bool> submitted = GetGroupSubmittedVariable(groupNumber);
+        return submitted?.value ?? false;
     }
     
     void OnDestroy()

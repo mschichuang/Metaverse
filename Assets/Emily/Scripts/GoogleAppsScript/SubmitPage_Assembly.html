@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .icon { font-size: 64px; margin-bottom: 20px; }
+    h2 { color: #1a1a2e; margin-bottom: 10px; }
+    .message { color: #6c757d; margin-bottom: 20px; }
+    .status {
+      padding: 16px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+    .success { background: #d4edda; color: #155724; }
+    .error { background: #f8d7da; color: #721c24; }
+    .loading { background: #fff3cd; color: #856404; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon" id="icon">⏳</div>
+    <h2 id="title">提交中...</h2>
+    <p class="message" id="message">正在提交小組組裝資料</p>
+    <div class="status loading" id="status">請稍候</div>
+  </div>
+  
+  <script>
+    var data = {
+      group: "<?= data.group ?>",
+      tierCase: "<?= data.tierCase ?>",
+      tierMB: "<?= data.tierMB ?>",
+      tierCPU: "<?= data.tierCPU ?>",
+      tierCooler: "<?= data.tierCooler ?>",
+      tierRAM: "<?= data.tierRAM ?>",
+      tierSSD: "<?= data.tierSSD ?>",
+      tierGPU: "<?= data.tierGPU ?>",
+      tierPSU: "<?= data.tierPSU ?>"
+    };
+    
+    // 頁面載入時自動提交
+    google.script.run
+      .withSuccessHandler(function(result) {
+        var icon = document.getElementById('icon');
+        var title = document.getElementById('title');
+        var message = document.getElementById('message');
+        var status = document.getElementById('status');
+        
+        if (result.success) {
+          icon.textContent = '✅';
+          title.textContent = '提交成功';
+          message.textContent = '小組組裝資料已成功提交';
+          status.className = 'status success';
+          status.textContent = '可以關閉此頁面';
+        } else {
+          icon.textContent = '❌';
+          title.textContent = '提交失敗';
+          message.textContent = result.message;
+          status.className = 'status error';
+          status.textContent = '請聯繫老師';
+        }
+      })
+      .withFailureHandler(function(error) {
+        document.getElementById('icon').textContent = '❌';
+        document.getElementById('title').textContent = '提交失敗';
+        document.getElementById('message').textContent = error.toString();
+        document.getElementById('status').className = 'status error';
+        document.getElementById('status').textContent = '請聯繫老師';
+      })
+      .submitAssemblyData(data);
+  </script>
+</body>
+</html>
