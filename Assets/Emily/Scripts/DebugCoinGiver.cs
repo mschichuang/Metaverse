@@ -14,10 +14,6 @@ namespace Emily.Scripts
             {
                 GroupCoinManager.Instance.AddGroupCoins(100000);
             }
-            else
-            {
-                Debug.LogError("[DebugCoinGiver] 找不到 GroupCoinManager！");
-            }
         }
     }
 }

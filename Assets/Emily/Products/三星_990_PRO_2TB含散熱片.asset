@@ -15,7 +15,7 @@ MonoBehaviour:
   productName: "\u4E09\u661F 990 PRO 2TB\u542B\u6563\u71B1\u7247"
   itemID: ssd_990pro_2tb
   price: 6599
-  category: SSD
+  category: "\u56FA\u614B\u786C\u789F"
   productSprite: {fileID: 21300000, guid: 06b18f03383354490b73616451e1ac4e, type: 3}
   specTexture: {fileID: 2800000, guid: fdb2cfa4cd7ab4bb5acd67b4f9c2d311, type: 3}
   componentPrefab: {fileID: 2244169117984193288, guid: 556a82fadde3845988dc42da4173c711,

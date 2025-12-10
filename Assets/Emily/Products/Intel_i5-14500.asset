@@ -15,7 +15,7 @@ MonoBehaviour:
   productName: Intel i5-14500
   itemID: cpu_i5_14500
   price: 7800
-  category: CPU
+  category: "\u4E2D\u592E\u8655\u7406\u5668"
   productSprite: {fileID: 21300000, guid: ed0e60f4197234004afd1e24e49cf853, type: 3}
   specTexture: {fileID: 2800000, guid: f4edb1143cddf4933ab03a2fdbd74ccb, type: 3}
   componentPrefab: {fileID: 3339871750470706600, guid: db54a44d4f97944cfa1579f7d77988f4,

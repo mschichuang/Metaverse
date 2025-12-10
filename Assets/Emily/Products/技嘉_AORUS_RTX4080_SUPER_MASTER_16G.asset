@@ -15,7 +15,7 @@ MonoBehaviour:
   productName: "\u6280\u5609 AORUS RTX4080 SUPER MASTER 16G"
   itemID: gpu_4080_super
   price: 40590
-  category: GPU
+  category: "\u986F\u793A\u5361"
   productSprite: {fileID: 21300000, guid: ef0bb6f5cfe6244e08e7b302e415a9a2, type: 3}
   specTexture: {fileID: 2800000, guid: 16b5d9f5e9f4d4d09acf72c516998441, type: 3}
   componentPrefab: {fileID: 630946433844246840, guid: 6973bdc7d1fb245be86b8de3410342af,

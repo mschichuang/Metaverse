@@ -15,7 +15,7 @@ MonoBehaviour:
   productName: "\u91D1\u58EB\u9813 32GB DDR5-5600/CL36 FURY Beast"
   itemID: ram_kingston_32g_5600
   price: 3200
-  category: RAM
+  category: "\u8A18\u61B6\u9AD4"
   productSprite: {fileID: 21300000, guid: 2f1c90dbeec034364b9f053955f90f37, type: 3}
   specTexture: {fileID: 2800000, guid: 1ca8da654db5d43ad9021a41986bade6, type: 3}
   componentPrefab: {fileID: 976187207125813922, guid: dd8962ad920c84b7b840a2291a4677d4,

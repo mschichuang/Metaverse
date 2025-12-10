@@ -44,10 +44,6 @@ public class GroupCoinManager : SpatialNetworkBehaviour, IVariablesChanged
         {
             Instance = this;
         }
-        else
-        {
-            Debug.LogWarning("[GroupCoinManager] 已存在實例！");
-        }
     }
 
 

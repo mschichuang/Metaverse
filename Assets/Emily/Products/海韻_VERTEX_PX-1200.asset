@@ -15,7 +15,7 @@ MonoBehaviour:
   productName: "\u6D77\u97FB VERTEX PX-1200"
   itemID: psu_vertex_1200w
   price: 8390
-  category: PSU
+  category: "\u96FB\u6E90\u4F9B\u61C9\u5668"
   productSprite: {fileID: 21300000, guid: 0efea256f53db43fc9c5acf4f76bd1ad, type: 3}
   specTexture: {fileID: 2800000, guid: 85a75e662e1fb4effb7b488ff793978d, type: 3}
   componentPrefab: {fileID: 9125874767422415387, guid: 3f9420e9474a34f1c87a337d5b5774da,

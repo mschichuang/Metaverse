@@ -15,7 +15,7 @@ MonoBehaviour:
   productName: "Phanteks NV7\u91D1"
   itemID: case_nv7_gold
   price: 6790
-  category: Case
+  category: "\u6A5F\u6BBC"
   productSprite: {fileID: 21300000, guid: 1793f9313ef9e4d4d93d09692d8ff111, type: 3}
   specTexture: {fileID: 2800000, guid: bc29bd4aaabed4e97a677ce8fcce51b9, type: 3}
   componentPrefab: {fileID: 1762376993808057838, guid: 50f44b699179a4ddc9de60022e91576d,

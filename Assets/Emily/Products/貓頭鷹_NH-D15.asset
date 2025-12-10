@@ -15,7 +15,7 @@ MonoBehaviour:
   productName: "\u8C93\u982D\u9DF9 NH-D15"
   itemID: cooler_nh_d15
   price: 3615
-  category: Cooler
+  category: "\u6563\u71B1\u5668"
   productSprite: {fileID: 21300000, guid: eab9b9904d3964208878f291805c6b1c, type: 3}
   specTexture: {fileID: 2800000, guid: dd957bf50c6394284b876d22fc318b7a, type: 3}
   componentPrefab: {fileID: 7199500945631531606, guid: b9bd6a849c6034f599af9167538bc648,

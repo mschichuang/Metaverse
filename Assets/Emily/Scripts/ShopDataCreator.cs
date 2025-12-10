@@ -22,42 +22,42 @@ namespace Emily.Scripts.Editor
             // Define real products from user request
             var products = new (string name, string category, int price, string id)[]
             {
-                // Case
-                ("Phanteks NV7銀", "Case", 6790, "case_nv7_silver"),
-                ("Phanteks NV7金", "Case", 6790, "case_nv7_gold"),
+                // 機殼
+                ("Phanteks NV7銀", "機殼", 6790, "case_nv7_silver"),
+                ("Phanteks NV7金", "機殼", 6790, "case_nv7_gold"),
 
-                // MB
-                ("華碩 ROG MAXIMUS Z790 HERO", "MB", 19290, "mb_rog_z790_hero"),
-                ("華碩 PRO WS W680M-ACE SE", "MB", 12990, "mb_pro_ws_w680m"),
-                ("華碩 ROG STRIX B760-G GAMING WIFI", "MB", 6790, "mb_rog_b760g"),
+                // 主機板
+                ("華碩 ROG MAXIMUS Z790 HERO", "主機板", 19290, "mb_rog_z790_hero"),
+                ("華碩 PRO WS W680M-ACE SE", "主機板", 12990, "mb_pro_ws_w680m"),
+                ("華碩 ROG STRIX B760-G GAMING WIFI", "主機板", 6790, "mb_rog_b760g"),
 
-                // CPU
-                ("Intel i9-14900K", "CPU", 19999, "cpu_i9_14900k"),
-                ("Intel i7-14700K", "CPU", 13800, "cpu_i7_14700k"),
-                ("Intel i5-14500", "CPU", 7800, "cpu_i5_14500"),
+                // 中央處理器
+                ("Intel i9-14900K", "中央處理器", 19999, "cpu_i9_14900k"),
+                ("Intel i7-14700K", "中央處理器", 13800, "cpu_i7_14700k"),
+                ("Intel i5-14500", "中央處理器", 7800, "cpu_i5_14500"),
 
-                // Cooler
-                ("貓頭鷹 NH-D15", "Cooler", 3615, "cooler_nh_d15"),
+                // 散熱器
+                ("貓頭鷹 NH-D15", "散熱器", 3615, "cooler_nh_d15"),
 
-                // RAM
-                ("金士頓 64GB DDR5-6400/CL32 FURY Beast", "RAM", 7500, "ram_kingston_64g"),
-                ("金士頓 32GB DDR5-6800/CL34 FURY Beast", "RAM", 5250, "ram_kingston_32g_6800"),
-                ("金士頓 32GB DDR5-5600/CL36 FURY Beast", "RAM", 3200, "ram_kingston_32g_5600"),
+                // 記憶體
+                ("金士頓 64GB DDR5-6400/CL32 FURY Beast", "記憶體", 7500, "ram_kingston_64g"),
+                ("金士頓 32GB DDR5-6800/CL34 FURY Beast", "記憶體", 5250, "ram_kingston_32g_6800"),
+                ("金士頓 32GB DDR5-5600/CL36 FURY Beast", "記憶體", 3200, "ram_kingston_32g_5600"),
 
-                // SSD
-                ("三星 990 PRO 4TB含散熱片", "SSD", 13499, "ssd_990pro_4tb"),
-                ("三星 990 PRO 2TB含散熱片", "SSD", 6599, "ssd_990pro_2tb"),
-                ("三星 980 PRO 1TB", "SSD", 2999, "ssd_980pro_1tb"),
+                // 固態硬碟
+                ("三星 990 PRO 4TB含散熱片", "固態硬碟", 13499, "ssd_990pro_4tb"),
+                ("三星 990 PRO 2TB含散熱片", "固態硬碟", 6599, "ssd_990pro_2tb"),
+                ("三星 980 PRO 1TB", "固態硬碟", 2999, "ssd_980pro_1tb"),
 
-                // GPU
-                ("技嘉 AORUS RTX4090 MASTER 24G", "GPU", 65990, "gpu_4090_master"),
-                ("技嘉 AORUS RTX4080 SUPER MASTER 16G", "GPU", 40590, "gpu_4080_super"),
-                ("技嘉 AORUS RTX4060 ELITE 8G", "GPU", 12890, "gpu_4060_elite"),
+                // 顯示卡
+                ("技嘉 AORUS RTX4090 MASTER 24G", "顯示卡", 65990, "gpu_4090_master"),
+                ("技嘉 AORUS RTX4080 SUPER MASTER 16G", "顯示卡", 40590, "gpu_4080_super"),
+                ("技嘉 AORUS RTX4060 ELITE 8G", "顯示卡", 12890, "gpu_4060_elite"),
 
-                // PSU
-                ("海韻 PRIME TX-1300 ATX3.0", "PSU", 16490, "psu_prime_1300w"),
-                ("海韻 VERTEX PX-1200", "PSU", 8390, "psu_vertex_1200w"),
-                ("海韻 FOCUS GX-850", "PSU", 3890, "psu_focus_850w")
+                // 電源供應器
+                ("海韻 PRIME TX-1300 ATX3.0", "電源供應器", 16490, "psu_prime_1300w"),
+                ("海韻 VERTEX PX-1200", "電源供應器", 8390, "psu_vertex_1200w"),
+                ("海韻 FOCUS GX-850", "電源供應器", 3890, "psu_focus_850w")
             };
 
             foreach (var p in products)
@@ -81,16 +81,22 @@ namespace Emily.Scripts.Editor
 
             string fullPath = $"{path}/{safeName}.asset";
             
-            // Don't overwrite existing
-            if (File.Exists(fullPath)) return;
+            // Try to load existing asset
+            ProductData asset = AssetDatabase.LoadAssetAtPath<ProductData>(fullPath);
+            
+            if (asset == null)
+            {
+                asset = ScriptableObject.CreateInstance<ProductData>();
+                AssetDatabase.CreateAsset(asset, fullPath);
+            }
 
-            ProductData asset = ScriptableObject.CreateInstance<ProductData>();
-            asset.productName = name; // Keep original name for display
+            // Update data but preserve other fields (like Image, Prefab)
+            asset.productName = name;
             asset.category = category;
             asset.price = price;
             asset.itemID = id;
 
-            AssetDatabase.CreateAsset(asset, fullPath);
+            EditorUtility.SetDirty(asset);
         }
     }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   productName: "\u91D1\u58EB\u9813 32GB DDR5-6800/CL34 FURY Beast"
   itemID: ram_kingston_32g_6800
   price: 5250
-  category: RAM
+  category: "\u8A18\u61B6\u9AD4"
   productSprite: {fileID: 21300000, guid: 31d039939b2e2477aa12dff2e4531867, type: 3}
   specTexture: {fileID: 2800000, guid: a148e6c3e808e4316a775d14f6bffe75, type: 3}
   componentPrefab: {fileID: 7986386781062941298, guid: 5214bef6406564ccc95865e99d939c1a,
