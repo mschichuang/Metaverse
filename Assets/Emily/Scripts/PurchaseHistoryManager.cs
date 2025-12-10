@@ -74,16 +74,17 @@ public class PurchaseHistoryManager : MonoBehaviour
     }
 
     // 中文轉英文對照表 (確保 URL 安全)
+    // 必須與 ProductData 資產中的 category 欄位完全一致
     private static readonly Dictionary<string, string> categoryToEnglish = new Dictionary<string, string>
     {
         {"機殼", "Case"},
         {"主機板", "MB"},
-        {"CPU", "CPU"},
+        {"中央處理器", "CPU"},
         {"散熱器", "Cooler"},
         {"記憶體", "RAM"},
-        {"硬碟", "SSD"},
+        {"固態硬碟", "SSD"},
         {"顯示卡", "GPU"},
-        {"電源", "PSU"}
+        {"電源供應器", "PSU"}
     };
 
     // 固定順序的類別清單 (用於輸出)
