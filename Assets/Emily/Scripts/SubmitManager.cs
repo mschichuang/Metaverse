@@ -9,7 +9,7 @@ using Emily.Scripts;
 public class SubmitManager : MonoBehaviour
 {
     [Tooltip("提交按鈕（提交後會隱藏）")]
-    public GameObject submitButton;
+    public GameObject submissionMatrix;
     
     // Google Apps Script Web App URL
     private const string GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx_dFr08pDSFm22YGbXq6GJGAAuNmhY228cUkbz-WyuUWB68DUgFS2WxIy5191Pi-2f/exec";
@@ -20,26 +20,16 @@ public class SubmitManager : MonoBehaviour
     /// </summary>
     public void OnSubmitClicked()
     {
-        // 取得組裝資料 (從 PurchaseHistoryManager)
-        string assemblyData = "";
-        PurchaseHistoryManager historyManager = FindObjectOfType<PurchaseHistoryManager>();
-        if (historyManager != null)
-        {
-            assemblyData = historyManager.GetAssemblyDataString();
-        }
-
-        // 建構提交 URL (包含 assemblyData)
-        string url = StudentData.BuildSubmissionURL(GOOGLE_SCRIPT_URL, assemblyData);
-        
-        Debug.Log($"[SubmitManager] 提交: 組別={StudentData.GroupNumber}, 姓名={StudentData.StudentName}, 成績={StudentData.QuizScore}, 貢獻={StudentData.PersonalContribution}, 組裝={assemblyData}");
+        // 建構提交 URL (只包含學生資料，不含組裝明細)
+        string url = StudentData.BuildSubmissionURL(GOOGLE_SCRIPT_URL, "");
         
         // 開啟瀏覽器
         SpatialBridge.spaceService.OpenURL(url);
         
-        // 隱藏提交按鈕
-        if (submitButton != null)
+        // 隱藏提交物件
+        if (submissionMatrix != null)
         {
-            submitButton.SetActive(false);
+            submissionMatrix.SetActive(false);
         }
     }
 }

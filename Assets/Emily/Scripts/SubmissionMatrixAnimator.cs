@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Emily.Scripts
 {
-    public class AscensionTerminalAnimator : MonoBehaviour
+    public class SubmissionMatrixAnimator : MonoBehaviour
     {
         [Header("Crystal Settings")]
         public Transform crystalRoot;

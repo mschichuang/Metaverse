@@ -148,18 +148,6 @@
       <span class="value"><?= data.coins ?></span>
     </div>
 
-    <!-- 小組組裝資料區域 (如果有的話) -->
-    <? if (data.assembly && data.assembly !== "") { ?>
-      <div class="divider"></div>
-      <div class="section-title">小組組裝資料</div>
-      <div class="data-row" style="flex-direction: column; align-items: flex-start;">
-        <span class="label" style="margin-bottom: 5px;">購買組件清單：</span>
-        <div class="value" style="font-size: 16px; width: 100%; word-break: break-all; background: #f8f9fa; padding: 10px; border-radius: 5px; color: #555;">
-          <?= data.assembly ?>
-        </div>
-      </div>
-    <? } ?>
-    
     <div class="message" id="message"></div>
     
     <button class="submit-btn" onclick="submitData()" id="submitBtn">

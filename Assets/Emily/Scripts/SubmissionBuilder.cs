@@ -236,7 +236,7 @@ namespace Emily.Scripts
             // if (shieldCol != null) shieldCol.enabled = false;
 
             // 11. Add Animation Script & Setup References
-            AscensionTerminalAnimator animator = root.AddComponent<AscensionTerminalAnimator>();
+            SubmissionMatrixAnimator animator = root.AddComponent<SubmissionMatrixAnimator>();
             
             // Crystal
             Transform crystalTrans = root.transform.Find("Ascension_Crystal");
@@ -269,7 +269,20 @@ namespace Emily.Scripts
                 if(p) animator.particles[i] = p;
             }
 
-            Debug.Log("✓ Sleek Ascension Terminal (Animated) Generated! Add Spatial Interactable component for interaction.");
+            // 12. Add Interaction Components (Auto-Setup)
+            // Add Box Collider for interaction (cover the whole base area)
+            BoxCollider col = root.AddComponent<BoxCollider>();
+            col.center = new Vector3(0, 1.0f, 0);
+            col.size = new Vector3(2.5f, 2.0f, 2.5f);
+
+            // Add SubmitManager
+            SubmitManager submitMgr = root.AddComponent<SubmitManager>();
+            
+            // Add Spatial Interactable
+            SpatialSys.UnitySDK.SpatialInteractable interactable = root.AddComponent<SpatialSys.UnitySDK.SpatialInteractable>();
+            // Note: Radius and event linking must be done manually in Inspector, as SDK uses custom SpatialEvent type.
+
+            Debug.Log("✓ Sleek Ascension Terminal Generated!\n請手動設定 SpatialInteractable 組件：\n1. 在 Inspector 中的 On Interact Event，點擊 + 號\n2. 拖入此物件 (SubmissionMatrix)\n3. 選擇 SubmitManager -> OnSubmitClicked()");
         }
     }
 }

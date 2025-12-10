@@ -53,25 +53,15 @@ function submitData(data) {
     ]);
     
     // ---------------------------
-    // 2. 寫入組裝資料 (如果有)
+    // 2. 寫入小組組裝 (只記錄組別，表示該組已提交)
     // ---------------------------
-    if (data.assembly && data.assembly !== "") {
-      var sheetAssembly = ss.getSheetByName(SHEET_ASSEMBLY);
-      if (sheetAssembly) {
-        // 欄位: 組別, 組裝資料, 時間
-        sheetAssembly.appendRow([
-          data.group,
-          data.assembly,
-          new Date()
-        ]);
-      }
-    }
-          data.group,
-          data.name,      // 也記錄姓名方便對照
-          data.assembly,  // 組裝內容字串
-          new Date()
-        ]);
-      }
+    var sheetAssembly = ss.getSheetByName(SHEET_ASSEMBLY);
+    if (sheetAssembly) {
+      // 欄位: 組別, 時間
+      sheetAssembly.appendRow([
+        data.group,
+        new Date()
+      ]);
     }
     
     return { success: true, message: '提交成功!' };

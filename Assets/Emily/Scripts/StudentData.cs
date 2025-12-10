@@ -249,7 +249,7 @@ namespace Emily.Scripts
             url += $"group={Uri.EscapeDataString(GroupNumber)}";
             url += $"&name={Uri.EscapeDataString(StudentName)}";
             url += $"&score={QuizScore}";
-            url += $"&contribution={PersonalContribution}";
+            url += $"&coins={Coins}";
             
             if (!string.IsNullOrEmpty(assemblyData))
             {
