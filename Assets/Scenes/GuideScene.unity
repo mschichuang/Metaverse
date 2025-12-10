@@ -5050,6 +5050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 893603772}
   - component: {fileID: 893603773}
+  - component: {fileID: 893603774}
   m_Layer: 0
   m_Name: Emily'sManager
   m_TagString: Untagged
@@ -5086,6 +5087,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   errorPanel: {fileID: 742761386}
   errorMessageText: {fileID: 1112820515}
+--- !u!114 &893603774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893603771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7ead00fff7f4f58be6292da8e5184d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &915037927
 GameObject:
   m_ObjectHideFlags: 0

@@ -7439,6 +7439,7 @@ GameObject:
   - component: {fileID: 691836936}
   - component: {fileID: 691836939}
   - component: {fileID: 691836938}
+  - component: {fileID: 691836940}
   m_Layer: 0
   m_Name: Emily'sManager
   m_TagString: Untagged
@@ -7518,7 +7519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fcfa283c21424bcc96ae15f10471dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  submissionMatrix: {fileID: 0}
 --- !u!114 &691836939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7532,6 +7532,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groupCoinText: {fileID: 1284343721}
+--- !u!114 &691836940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691836932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7ead00fff7f4f58be6292da8e5184d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &693029108
 GameObject:
   m_ObjectHideFlags: 0
@@ -14974,7 +14986,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fcfa283c21424bcc96ae15f10471dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  submissionMatrix: {fileID: 1631960806}
 --- !u!65 &1631960809
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16588,7 +16599,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fcfa283c21424bcc96ae15f10471dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  submissionMatrix: {fileID: 1769865127}
 --- !u!65 &1769865130
 BoxCollider:
   m_ObjectHideFlags: 0
