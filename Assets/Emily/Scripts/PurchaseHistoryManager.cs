@@ -50,20 +50,38 @@ public class PurchaseHistoryManager : MonoBehaviour
         {"電源", "PSU"}
     };
 
+    // 固定順序的類別清單 (用於輸出)
+    private static readonly string[] categoryOrder = { "Case", "MB", "CPU", "Cooler", "RAM", "SSD", "GPU", "PSU" };
+
     /// <summary>
-    /// 回傳組裝等級資料字串
-    /// 格式範例: CPU:3;GPU:2;RAM:1;SSD:0;
-    /// 金=3, 銀=2, 銅=1, 未購買=0
+    /// 取得指定類別的等級分數
     /// </summary>
-    public string GetAssemblyDataString()
+    /// <param name="englishCategory">英文類別名 (Case, MB, CPU, Cooler, RAM, SSD, GPU, PSU)</param>
+    /// <returns>等級分數 (金=3, 銀=2, 銅=1, 未購買=0)</returns>
+    public int GetTierByCategory(string englishCategory)
     {
-        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        // 查找該類別的等級 (可能是中文或英文 key)
         foreach (var kvp in purchasedTiers)
         {
-            // 將中文類別轉換為英文 (如果有對照的話)
-            string englishKey = categoryToEnglish.ContainsKey(kvp.Key) ? categoryToEnglish[kvp.Key] : kvp.Key;
-            sb.Append($"{englishKey}:{kvp.Value};");
+            string key = categoryToEnglish.ContainsKey(kvp.Key) ? categoryToEnglish[kvp.Key] : kvp.Key;
+            if (key == englishCategory)
+            {
+                return kvp.Value;
+            }
         }
-        return sb.ToString();
+        return 0; // 未購買
+    }
+
+    /// <summary>
+    /// 取得所有類別的等級 (用於 URL 參數)
+    /// </summary>
+    public Dictionary<string, int> GetAllTiers()
+    {
+        var result = new Dictionary<string, int>();
+        foreach (string category in categoryOrder)
+        {
+            result[category] = GetTierByCategory(category);
+        }
+        return result;
     }
 }

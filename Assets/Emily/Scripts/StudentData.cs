@@ -241,9 +241,10 @@ namespace Emily.Scripts
 
         /// <summary>
         /// 建構 Google Apps Script 提交頁面 URL
-        /// 傳送: 組別、姓名、測驗成績、金幣貢獻、組裝資料
+        /// 傳送: 學生資料 + 8個獨立的元件等級參數
+        /// URL格式: ?group=1&name=xxx&score=80&coins=100&case=2&mb=2&cpu=3&cooler=2&ram=1&ssd=0&gpu=2&psu=0
         /// </summary>
-        public static string BuildSubmissionURL(string baseURL, string assemblyData = "")
+        public static string BuildSubmissionURL(string baseURL, Dictionary<string, int> tiers)
         {
             string url = baseURL + "?";
             url += $"group={Uri.EscapeDataString(GroupNumber)}";
@@ -251,9 +252,17 @@ namespace Emily.Scripts
             url += $"&score={QuizScore}";
             url += $"&coins={Coins}";
             
-            if (!string.IsNullOrEmpty(assemblyData))
+            // 添加8個獨立的元件等級參數 (用小寫避免編碼問題)
+            if (tiers != null)
             {
-                url += $"&assembly={Uri.EscapeDataString(assemblyData)}";
+                url += $"&case={tiers.GetValueOrDefault("Case", 0)}";
+                url += $"&mb={tiers.GetValueOrDefault("MB", 0)}";
+                url += $"&cpu={tiers.GetValueOrDefault("CPU", 0)}";
+                url += $"&cooler={tiers.GetValueOrDefault("Cooler", 0)}";
+                url += $"&ram={tiers.GetValueOrDefault("RAM", 0)}";
+                url += $"&ssd={tiers.GetValueOrDefault("SSD", 0)}";
+                url += $"&gpu={tiers.GetValueOrDefault("GPU", 0)}";
+                url += $"&psu={tiers.GetValueOrDefault("PSU", 0)}";
             }
             
             return url;

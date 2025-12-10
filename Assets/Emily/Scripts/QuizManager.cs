@@ -312,8 +312,8 @@ public class QuizManager : MonoBehaviour
         // Google Apps Script Web App URL (用於學生成績提交)
         string googleScriptURL = "https://script.google.com/macros/s/AKfycbx_dFr08pDSFm22YGbXq6GJGAAuNmhY228cUkbz-WyuUWB68DUgFS2WxIy5191Pi-2f/exec";
         
-        // 建構提交 URL
-        string url = StudentData.BuildSubmissionURL(googleScriptURL);
+        // 建構提交 URL (測驗區不含組裝資料)
+        string url = StudentData.BuildSubmissionURL(googleScriptURL, new System.Collections.Generic.Dictionary<string, int>());
         
         // 開啟瀏覽器
         SpatialBridge.spaceService.OpenURL(url);

@@ -184,7 +184,8 @@ public class TestManager : MonoBehaviour
             return;
         }
         
-        string url = StudentData.BuildSubmissionURL(googleScriptURL);
+        // 測驗區不含組裝資料
+        string url = StudentData.BuildSubmissionURL(googleScriptURL, new Dictionary<string, int>());
         SpatialBridge.spaceService.OpenURL(url);
         
         Debug.Log($"[TestManager] 開啟提交頁面: {url}");

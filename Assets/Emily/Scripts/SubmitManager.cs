@@ -1,6 +1,7 @@
 using UnityEngine;
 using SpatialSys.UnitySDK;
 using Emily.Scripts;
+using System.Collections.Generic;
 
 /// <summary>
 /// 成績提交管理器
@@ -20,19 +21,18 @@ public class SubmitManager : MonoBehaviour
     /// </summary>
     public void OnSubmitClicked()
     {
-        // 取得組裝等級資料 (格式: CPU:3;GPU:2;...)
-        string assemblyData = "";
+        // 取得所有元件的等級 (8個獨立參數)
+        Dictionary<string, int> tiers = new Dictionary<string, int>();
         PurchaseHistoryManager historyManager = FindObjectOfType<PurchaseHistoryManager>();
         if (historyManager != null)
         {
-            assemblyData = historyManager.GetAssemblyDataString();
+            tiers = historyManager.GetAllTiers();
         }
 
-        // 建構提交 URL (包含組裝等級資料)
-        string url = StudentData.BuildSubmissionURL(GOOGLE_SCRIPT_URL, assemblyData);
+        // 建構提交 URL (8個獨立參數)
+        string url = StudentData.BuildSubmissionURL(GOOGLE_SCRIPT_URL, tiers);
         
-        // Debug: 輸出 URL
-        Debug.Log($"[SubmitManager] assemblyData: {assemblyData}");
+        // Debug
         Debug.Log($"[SubmitManager] URL: {url}");
         
         // 開啟瀏覽器
