@@ -7,6 +7,37 @@ namespace Emily.Scripts
 {
     public class ShopBuilder : MonoBehaviour
     {
+        private const string MATERIAL_FOLDER = "Assets/Emily/Materials/Shop";
+
+#if UNITY_EDITOR
+        /// <summary>
+        /// 將材質保存為 Asset 檔案，確保儲存後不會遺失
+        /// </summary>
+        private Material SaveMaterialAsset(Material mat)
+        {
+            // 確保資料夾存在
+            if (!AssetDatabase.IsValidFolder("Assets/Emily/Materials"))
+            {
+                AssetDatabase.CreateFolder("Assets/Emily", "Materials");
+            }
+            if (!AssetDatabase.IsValidFolder(MATERIAL_FOLDER))
+            {
+                AssetDatabase.CreateFolder("Assets/Emily/Materials", "Shop");
+            }
+
+            string path = $"{MATERIAL_FOLDER}/{mat.name}.mat";
+            
+            // 如果已存在，先刪除舊的
+            if (AssetDatabase.LoadAssetAtPath<Material>(path) != null)
+            {
+                AssetDatabase.DeleteAsset(path);
+            }
+            
+            AssetDatabase.CreateAsset(mat, path);
+            return AssetDatabase.LoadAssetAtPath<Material>(path);
+        }
+#endif
+
         [ContextMenu("Generate Shop")]
         public void Generate()
         {
@@ -14,10 +45,13 @@ namespace Emily.Scripts
             GameObject root = new GameObject("Shop");
             root.transform.position = transform.position;
             
-            // Add interaction components to Shop model
-            root.AddComponent<BoxCollider>();
-            root.AddComponent<ShopInteraction>();
-            root.AddComponent<SpatialSys.UnitySDK.SpatialInteractable>();
+            // Add interaction components to a child object at y=1
+            GameObject interactPoint = new GameObject("InteractPoint");
+            interactPoint.transform.SetParent(root.transform);
+            interactPoint.transform.localPosition = new Vector3(0, 1f, 0);
+            interactPoint.AddComponent<BoxCollider>();
+            interactPoint.AddComponent<ShopInteraction>();
+            interactPoint.AddComponent<SpatialSys.UnitySDK.SpatialInteractable>();
 
             // Helper to get shader
             Shader litShader = Shader.Find("Universal Render Pipeline/Lit");
@@ -30,12 +64,18 @@ namespace Emily.Scripts
             matWhite.name = "Mat_GlossWhite";
             matWhite.color = new Color(0.95f, 0.95f, 0.95f);
             if (litShader.name.Contains("Universal")) { matWhite.SetFloat("_Metallic", 0.0f); matWhite.SetFloat("_Smoothness", 0.9f); }
+#if UNITY_EDITOR
+            matWhite = SaveMaterialAsset(matWhite);
+#endif
 
-            // 2. Tech Blue (Accents)
+            // 2. Tech Blue (Accents) - Deep tech blue
             Material matBlue = new Material(litShader);
             matBlue.name = "Mat_TechBlue";
-            matBlue.color = new Color(0.0f, 0.4f, 0.8f);
-            if (litShader.name.Contains("Universal")) { matBlue.SetFloat("_Metallic", 0.5f); matBlue.SetFloat("_Smoothness", 0.6f); }
+            matBlue.color = new Color(0.05f, 0.15f, 0.35f);
+            if (litShader.name.Contains("Universal")) { matBlue.SetFloat("_Metallic", 0.6f); matBlue.SetFloat("_Smoothness", 0.7f); }
+#if UNITY_EDITOR
+            matBlue = SaveMaterialAsset(matBlue);
+#endif
 
             // 3. Neon Sign (Bright)
             Material matNeon = new Material(litShader);
@@ -43,6 +83,9 @@ namespace Emily.Scripts
             matNeon.color = new Color(0.0f, 0.8f, 1.0f);
             matNeon.EnableKeyword("_EMISSION");
             matNeon.SetColor("_EmissionColor", new Color(0.0f, 0.6f, 1.0f) * 3.0f);
+#if UNITY_EDITOR
+            matNeon = SaveMaterialAsset(matNeon);
+#endif
 
             // 4. Glass (Windows)
             Material matGlass = new Material(litShader);
@@ -54,11 +97,19 @@ namespace Emily.Scripts
                 matGlass.SetFloat("_Blend", 0.0f); 
                 matGlass.SetInt("_ZWrite", 0);
             }
+#if UNITY_EDITOR
+            matGlass = SaveMaterialAsset(matGlass);
+#endif
 
             // 5. Product Box Materials (Variety)
-            Material matProdRed = new Material(litShader); matProdRed.color = Color.red;
-            Material matProdGreen = new Material(litShader); matProdGreen.color = Color.green;
-            Material matProdYellow = new Material(litShader); matProdYellow.color = Color.yellow;
+            Material matProdRed = new Material(litShader); matProdRed.name = "Mat_ProdRed"; matProdRed.color = Color.red;
+            Material matProdGreen = new Material(litShader); matProdGreen.name = "Mat_ProdGreen"; matProdGreen.color = Color.green;
+            Material matProdYellow = new Material(litShader); matProdYellow.name = "Mat_ProdYellow"; matProdYellow.color = Color.yellow;
+#if UNITY_EDITOR
+            matProdRed = SaveMaterialAsset(matProdRed);
+            matProdGreen = SaveMaterialAsset(matProdGreen);
+            matProdYellow = SaveMaterialAsset(matProdYellow);
+#endif
 
 
             // --- ARCHITECTURE: CYBER-RETAIL STORE ---
@@ -110,26 +161,30 @@ namespace Emily.Scripts
             signBoard.transform.SetParent(root.transform);
             signBoard.transform.localPosition = new Vector3(0, height + 0.8f, -depth/2f - 0.5f); // Front edge top
             signBoard.transform.localScale = new Vector3(width, 1.2f, 0.3f);
-            
-            // Glowing material for sign
-            Material matSignGlow = new Material(litShader);
-            matSignGlow.name = "Mat_SignGlow";
-            matSignGlow.color = new Color(0.1f, 0.6f, 1.0f);
-            matSignGlow.EnableKeyword("_EMISSION");
-            matSignGlow.SetColor("_EmissionColor", new Color(0.2f, 0.6f, 1.0f) * 2.5f);
-            if (litShader.name.Contains("Universal")) 
-            { 
-                matSignGlow.SetFloat("_Metallic", 0.3f); 
-                matSignGlow.SetFloat("_Smoothness", 0.9f); 
-            }
-            signBoard.GetComponent<Renderer>().sharedMaterial = matSignGlow;
+            signBoard.GetComponent<Renderer>().sharedMaterial = matBlue; // Normal blue material
 
-            // "SHOP" Text Simulation (Glowing Strip)
+            // "SHOP" Text - Glowing Neon on Sign
             GameObject signText = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            signText.name = "Sign_GlowText";
             signText.transform.SetParent(signBoard.transform);
             signText.transform.localPosition = new Vector3(0, 0, -0.6f);
             signText.transform.localScale = new Vector3(0.8f, 0.4f, 0.1f);
-            signText.GetComponent<Renderer>().sharedMaterial = matNeon;
+            
+            // Bright neon material for text cube - Vibrant magenta pink
+            Material matGlowText = new Material(litShader);
+            matGlowText.name = "Mat_GlowText";
+            matGlowText.color = new Color(1.0f, 0.2f, 0.7f);
+            matGlowText.EnableKeyword("_EMISSION");
+            matGlowText.SetColor("_EmissionColor", new Color(1.0f, 0.3f, 0.8f) * 7.0f); // 7x glow
+            if (litShader.name.Contains("Universal")) 
+            { 
+                matGlowText.SetFloat("_Metallic", 0.0f); 
+                matGlowText.SetFloat("_Smoothness", 1.0f); 
+            }
+#if UNITY_EDITOR
+            matGlowText = SaveMaterialAsset(matGlowText);
+#endif
+            signText.GetComponent<Renderer>().sharedMaterial = matGlowText;
 
             // Storefront Glass
             GameObject glassFront = GameObject.CreatePrimitive(PrimitiveType.Cube);

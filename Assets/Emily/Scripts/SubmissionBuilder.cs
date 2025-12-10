@@ -7,6 +7,37 @@ namespace Emily.Scripts
 {
     public class SubmissionBuilder : MonoBehaviour
     {
+        private const string MATERIAL_FOLDER = "Assets/Emily/Materials/Submission";
+
+#if UNITY_EDITOR
+        /// <summary>
+        /// 將材質保存為 Asset 檔案，確保儲存後不會遺失
+        /// </summary>
+        private Material SaveMaterialAsset(Material mat)
+        {
+            // 確保資料夾存在
+            if (!AssetDatabase.IsValidFolder("Assets/Emily/Materials"))
+            {
+                AssetDatabase.CreateFolder("Assets/Emily", "Materials");
+            }
+            if (!AssetDatabase.IsValidFolder(MATERIAL_FOLDER))
+            {
+                AssetDatabase.CreateFolder("Assets/Emily/Materials", "Submission");
+            }
+
+            string path = $"{MATERIAL_FOLDER}/{mat.name}.mat";
+            
+            // 如果已存在，先刪除舊的
+            if (AssetDatabase.LoadAssetAtPath<Material>(path) != null)
+            {
+                AssetDatabase.DeleteAsset(path);
+            }
+            
+            AssetDatabase.CreateAsset(mat, path);
+            return AssetDatabase.LoadAssetAtPath<Material>(path);
+        }
+#endif
+
         [ContextMenu("Generate Submission Matrix")]
         public void Generate()
         {
@@ -22,33 +53,46 @@ namespace Emily.Scripts
             
             // Porcelain White (Body)
             Material matBody = new Material(litShader);
+            matBody.name = "Mat_SubmissionBody";
             matBody.color = new Color(0.95f, 0.95f, 0.96f); // Almost white
             if (litShader.name.Contains("Universal")) 
             { 
                 matBody.SetFloat("_Metallic", 0.1f); 
                 matBody.SetFloat("_Smoothness", 0.9f); // Glossy ceramic look
             }
+#if UNITY_EDITOR
+            matBody = SaveMaterialAsset(matBody);
+#endif
 
             // Brushed Gold (Accents)
             Material matGold = new Material(litShader);
+            matGold.name = "Mat_SubmissionGold";
             matGold.color = new Color(0.8f, 0.7f, 0.4f);
             if (litShader.name.Contains("Universal")) 
             { 
                 matGold.SetFloat("_Metallic", 1.0f); 
                 matGold.SetFloat("_Smoothness", 0.85f); 
             }
+#if UNITY_EDITOR
+            matGold = SaveMaterialAsset(matGold);
+#endif
 
             // Deep Void (Contrast)
             Material matVoid = new Material(litShader);
+            matVoid.name = "Mat_SubmissionVoid";
             matVoid.color = new Color(0.08f, 0.08f, 0.1f);
             if (litShader.name.Contains("Universal"))
             {
                 matVoid.SetFloat("_Metallic", 0.5f);
                 matVoid.SetFloat("_Smoothness", 0.4f);
             }
+#if UNITY_EDITOR
+            matVoid = SaveMaterialAsset(matVoid);
+#endif
 
-            // Holographic Blue (Interface)
+            // Holographic Blue (Interface) - EMISSIVE
             Material matHolo = new Material(litShader);
+            matHolo.name = "Mat_SubmissionHolo";
             matHolo.color = new Color(0.0f, 0.8f, 1.0f, 0.4f);
             matHolo.EnableKeyword("_EMISSION");
             matHolo.SetColor("_EmissionColor", new Color(0.0f, 0.4f, 1.0f) * 4.0f);
@@ -71,13 +115,17 @@ namespace Emily.Scripts
                 matHolo.EnableKeyword("_ALPHAPREMULTIPLY_ON");
                 matHolo.renderQueue = 3000;
             }
+#if UNITY_EDITOR
+            matHolo = SaveMaterialAsset(matHolo);
+#endif
 
-            // Crystal Core (Ethereal)
+            // Crystal Core (Ethereal) - EMISSIVE
             Material matCrystal = new Material(litShader);
+            matCrystal.name = "Mat_SubmissionCrystal";
             matCrystal.color = new Color(0.6f, 1.0f, 1.0f, 0.8f);
             matCrystal.EnableKeyword("_EMISSION");
             matCrystal.SetColor("_EmissionColor", new Color(0.6f, 1.0f, 1.0f) * 2.0f);
-             if (litShader.name.Contains("Universal"))
+            if (litShader.name.Contains("Universal"))
             {
                 matCrystal.SetFloat("_Surface", 1);
                 matCrystal.SetFloat("_Blend", 0);
@@ -93,6 +141,9 @@ namespace Emily.Scripts
                 matCrystal.SetFloat("_Mode", 3);
                 matCrystal.renderQueue = 3000;
             }
+#if UNITY_EDITOR
+            matCrystal = SaveMaterialAsset(matCrystal);
+#endif
 
 
             // --- SLEEK GEOMETRY ---
@@ -269,20 +320,24 @@ namespace Emily.Scripts
                 if(p) animator.particles[i] = p;
             }
 
-            // 12. Add Interaction Components (Auto-Setup)
-            // Add Box Collider for interaction (cover the whole base area)
-            BoxCollider col = root.AddComponent<BoxCollider>();
-            col.center = new Vector3(0, 1.0f, 0);
+            // 12. Add Interaction Components to a child object at y=1
+            GameObject interactPoint = new GameObject("InteractPoint");
+            interactPoint.transform.SetParent(root.transform);
+            interactPoint.transform.localPosition = new Vector3(0, 1f, 0);
+            
+            // Add Box Collider for interaction
+            BoxCollider col = interactPoint.AddComponent<BoxCollider>();
+            col.center = Vector3.zero;
             col.size = new Vector3(2.5f, 2.0f, 2.5f);
 
             // Add SubmitManager
-            SubmitManager submitMgr = root.AddComponent<SubmitManager>();
+            SubmitManager submitMgr = interactPoint.AddComponent<SubmitManager>();
             
             // Add Spatial Interactable
-            SpatialSys.UnitySDK.SpatialInteractable interactable = root.AddComponent<SpatialSys.UnitySDK.SpatialInteractable>();
-            // Note: Radius and event linking must be done manually in Inspector, as SDK uses custom SpatialEvent type.
+            SpatialSys.UnitySDK.SpatialInteractable interactable = interactPoint.AddComponent<SpatialSys.UnitySDK.SpatialInteractable>();
+            // Note: Event linking must be done manually in Inspector
 
-            Debug.Log("✓ Sleek Ascension Terminal Generated!\n請手動設定 SpatialInteractable 組件：\n1. 在 Inspector 中的 On Interact Event，點擊 + 號\n2. 拖入此物件 (SubmissionMatrix)\n3. 選擇 SubmitManager -> OnSubmitClicked()");
+            Debug.Log("✓ Sleek Ascension Terminal Generated!\n請手動設定 SpatialInteractable 組件：\n1. 展開 SubmissionMatrix，選取 InteractPoint 子物件\n2. 在 Inspector 中的 On Interact Event，點擊 + 號\n3. 拖入 InteractPoint 物件\n4. 選擇 SubmitManager -> OnSubmitClicked()");
         }
     }
 }
